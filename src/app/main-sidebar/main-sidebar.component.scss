@@ -1,0 +1,13 @@
+// Import variables
+@import './../../styles-variables.scss';
+
+aside {
+    outline: black solid .25em;
+    width: calc(30% - 1em);
+    min-height: 10em;
+    margin: .5em;
+    padding: 0;
+    float: left;
+
+
+}

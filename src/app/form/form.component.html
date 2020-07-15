@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <p>Name: <input type="text" class="form-control" formControlName="name" /><span *ngIf="form.controls.name.invalid">*</span></p>
+    <p>Email: <input type="text" class="form-control" formControlEmail="email" /><span *ngIf="form.controls.email.invalid">*</span></p>
+    <p>Phone: <input type="text" class="form-control" formControlPhone="phone" /><span *ngIf="form.controls.phone.invalid">*</span></p>
+    <button class="btn btn-default" [disabled]="form.invalid">Submit</button>
+
+    <div class="status">
+        <p>Valid: {{ form.valid}}</p>
+        <p>Pristine: {{ form.pristine }}</p>
+        <p>Touched: {{ form.touched }}</p>
+        <p>{{ message }}</p>
+    </div>
+</form>

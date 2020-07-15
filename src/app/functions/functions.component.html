@@ -1,0 +1,31 @@
+<h1>{{pageTitle}}</h1>
+<div class="functions">
+    <h2>Angular, TypeScript, and Bootstrap in sync</h2>
+    <div class="function tabs">
+        <h3>Bootstrap Tabs</h3>
+        <p class="description">TypeScript and Bootstrap provide the ability to iterate through objects providing an architecture that is easily modifiable.</p>
+        <ul  class="nav nav-pills">
+            <li *ngFor="let tab of tabs" [ngClass]="{ 'active': tab.tabId == 1 }"><a href="#{{tab.tabId}}" data-toggle="tab">{{tab.tabTitle}}</a></li>
+		</ul>
+
+        <div class="tab-content clearfix">
+            <div *ngFor="let tab of tabs" [ngClass]="{ 'active': tab.tabId == 1 }" class="tab-pane" id="{{tab.tabId}}"> <!-- add active class -->
+                <h2>{{tab.tabTitle}}</h2>
+                <hr>
+                <p>{{tab.tabDescription}}</p>
+                <p>{{tab.tabMeta}}</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="function forms">
+        <h3>Form Section Focus</h3>
+        <p class="description">From focus, validation</p>
+        <app-form></app-form>
+    </div>
+    <div class="function filtering">
+        <h3>Object Filtering</h3>
+        <p class="description">From focus, validation</p>
+       
+    </div>
+</div>

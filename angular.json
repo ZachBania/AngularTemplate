@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AngularJSTemplate"
+    }
+  },
+  "defaultProject": "AngularJSTemplate",
+  "cli": {
+    "analytics": false
+  }
 }
