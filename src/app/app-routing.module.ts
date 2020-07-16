@@ -1,5 +1,10 @@
+// Import Modules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+// Custom Modules
+
 // Import Components
 import { FunctionsComponent } from './functions/functions.component';
 import { MainComponent } from './main/main.component';

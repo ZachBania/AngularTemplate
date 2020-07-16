@@ -23,9 +23,56 @@
         <p class="description">From focus, validation</p>
         <app-form></app-form>
     </div>
-    <div class="function filtering">
-        <h3>Object Filtering</h3>
-        <p class="description">From focus, validation</p>
+    <div class="function object-management">
+        <h3>Object Management</h3>
+        <p class="description">Through utalizing Angular's pipe classes, Software developers are able to format and manipulate data for live detection based filtering.</p>
+
+        <form novalidate #form="ngForm">
+            <h2>Filter Tasks</h2>
+            <div class="form-group">
+                <p>Task Status
+                    <select class="form-control" name="taskStatus" [(ngModel)]="taskStatus">
+                        <option></option>      
+                        <option value="complete">complete</option>
+                        <option value="in-progress">in-progress</option>
+                        <option value="incomplete">incomplete</option>
+                    </select>
+                </p>
+            </div>  
+            <div class="form-group">
+                <p>Task Type
+                    <select class="form-control" name="taskType" [(ngModel)]="taskType">
+                        <option></option>      
+                        <option value="development">development</option>
+                        <option value="marketing">marketing</option>
+                        <option value="global">global</option>
+                    </select>
+                </p>
+            </div>  
+            <p><button type="button" (click)="reset($event)">Clear Fitlers</button></p>
+        </form>
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Task ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Type</th>
+                <th scope="col">Contributors</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks | tableFilter: form.value">
+                <th scope="row">{{ task.taskId }}</th>
+                <td>{{ task.taskTitle }}</td>
+                <td>{{ task.taskDescription }}</td>
+                <td [ngClass]="{ 'green': task.taskStatus == 'complete', 'red': task.taskStatus == 'incomplete', 'yellow': task.taskStatus == 'in-progress' }">{{ task.taskStatus }}</td>
+                <td>{{ task.taskType }}</td>
+                <td>{{ task.taskContributors }}</td>
+              </tr>
+            </tbody>
+          </table>
        
     </div>
 </div>

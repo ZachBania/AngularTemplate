@@ -50,11 +50,11 @@ html, body, *, .row {
 // Global Styling
 @import './styles-variables.scss';
 
-html, body {
+ body {
   background: rgb(91,91,91);
   background: linear-gradient(0deg, rgba(91,91,91,1) 0%, rgba(0,0,0,1) 100%);
   background-repeat: no-repeat;
-  height: 100%;
+  height: auto;
 }
 
 .container {

@@ -9,6 +9,7 @@ header {
     
     background-position-y: -15em;
     box-shadow: inset 0 0 5em $subTwoHighlight;
+    
     h1 {
         font-size: 2em;
         font-family: $primaryFont;
@@ -37,7 +38,7 @@ header {
 main {
     outline: black solid .25em;
     width: calc(70% - 1em);
-    min-height: 10em;
+    min-height: 20em;
     margin: .5em;
     padding: 0;
     float: left;

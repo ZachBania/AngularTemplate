@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
 import { FormComponent } from './form/form.component';
+import { TableFilterPipe } from './functions/table-filter.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormComponent } from './form/form.component';
     AppComponent,
     routingComponents,
     MainSidebarComponent,
-    FormComponent
+    FormComponent,
+    TableFilterPipe
   ],
   imports: [
     BrowserModule, 

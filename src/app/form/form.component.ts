@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
-})
+}) 
 
 export class FormComponent implements OnInit {
   
@@ -16,9 +16,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit() { 
       this.user = {
-          name: 'Name',
-          email: 'Email',
-          phone: 'Phone'
+          name: 'name',
+          email: 'email',
+          phone: 'phone'
       };
 
       this.form = this.formBuilder.group({
@@ -26,7 +26,7 @@ export class FormComponent implements OnInit {
           email: [this.user.email, Validators.required ],
           phone: [this.user.phone, Validators.required ]
       });
-  }
+    }
 
   onSubmit(form: FormGroup) {
       this.message = 'Thank you ' + form.controls.name.value;
