@@ -8,16 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 // Import Components
 import { FunctionsComponent } from './functions/functions.component';
 import { MainComponent } from './main/main.component';
-import { FormComponent } from './form/form.component';
+import { EventsComponent } from './events/events.component';
 
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
-  { path: 'form', component: FormComponent },
+  { path: 'events', component: EventsComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/main', pathMatch: 'full' } // Wildcard route (404)
-];
+]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)], 

@@ -10,7 +10,10 @@ import { AppComponent } from './app.component';
 import { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
 import { FormComponent } from './form/form.component';
 import { TableFilterPipe } from './functions/table-filter.pipe';
-
+import { EventsComponent } from './events/events.component';
+import { EventComponent } from './events/event.component';
+// import Services
+import { EventsService } from './events/shared/events.service';
 
 @NgModule({
   declarations: [
@@ -18,16 +21,18 @@ import { TableFilterPipe } from './functions/table-filter.pipe';
     routingComponents,
     MainSidebarComponent,
     FormComponent,
-    TableFilterPipe
+    TableFilterPipe,
+    EventsComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule, 
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

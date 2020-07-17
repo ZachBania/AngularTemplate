@@ -1,0 +1,53 @@
+@import './../../styles-variables.scss';
+
+.event {
+    width: 80%;
+    margin: 1em;
+    padding: 1em;
+    border: $subThreeHighlight solid .25em;
+    border-radius: .5em;
+    background: $subTwoHighlight;
+    overflow: hidden;
+    
+    h2 {
+        color: $primaryHighlight;
+        font-family: $primaryFont;
+        font-size: 1.5em;
+    }
+
+    hr {
+        display: block;
+        background: $subThreeHighlight;
+        width: 100%;
+        height: .25em;
+        margin: .5em 0;
+        padding: 0;
+        border: none;
+    }
+
+    div {
+        width: 75%;
+        float: left;
+
+        p {
+            color: $subThreeHighlight;
+            font-family: $subTwoFont;
+        }
+        
+        button {
+            background: $primaryHighlight;
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            margin: .5em 0;
+        }
+    }
+
+    img {
+        float: right;
+        width: 25%;
+        height: auto;
+        background: $subThreeHighlight;
+        max-height: 10em;
+    }
+
+}
