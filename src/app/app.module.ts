@@ -14,6 +14,8 @@ import { EventsComponent } from './events/events.component';
 import { EventComponent } from './events/event.component';
 // import Services
 import { EventsService } from './events/shared/events.service';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { EventsService } from './events/shared/events.service';
     TableFilterPipe,
     EventsComponent,
     EventComponent,
+    EventDetailsComponent,
   ],
   imports: [
     BrowserModule, 

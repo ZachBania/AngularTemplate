@@ -8,7 +8,7 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 })
 
 export class FunctionsComponent  {
-  pageTitle: string = "Framework Functions";
+  pageTitle: string = "Framework Functions"; 
 
   
   tabs: { tabId: number, tabTitle: string, tabDescription: string, tabMeta?: string }[] = [

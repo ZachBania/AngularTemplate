@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FunctionsComponent } from './functions/functions.component';
 import { MainComponent } from './main/main.component';
 import { EventsComponent } from './events/events.component';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
 
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'events/:id', component: EventDetailsComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Default route
   { path: '**', redirectTo: '/main', pathMatch: 'full' } // Wildcard route (404)
 ]; 

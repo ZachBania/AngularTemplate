@@ -1,7 +1,15 @@
-@import './../../styles-variables.scss';
+@import './../../../styles-variables.scss';
+
+h1 {
+    color: $primaryHighlight;
+    font-family: $primaryFont;
+    font-size: 2.5em;
+    padding: .5em;
+    background: $subTwoHighlight;
+}
 
 .event {
-    width: 80%;
+    width: calc(100% - 2em);
     margin: 1em;
     padding: 1em;
     border: $subThreeHighlight solid .25em;
