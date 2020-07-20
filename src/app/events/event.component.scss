@@ -1,7 +1,7 @@
 @import './../../styles-variables.scss';
 
 .event {
-    width: 80%;
+    width: calc(100% - 2em);
     margin: 1em;
     padding: 1em;
     border: $subThreeHighlight solid .25em;
@@ -44,12 +44,16 @@
         }
     }
 
-    img {
-        float: right;
+    .image {
         width: 25%;
-        height: auto;
+        height: 10em;
+        float: right;
+        overflow: hidden;
         background: $subThreeHighlight;
-        max-height: 10em;
+
+        img {
+            width: 100%;
+        }
     }
 
 }

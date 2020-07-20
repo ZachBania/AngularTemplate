@@ -10,5 +10,7 @@
       <p>{{ event.location.address }} {{ event.location.city }}, {{ event.location.country }}</p>
       <button [routerLink]="['/events']" class="btn btn-primary">Back to events</button>
   </div>
-  <img [src]="event.imageUrl" alt="">
+  <div class='image'>
+    <img [src]="event.imageUrl" alt="">
+  </div>
 </div>

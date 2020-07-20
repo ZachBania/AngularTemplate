@@ -11,3 +11,9 @@ aside {
 
 
 }
+
+@media (max-width: 767px) {
+    aside {
+        width: calc(100% - 1em);
+    }
+}

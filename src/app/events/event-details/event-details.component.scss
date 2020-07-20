@@ -52,12 +52,15 @@ h1 {
         }
     }
 
-    img {
-        float: right;
+    .image {
         width: 25%;
-        height: auto;
+        height: 10em;
+        float: right;
+        overflow: hidden;
         background: $subThreeHighlight;
-        max-height: 10em;
-    }
 
+        img {
+            width: 100%;
+        }
+    }
 }

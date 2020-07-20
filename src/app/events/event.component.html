@@ -8,7 +8,9 @@
         <p>{{ event.price | currency }}</p>
         <p>{{ event.location.address }} {{ event.location.city }}, {{ event.location.country }}</p>
         <button [routerLink]="['/events', event.id]" class="btn btn-primary">Event Details</button>
-        <button class="btn btn-primary" (click)="detailClick()">Event Details</button>
+        <!-- <button class="btn btn-primary" (click)="detailClick()">Event Details</button> -->
     </div>
-    <img [src]="event.imageUrl" alt="">
+    <div class='image'>
+        <img [src]="event.imageUrl" alt="">
+    </div>
 </div>

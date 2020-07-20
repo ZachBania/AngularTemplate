@@ -6,19 +6,16 @@ import { IEvent } from './events.model';
 
 export class EventsService {
   
-  // getEvents():Observable<IEvent[]> {
-    //   let subject = new Subject<IEvent[]>();
-    //   setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 100);
-    //     return subject;
-    // }
+  getEvents():Observable<IEvent[]> {
+      let subject = new Subject<IEvent[]>();
+      setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 100);
+        return subject;
+    }
     
     getEvent(id:number) {
       return EVENTS.find(event => event.id === id)
     }
     
-    getEvents() {
-      return EVENTS;
-    }
   }
             const EVENTS: IEvent[] = [
                 {
