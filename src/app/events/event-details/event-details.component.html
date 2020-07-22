@@ -13,4 +13,13 @@
   <div class='image'>
     <img [src]="event.imageUrl" alt="">
   </div>
+
+  <hr>
+
+  <div class="sessions">
+    <h2>Sessions</h2>
+    <a (click)="addSession()">Add Session</a>
+    <app-sessions *ngIf="!addMode" [sessions]="event?.sessions"></app-sessions>
+    <app-create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></app-create-session>
+  </div>
 </div>

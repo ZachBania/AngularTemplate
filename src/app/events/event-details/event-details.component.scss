@@ -31,6 +31,7 @@ h1 {
         margin: .5em 0;
         padding: 0;
         border: none;
+        clear: both;
     }
 
     div {
@@ -63,4 +64,24 @@ h1 {
             width: 100%;
         }
     }
+
+    .sessions {
+
+        h2 {
+            color: $primaryHighlight;
+            font-family: $primaryFont;
+            font-size: 1.2em;
+        }
+        a:link,
+        a:visited {
+            background: $subThreeHighlight;
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            margin: .5em 0;
+            width: 10em;
+            clear: both;
+            display: block;
+        } 
+    }
 }
+

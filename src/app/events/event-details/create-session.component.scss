@@ -1,0 +1,92 @@
+@import './../../../styles-variables.scss';
+
+form {
+    padding: 1em;  
+    width: 100%;
+    background: $subThreeHighlight;  
+    .form-group {
+        clear: both;
+        padding: .5em 0;
+
+        em {
+            float: left;
+            color: rgba(255,0,0,1);
+        }
+
+        label {
+            width: 10em;
+            font-size: 1em;
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            float: left;
+        }
+        input.form-control {
+            width: 10em;
+            font-size: 1em;
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            background: transparent;
+            display: block;
+            float: left;
+        }
+        button {
+            width: calc(10em - .25em);
+            font-size: 1em;
+            padding: 0;
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            font-weight: 900;
+
+            &[type='submit'] {
+                margin: 0 .5em 0 0;
+                background: $primaryHighlight;
+            }
+        }
+    }
+}
+
+.form-controls-table {
+    padding: 1em;
+
+    h2 {
+        color: $subTwoHighlight;
+        font-family: $subTwoFont;
+        font-size: 1.25em;
+    }
+    p {
+        color: $subTwoHighlight;
+        font-family: $subTwoFont;
+    }
+
+    table {
+        background: $subThreeHighlight;
+        width: calc(100% - 1em);
+        border: $subTwoHighlight solid .25em;
+        color: $subTwoHighlight;
+        font-family: $subTwoFont;
+    
+        thead {
+            background: $subTwoHighlight;
+            color: $subThreeHighlight;
+    
+            tr {
+                th {
+                    p {
+                        color: $subThreeHighlight;
+                    }
+                }
+            }
+        }
+    
+        tbody {
+    
+            tr {
+    
+                td {
+                    
+                }
+            }
+        }
+    
+    }
+}

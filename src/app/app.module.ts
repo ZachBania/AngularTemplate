@@ -22,6 +22,8 @@ import { EventsService } from './events/shared/events.service';
 import { AuthService } from './user/auth.service';
 // Import Pipes
 import { TableFilterPipe } from './functions/table-filter.pipe';
+import { SessionsComponent } from './events/event-details/sessions.component';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { TableFilterPipe } from './functions/table-filter.pipe';
     CreateEventComponent,
     // Pipes
     TableFilterPipe,
+    SessionsComponent,
+    CreateSessionComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IEvent, EventsService } from '../shared/index';
+import { IEvent, EventsService, ISession } from '../shared/index';
 
 @Component({
   selector: 'app-event-details',
@@ -10,11 +10,27 @@ import { IEvent, EventsService } from '../shared/index';
 export class EventDetailsComponent implements OnInit {
 
   event: IEvent;
-
+  session: ISession;
+  addMode:boolean
   constructor(private eventService: EventsService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
   } 
 
+  addSession() {
+    this.addMode = true
+  }
+
+  saveNewSession(session:ISession) {
+    const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
+    session.id = nextId + 1
+    this.event.sessions.push(session)
+    this.eventService.updateEvent(this.event)
+    this.addMode = false
+  }
+
+  cancelAddSession() {
+    this.addMode = false
+  }
 }
