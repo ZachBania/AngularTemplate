@@ -7,19 +7,27 @@
           <span class="icon-bar"></span>                        
         </button>
         <a class="navbar-brand" routerLinkActive='active' [routerLink]="['/main']"> {{brandTitle}}</a>
+        <p *ngIf="auth.isAuthenticated()">Hi {{auth.currentUser.firstName}}</p>
       </div>
       <div class="collapse navbar-collapse nav navbar-nav navbar-right" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a [routerLink]="['/functions']" routerLinkActive="active">Functions</a></li>
-          <li><a [routerLink]="['/events']" routerLinkActive="active">Events</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Dropdown-1</a></li>
-                  <li><a href="#">Dropdown-2</a></li>
-                  <li><a href="#">Dropdown-3</a></li>
-                </ul>
-              </li>
+          
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a [routerLink]="['/events']" routerLinkActive="active">All Events</a></li>
+              <li><a [routerLink]="['/events/create-event']" routerLinkActive="active">Create Events</a></li>
+            </ul>
+          </li> 
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+              <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Edit Profile</a>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

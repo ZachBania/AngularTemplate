@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -12,7 +11,7 @@ export class MainComponent {
 
   bodyContent: string [] = 
   ["AngularJS is capabile of providing a Single Page Application Framework that allows for data binding, testable code metrics, dependency injection, API and HTTP Services, and much more.",
-  "Software Developers can achieve more functionality and effeciency with the AngularJS framework, providing confidence the code meterics of the web application are reliable."];
+  "Software Developers can achieve more functionality and effeciency with the AngularJS framework, providing confidence that the code meterics of the web application are reliable."];
   
   
   

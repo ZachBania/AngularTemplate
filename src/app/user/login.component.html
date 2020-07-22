@@ -1,0 +1,68 @@
+<h1>Profile Login</h1>
+<div class="col-md-4">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate>
+    <div class="form-group" >
+      <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">*</em>
+      <label for="userName">User Name:</label>
+      <input (ngModel)="username" name="userName" required id="userName" type="text" class="form-control" placeholder="User Name..." />
+    </div>
+    <div class="form-group" >
+      <em *ngIf="loginForm.controls.password?.invalid  && (loginForm.controls.password?.touched || mouseoverLogin)">*</em>
+      <label for="password">Password:</label>
+      <input (ngModel)="password" name="password" required id="password" type="password" class="form-control"placeholder="Password..." />
+    </div>
+    <div class="form-group" >
+      <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+      </span>
+      <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<div class="form-controls-table">
+  <h2>Angular Form Control Data</h2>
+  <p>Angular provides form control data to identify the current state of each field.</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><p>Field</p></th>
+        <th><p>Valid</p></th>
+          <th><p>Invalid</p></th>
+          <th><p>Dirty</p></th>
+          <th><p>Pristine</p></th>
+          <th><p>Touched</p></th>
+          <th><p>Untouched</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p>Form</p></td>
+        <td><p>{{ loginForm.valid }}</p></td>
+        <td><p>{{ loginForm.invalid }}</p></td>
+        <td><p>{{ loginForm.dirty }}</p></td>
+        <td><p>{{ loginForm.pristine }}</p></td>
+        <td><p>{{ loginForm.touched }}</p></td>
+        <td><p>{{ loginForm.untouched }}</p></td>
+      </tr>
+      <tr>
+        <td><p>Username</p></td>
+        <td><p>{{ loginForm.controls.userName?.valid }}</p></td>
+        <td><p>{{ loginForm.controls.userName?.invalid }}</p></td>
+        <td><p>{{ loginForm.controls.userName?.dirty }}</p></td>
+        <td><p>{{ loginForm.controls.userName?.pristine }}</p></td>
+        <td><p>{{ loginForm.controls.userName?.touched }}</p></td>
+        <td><p>{{ loginForm.controls.userName?.untouched }}</p></td>
+      </tr>      
+      <tr>
+        <td><p>Password</p></td>
+        <td><p>{{ loginForm.controls.password?.valid }}</p></td>
+        <td><p>{{ loginForm.controls.password?.invalid }}</p></td>
+        <td><p>{{ loginForm.controls.password?.dirty }}</p></td>
+        <td><p>{{ loginForm.controls.password?.pristine }}</p></td>
+        <td><p>{{ loginForm.controls.password?.touched }}</p></td>
+        <td><p>{{ loginForm.controls.password?.untouched }}</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

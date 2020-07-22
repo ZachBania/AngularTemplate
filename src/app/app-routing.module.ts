@@ -1,35 +1,48 @@
 // Import Modules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-// Custom Modules
 
 // Import Components
-import { FunctionsComponent } from './functions/functions.component';
 import { MainComponent } from './main/main.component';
+import  { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
+
+import { FunctionsComponent } from './functions/functions.component';
+
 import { EventsComponent } from './events/events.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { CreateEventComponent } from './events/create-event.component';
 
+import { ProfileComponent } from './user/profile.component';
+import { LoginComponent } from './user/login.component';
 
-const routes: Routes = [
+export const routes: Routes = [ // Routing order matters
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
-  { path: 'events', component: EventsComponent },
+  
+  { path: 'events/create-event', component: CreateEventComponent }, 
   { path: 'events/:id', component: EventDetailsComponent },
-  { path: '', redirectTo: '/main', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/main', pathMatch: 'full' } // Wildcard route (404)
+  { path: 'events', component: EventsComponent },
+  //() => import('src/app/auth/auth.module').then(m => m.AuthModule)
+  //'/src/app/user/user.module#UserModule'
+  { path: 'user', loadChildren: () => import('src/app/user/user.module').then(m => m.UserModule) },
+  // Default routes
+  { path: '', redirectTo: '/main', pathMatch: 'full' }, 
+  { path: '**', redirectTo: '/main', pathMatch: 'full' },
 ]; 
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)], 
-  exports: [RouterModule]
-})
 
-export class AppRoutingModule { 
 
-  
-}
-
-export const routingComponents = [MainComponent, FunctionsComponent];
+export const routingComponents = [
+  MainComponent,
+  MainSidebarComponent,
+  //Function Components
+  FunctionsComponent,
+  // Events Components
+  EventsComponent,
+  EventDetailsComponent,
+  CreateEventComponent,
+  // User Components
+  ProfileComponent,
+  LoginComponent,
+];
 
