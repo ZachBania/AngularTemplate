@@ -8,6 +8,11 @@ import { ISession } from '../shared/index'
 export class SessionsComponent  {
 
   constructor() { }
-  @Input() sessions:ISession[]
+  @Input() sessions:ISession[];
+  session: ISession;
+
+  reset($event): void {
+
+  }
 
 }

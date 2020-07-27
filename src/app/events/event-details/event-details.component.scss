@@ -55,7 +55,7 @@ h1 {
 
     .image {
         width: 25%;
-        height: 10em;
+        height: 7.5em;
         float: right;
         overflow: hidden;
         background: $subThreeHighlight;
@@ -66,22 +66,20 @@ h1 {
     }
 
     .sessions {
+        width: 100%;
 
         h2 {
             color: $primaryHighlight;
             font-family: $primaryFont;
             font-size: 1.2em;
         }
-        a:link,
-        a:visited {
-            background: $subThreeHighlight;
+        button {
+            background: $primaryHighlight;
             font-family: $subTwoFont;
             color: $subTwoHighlight;
             margin: .5em 0;
-            width: 10em;
             clear: both;
             display: block;
-        } 
+        }
     }
 }
-

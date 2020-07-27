@@ -58,7 +58,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let task of tasks | tableFilter: form.value">
+              <tr *ngFor="let task of tasks | filter: form.value">
                 <th scope="row">{{ task.taskId }}</th>
                 <td>{{ task.taskTitle }}</td>
                 <td>{{ task.taskDescription }}</td>

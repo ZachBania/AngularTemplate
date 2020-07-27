@@ -2,14 +2,55 @@
 @import './../../styles-variables.scss';
 
 aside {
-    outline: black solid .25em;
+    border: $subTwoHighlight solid .25em;
     width: calc(30% - 1em);
     min-height: 10em;
     margin: .5em;
     padding: 0;
     float: left;
+    form {
+        width: 100%;
+        background: $subTwoHighlight;
 
+        .form-group {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            p {
+                width: 100%;
 
+                input {
+                    font-family: $subTwoFont;
+                    color: $subTwoHighlight;
+                    background: $subThreeHighlight;
+                    border: none;
+                    font-size: 1em;
+
+                    width: 70%;
+                    clear: none;
+                    float: left;
+                    padding: 1em;
+                    margin: 0;
+                    border: none;
+                    border-radius: 0em;
+
+                }
+                button {
+                    font-family: $primaryFont;
+                    color: $subTwoHighlight;
+                    background: $primaryHighlight;
+                    width: 30%;
+                    clear: none;
+                    float: left;
+                    font-size: 1em;
+                    padding: .5em 0;
+                    margin: 0;
+                    border: none;
+                    border-radius: 0em;
+                }
+            }
+        }    
+    }
 }
 
 @media (max-width: 767px) {

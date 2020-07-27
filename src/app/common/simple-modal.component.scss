@@ -1,0 +1,62 @@
+@import './../../styles-variables.scss';
+
+
+#searchResults {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background: $subTwoHighlight;
+    color: $subTwoHighlight; 
+    margin: 0em;
+    padding: 0em;
+    border: none;
+    border-radius: 0;
+    transform: none;
+    overflow: hidden;
+
+    .modal-content {
+        margin: 0em;
+        padding: 0em;
+        transform: none;
+        display: block;
+        clear: both;
+        border: none;
+        border-radius: 0;
+
+        .modal-body { 
+            margin: 0em;
+            padding: 0em;
+            transform: none;
+            display: block;
+            clear: both;
+            border: none;
+            border-radius: 0;
+
+            ul {
+
+                li {
+                    color: $subTwoHighlight;
+
+                    a:link,
+                    a:visited {
+                        color: $subTwoHighlight;
+                        font-family: $subTwoFont;
+                        font-size: 1em;
+                        width: 100%;
+                        display: block;
+                        margin: 0;
+                        padding: .25em .5em;
+                        clear: both;
+                        transition: .25s;
+                    }
+                    a:hover,
+                    a:active {
+                        color: $primaryHighlight;
+                    }
+                }
+
+            }
+        }
+    }
+}

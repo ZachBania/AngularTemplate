@@ -1,0 +1,40 @@
+@import './../../styles-variables.scss';
+
+h1 {
+    color: $primaryHighlight;
+    font-family: $primaryFont;
+    font-size: 2.5em;
+    padding: .5em;
+    background: $subTwoHighlight;
+}
+
+.dashboard {
+    padding: 1em;
+    width: 100%;
+    // temporary 
+    min-height: 20em; 
+
+    header {
+        outline:black solid 1px;
+        height: 1em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        div {
+            width: calc(100% / 4);
+            padding: .5em;
+            outline:black solid 1px;
+
+            float: left;
+
+            &:after {
+                content: ".";
+                color: transparent;
+                height: auto;
+                display: block;
+                clear: both;
+            }
+        }
+    }
+}

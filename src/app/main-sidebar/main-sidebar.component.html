@@ -1,4 +1,20 @@
 <aside>
-    
+
+  <form id="searchForm" (ngSubmit)="searchSessions(searchTerm)" class="searchForm"  >
+    <div class="form-group">
+      <p>
+        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Events" >
+        <button class="btn btn-default" modal-trigger="searchResults">Search</button> 
+      </p>
+    </div>
+  </form>
+
+  
+  <app-simple-modal closeOnBodyClick="true" elementId="searchResults" title="Matching Sessions">
+    <ul>
+      <li *ngFor="let session of foundSessions"><a [routerLink]="['/events', session.eventId]">{{session.name}}</a></li>
+    </ul>
+      
+  </app-simple-modal>
     
 </aside>

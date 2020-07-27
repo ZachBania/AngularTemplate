@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IEvent, EventsService } from './shared/index';
-
+import { IEvent, EventsService, ISession } from './shared/index';
 
 @Component({
   selector: 'app-events',
@@ -9,18 +8,14 @@ import { IEvent, EventsService } from './shared/index';
 })
 export class EventsComponent implements OnInit {
 
+  searchTerm: string = "";
+  foundSessions: ISession[]
 
-
-
-  detailClick(data) {
-    console.log(data);
-  }
-
- 
   events: IEvent[];
   constructor(private eventsService: EventsService) { 
   
   }
+
   
   ngOnInit(): void {
     this.eventsService.getEvents().subscribe(res => {

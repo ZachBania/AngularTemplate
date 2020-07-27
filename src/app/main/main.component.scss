@@ -36,7 +36,7 @@ header {
 }
 
 main {
-    outline: black solid .25em;
+    border: $subTwoHighlight solid .25em;
     width: calc(70% - 1em);
     min-height: 20em;
     margin: .5em;
