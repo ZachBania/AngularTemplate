@@ -10,7 +10,7 @@ export class AppComponent {
   
   brandTitle: string = "Angular Template";
 
-  constructor(private auth: AuthService) {}
+  constructor(public auth: AuthService) {}
   
     ngOnInit() {
       this.auth.checkAuthenticationStatus();
