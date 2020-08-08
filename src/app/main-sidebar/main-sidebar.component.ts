@@ -13,7 +13,9 @@ export class MainSidebarComponent implements OnInit {
 
   constructor(private eventService: EventsService, private route:ActivatedRoute) { }
   ngOnInit(): void {
-    this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    this.route.data.forEach((data) => {
+      this.event = data['event'];
+    })
   }  
 
   searchTerm: string = "";

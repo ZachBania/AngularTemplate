@@ -8,6 +8,7 @@ aside {
     margin: .5em;
     padding: 0;
     float: left;
+
     form {
         width: 100%;
         background: $subTwoHighlight;
@@ -50,6 +51,31 @@ aside {
                 }
             }
         }    
+    }
+
+    ul {
+
+        li {
+            color: $subTwoHighlight;
+    
+            a:link,
+            a:visited {
+                color: $subTwoHighlight;
+                font-family: $subTwoFont;
+                font-size: 1em;
+                width: 100%;
+                display: block;
+                margin: 0;
+                padding: .25em .5em;
+                clear: both;
+                transition: .25s;
+            }
+            a:hover,
+            a:active {
+                color: $primaryHighlight;
+            }
+        }
+    
     }
 }
 

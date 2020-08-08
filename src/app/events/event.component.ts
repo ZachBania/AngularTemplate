@@ -12,7 +12,7 @@ export class EventComponent implements OnInit {
   @Output() eventDetailClick = new EventEmitter();
 
   detailClick(): void {
-    this.eventDetailClick.emit(this.event.title);
+    this.eventDetailClick.emit(this.event.name);
   }
 
   constructor() { 

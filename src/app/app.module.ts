@@ -30,6 +30,8 @@ import { EventsService } from './events/shared/events.service';
 import { AuthService } from './user/auth.service';
 import { JQ_TOKEN } from './common/jQuery.service';
 let jQuery = window['$'];
+import { EventsResolver } from './events/events-resolver.service'
+import { EventResolver } from './events/event-resolver.service'
 
 // Import Pipes
 import { FilterPipe } from './common/filter.pipe';
@@ -67,6 +69,8 @@ import { ModalTriggerDirective } from './common/modal-trigger.directive';
   providers: [
     EventsService,
     AuthService,
+    EventsResolver,
+    EventResolver,
     { provide: JQ_TOKEN, useValue: jQuery },
   ],
   bootstrap: [AppComponent]

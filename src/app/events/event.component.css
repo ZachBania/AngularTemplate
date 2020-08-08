@@ -3,7 +3,7 @@
   font-family: primary;
 }
 .event {
-  width: 80%;
+  width: calc(100% - 2em);
   margin: 1em;
   padding: 1em;
   border: white solid 0.25em;
@@ -41,10 +41,13 @@
   clear: both;
   display: block;
 }
-.event img {
-  float: right;
+.event .image {
   width: 25%;
-  height: auto;
+  height: 7.5em;
+  float: right;
+  overflow: hidden;
   background: white;
-  max-height: 10em;
+}
+.event .image img {
+  width: 100%;
 }

@@ -17,14 +17,19 @@ import { LoginComponent } from './user/login.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+// Import Services
+import { EventsResolver } from './events/events-resolver.service'
+import { EventResolver } from './events/event-resolver.service'
+
+
 export const routes: Routes = [ // Routing order matters
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
   { path: 'dashboard', component: DashboardComponent },
   
   { path: 'events/create-event', component: CreateEventComponent }, 
-  { path: 'events/:id', component: EventDetailsComponent },
-  { path: 'events', component: EventsComponent },
+  { path: 'events/:id', component: EventDetailsComponent, resolve: [EventResolver] },
+  { path: 'events', component: EventsComponent, resolve: {EventsResolver} },
   //() => import('src/app/auth/auth.module').then(m => m.AuthModule)
   //'/src/app/user/user.module#UserModule'
   { path: 'user', loadChildren: () => import('src/app/user/user.module').then(m => m.UserModule) },
