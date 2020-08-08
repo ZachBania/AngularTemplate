@@ -4,8 +4,7 @@ This template was designed to demonstrate the capabilities of framework synchron
 
 ## Development server
 
-Run `npm run server` for a dev server. Using Node.js Listening on port 8808...
-Run `ng start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run server` using Node.js for 8808 port listening. Followed by `ng start` to launch the application. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
