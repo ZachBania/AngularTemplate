@@ -17,6 +17,7 @@
       </span>
       <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
     </div>
+    <p *ngIf="loginInvalid" class="alert alert-danger">Invalid Login Info</p>
   </form>
 </div>
 

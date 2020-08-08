@@ -382,6 +382,17 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/src/app/app.component.spec.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/app/app.component.spec-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/src/app/app.component.spec.ts": {
 		"cDF": 0,
 		"ft": 128,
@@ -549,6 +560,17 @@
 		"oF": 0,
 		"oS": 0,
 		"sct": 0
+		},
+	"/src/app/dashboard/dashboard.component.spec.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/app/dashboard/dashboard.component.spec-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"/src/app/dashboard/dashboard.component.spec.ts": {
 		"cDF": 0,
@@ -1290,6 +1312,17 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/src/app/user/profile.component.spec.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/app/user/profile.component.spec-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/src/app/user/profile.component.spec.ts": {
 		"cDF": 0,
 		"ft": 128,
@@ -1331,6 +1364,17 @@
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
+		},
+	"/src/app/user/user.module.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/src/app/user/user.module-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"/src/app/user/user.module.ts": {
 		"cDF": 0,
