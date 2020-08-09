@@ -327,41 +327,6 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/src/app/dashboard/dashboard.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/src/app/dashboard/dashboard.component.html",
-		"oF": 0
-		},
-	"/src/app/dashboard/dashboard.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/src/app/dashboard/dashboard.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/src/app/dashboard/dashboard.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/src/app/dashboard/dashboard.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
 	"/src/app/events/create-event.component.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -721,6 +686,41 @@
 		"moT": 2,
 		"oA": 1,
 		"oAP": "/src/app/functions/functions.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/src/app/main-nav/main-nav.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/src/app/main-nav/main-nav.component.html",
+		"oF": 0
+		},
+	"/src/app/main-nav/main-nav.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/src/app/main-nav/main-nav.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/src/app/main-nav/main-nav.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/src/app/main-nav/main-nav.component.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0

@@ -1,0 +1,82 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+.navbar {
+  background: black;
+  color: white;
+  padding: 0em;
+  margin: 0 auto;
+  margin-bottom: 0em;
+  border: none;
+  border-radius: 0em;
+}
+.navbar .container-fluid {
+  max-width: 60em;
+}
+.navbar .container-fluid .navbar-header a:link,
+.navbar .container-fluid .navbar-header a:visited {
+  color: white;
+  font-family: primary;
+  transition: 0.25s;
+  float: left;
+}
+.navbar .container-fluid .navbar-header a:hover,
+.navbar .container-fluid .navbar-header a:active {
+  color: #0385D2;
+}
+.navbar .container-fluid .navbar-header a:before {
+  background: url("./../assets/images/brand.png");
+  background-size: 100%;
+  float: left;
+  display: block;
+  content: " ";
+  color: transparent;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1em 0;
+  margin: 0;
+  font-size: 1em;
+  width: 100%;
+  clear: both;
+}
+footer h2 {
+  color: #0385D2;
+  font-family: primary;
+  font-size: 1.25em;
+  padding: 0.5em 0;
+}
+footer p {
+  color: white;
+  font-family: Arial;
+}
+footer .social-icons {
+  padding: 1em 0;
+  width: 15em;
+  float: right;
+}
+footer .social-icons li {
+  width: 25%;
+  float: left;
+  color: black;
+}
+footer .social-icons li i {
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+  transition: 0.25s;
+}
+footer .social-icons li i:hover, footer .social-icons li i:active {
+  color: #0385D2;
+  cursor: pointer;
+}

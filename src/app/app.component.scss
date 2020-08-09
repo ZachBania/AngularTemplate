@@ -12,7 +12,6 @@
 
     .container-fluid {
         max-width: $maxWidthNav;
-        
 
         .navbar-header {
 
@@ -41,49 +40,6 @@
                 padding: 0;
             }
         }
-        .navbar-nav {
-
-            ul {
-
-                li {
-
-                    a:link,
-                    a:visited {
-                        color: $subThreeHighlight;
-                        font-family: $subTwoFont;
-                        transition: .25s;
-                    }
-                    a:hover,
-                    a:active {
-                        color: $primaryHighlight;
-                        text-decoration: none;
-                    }
-                }
-
-                li.dropdown {
-                    
-                    ul {
-                        background: $subTwoHighlight; 
-
-                        li {
-                            background: $subTwoHighlight; 
-
-                            a:link,
-                            a:visited {
-                                color: $subThreeHighlight;
-                                font-family: $subTwoFont;
-                                background: $subTwoHighlight; 
-                            }
-                            a:hover,
-                            a:active {
-                                color: $primaryHighlight;
-                                background: $subTwoHighlight; 
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -105,24 +61,6 @@ footer {
   p {
       color: $subThreeHighlight;
       font-family: $subTwoFont;
-  }
-
-  ul {
-
-    li {
-
-        a:link,
-        a:visited {
-            color: $subThreeHighlight;
-            font-family: $subTwoFont;
-            transition: .25s;
-            text-decoration: none;
-        }
-        a:hover,
-        a:active {
-            color: $primaryHighlight;
-        }
-    }
   }
 
   .social-icons {

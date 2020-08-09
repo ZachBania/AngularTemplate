@@ -21,7 +21,7 @@ import { CreateEventComponent } from './events/create-event.component';
 import { SessionsComponent } from './events/event-details/sessions.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 import { SimpleModalComponent } from './common/simple-modal.component';
 
@@ -36,6 +36,7 @@ import { EventResolver } from './events/event-resolver.service'
 // Import Pipes
 import { FilterPipe } from './common/filter.pipe';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 @NgModule({
@@ -52,12 +53,12 @@ import { ModalTriggerDirective } from './common/modal-trigger.directive';
     CreateEventComponent,
     SessionsComponent,
     CreateSessionComponent,
-    DashboardComponent,
     SimpleModalComponent,
     // Pipes
     FilterPipe,
     // Directives
     ModalTriggerDirective,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,

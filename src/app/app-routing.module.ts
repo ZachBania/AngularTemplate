@@ -15,8 +15,6 @@ import { CreateEventComponent } from './events/create-event.component';
 import { ProfileComponent } from './user/profile.component';
 import { LoginComponent } from './user/login.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-
 // Import Services
 import { EventsResolver } from './events/events-resolver.service'
 import { EventResolver } from './events/event-resolver.service'
@@ -25,7 +23,6 @@ import { EventResolver } from './events/event-resolver.service'
 export const routes: Routes = [ // Routing order matters
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
-  { path: 'dashboard', component: DashboardComponent },
   
   { path: 'events/create-event', component: CreateEventComponent }, 
   { path: 'events/:id', component: EventDetailsComponent, resolve: [EventResolver] },
