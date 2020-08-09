@@ -22,12 +22,12 @@ export class LoginComponent {
         if(!resp) {
           this.loginInvalid = true;
         } else {
-          this.router.navigate(['events']);
+          this.router.navigate(['main']);
         }
       })
   }
 
   cancel() {
-    this.router.navigate(['events'])
+    this.router.navigate(['main'])
   }
 }

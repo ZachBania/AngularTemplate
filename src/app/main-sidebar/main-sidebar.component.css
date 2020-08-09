@@ -1,0 +1,102 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+aside {
+  border: black solid 0.25em;
+  width: calc(30% - 1em);
+  min-height: 10em;
+  margin: 0.5em;
+  padding: 0;
+  float: left;
+}
+aside .currentIdentity {
+  padding: 0.5em;
+  border-bottom: solid 0.25em black;
+}
+aside .currentIdentity p {
+  font-family: Arial;
+  color: black;
+  font-size: 1.5em;
+  width: 100%;
+}
+aside .currentIdentity p:after {
+  content: " ";
+  color: transparent;
+  width: 1em;
+  height: 1em;
+  display: block;
+  float: right;
+  background: url(https://lh3.googleusercontent.com/proxy/TM7sBhMMN9AzayeaBoEaFktEPaPe3MJCVVNhw7bafUwzih2_4ArScXBSulkO_43hJ9G08qJg7jm86Hsx0t8a8JjHG9x7_il0tliQ6vhFiWSvk954yc7BBlDxsWWVRmRxy3qvyfUr98sdUwCjLmRzzQ);
+  background-size: 125%;
+  background-position: center;
+  border: solid 0.1em black;
+  border-radius: 50%;
+}
+aside form {
+  width: 100%;
+  background: black;
+}
+aside form .form-group {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+aside form .form-group p {
+  width: 100%;
+}
+aside form .form-group p input {
+  font-family: Arial;
+  color: black;
+  background: white;
+  border: none;
+  font-size: 1em;
+  width: 70%;
+  clear: none;
+  float: left;
+  padding: 1em;
+  margin: 0;
+  border: none;
+  border-radius: 0em;
+}
+aside form .form-group p input:focus {
+  box-shadow: none;
+}
+aside form .form-group p button {
+  font-family: primary;
+  color: black;
+  background: #0385D2;
+  width: 30%;
+  clear: none;
+  float: left;
+  font-size: 1em;
+  padding: 0.5em 0;
+  margin: 0;
+  border: none;
+  border-radius: 0em;
+}
+aside ul li {
+  color: black;
+}
+aside ul li a:link,
+aside ul li a:visited {
+  color: black;
+  font-family: Arial;
+  font-size: 1em;
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  clear: both;
+  transition: 0.25s;
+}
+aside ul li a:hover,
+aside ul li a:active {
+  color: #0385D2;
+}
+
+@media (max-width: 767px) {
+  aside {
+    width: calc(100% - 1em);
+  }
+}

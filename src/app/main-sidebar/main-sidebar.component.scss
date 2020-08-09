@@ -9,6 +9,33 @@ aside {
     padding: 0;
     float: left;
 
+    .currentIdentity {
+        padding: .5em;
+        border-bottom: solid .25em $subTwoHighlight;
+
+        p {
+            font-family: $subTwoFont;
+            color: $subTwoHighlight;
+            font-size: 1.5em;
+            width: 100%;
+
+            &:after {
+                content: " ";
+                color: transparent;
+                width: 1em;
+                height: 1em;
+                display: block;
+                float: right;
+                background: url(https://lh3.googleusercontent.com/proxy/TM7sBhMMN9AzayeaBoEaFktEPaPe3MJCVVNhw7bafUwzih2_4ArScXBSulkO_43hJ9G08qJg7jm86Hsx0t8a8JjHG9x7_il0tliQ6vhFiWSvk954yc7BBlDxsWWVRmRxy3qvyfUr98sdUwCjLmRzzQ);
+                background-size: 125%;
+                background-position: center;
+                
+                border: solid .1em $subTwoHighlight;
+                border-radius: 50%;
+            }
+        }
+    }
+
     form {
         width: 100%;
         background: $subTwoHighlight;
@@ -35,6 +62,9 @@ aside {
                     border: none;
                     border-radius: 0em;
 
+                    &:focus {
+                        box-shadow: none;
+                    }
                 }
                 button {
                     font-family: $primaryFont;

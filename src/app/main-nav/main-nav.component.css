@@ -1,0 +1,42 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+.nav ul {
+  background: black;
+}
+.nav ul li {
+  background: transparent;
+}
+.nav ul li a:link,
+.nav ul li a:visited {
+  color: white;
+  font-family: Arial;
+  transition: 0.25s;
+}
+.nav ul li a:active,
+.nav ul li a:hover,
+.nav ul li a:focus,
+.nav ul li a:active {
+  color: #0385D2;
+  text-decoration: none;
+  background: transparent;
+  background-color: transparent;
+}
+.nav ul li.dropdown ul {
+  background: black;
+}
+.nav ul li.dropdown ul li {
+  background: black;
+}
+.nav ul li.dropdown ul li a:link,
+.nav ul li.dropdown ul li a:visited {
+  color: white;
+  font-family: Arial;
+  background: black;
+}
+.nav ul li.dropdown ul li a:hover,
+.nav ul li.dropdown ul li a:active {
+  color: #0385D2;
+  background: black;
+}

@@ -168,12 +168,12 @@ System.register("login.component", ["@angular/core"], function (exports_4, conte
                             _this.loginInvalid = true;
                         }
                         else {
-                            _this.router.navigate(['events']);
+                            _this.router.navigate(['main']);
                         }
                     });
                 };
                 LoginComponent.prototype.cancel = function () {
-                    this.router.navigate(['events']);
+                    this.router.navigate(['main']);
                 };
                 LoginComponent = __decorate([
                     core_3.Component({

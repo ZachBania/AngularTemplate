@@ -1,4 +1,7 @@
 <aside>
+  <div *ngIf="auth.isAuthenticated()" class="currentIdentity">
+    <p>Hi {{auth.currentUser.firstName}}</p>
+  </div>
 
   <form id="searchForm" (ngSubmit)="searchSessions(searchTerm)" class="searchForm"  >
     <div class="form-group">
