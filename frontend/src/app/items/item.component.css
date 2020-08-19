@@ -1,0 +1,44 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+.item {
+  margin: 0.5em auto;
+  width: 100%;
+  padding: 1em;
+  background: black;
+  color: white;
+  border: #0385D2 solid 0.25em;
+}
+.item div:nth-child(1) {
+  width: 70%;
+  float: left;
+}
+.item div:nth-child(1) h2 {
+  color: #0385D2;
+  font-family: primary;
+  font-size: 1.5em;
+}
+.item div:nth-child(1) p {
+  color: white;
+  font-family: Arial;
+}
+.item div:nth-child(2) {
+  background: black;
+  float: right;
+  width: 30%;
+  height: 5em;
+  overflow: hidden;
+  outline: red solid 1px;
+}
+.item div:nth-child(2) img {
+  width: 100%;
+}
+.item button {
+  background: #0385D2;
+  font-family: Arial;
+  color: black;
+  margin: 1em 0;
+  clear: both;
+  display: block;
+}

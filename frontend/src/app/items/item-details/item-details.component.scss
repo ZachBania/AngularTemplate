@@ -1,0 +1,40 @@
+@import './../../../styles-variables.scss';
+
+.item {
+
+    h1 {
+        color: $primaryHighlight;
+        font-family: $primaryFont;
+        font-size: 2.5em;
+        padding: .5em;
+        background: $subTwoHighlight;
+        clear: both;
+    }
+
+    div {outline: black solid 1px; min-height: 10em;} //temp
+
+    
+    div:nth-child(2) {
+        width: 70%;
+        float: left;
+        padding: 1em;
+        margin:0;
+             
+        p {
+            color: $subTwoHighlight;
+            font-family: $subTwoFont;
+        }
+    }
+
+    div:nth-child(3) {
+        width: 30%;
+        float: right;
+        padding: 1em;
+        margin:0;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+}

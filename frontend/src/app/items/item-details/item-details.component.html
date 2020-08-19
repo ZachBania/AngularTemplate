@@ -1,0 +1,12 @@
+<div class="item"> 
+    <h1>{{ object.name }}</h1>
+    <div> 
+        <p>{{ object.description }}</p>
+        <p>{{ object.price | currency }}</p>
+        <p>{{ object.inventory }} Avaiable</p>
+        <p>{{ object.category }}</p>
+    </div>
+    <div>
+        <img src="../../../assets/images/items/{{ object.image_url }}"/>
+    </div>
+</div>

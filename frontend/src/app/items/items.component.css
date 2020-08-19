@@ -1,0 +1,38 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+h1 {
+  color: #0385D2;
+  font-family: primary;
+  font-size: 2.5em;
+  padding: 0.5em;
+  background: black;
+}
+
+main {
+  width: 70%;
+  padding: 0.5em;
+  float: right;
+  outline: black solid 1px;
+}
+
+aside {
+  float: left;
+  width: 30%;
+  padding: 0.5em;
+  height: 10em;
+  outline: black solid 1px;
+}
+aside button {
+  background: #0385D2;
+  font-family: Arial;
+  color: black;
+  margin: 1em 0;
+  border: black solid 0.25em;
+  border-radius: 0.25em;
+  padding: 0.5em 0;
+  clear: both;
+  display: block;
+  width: 100%;
+}
