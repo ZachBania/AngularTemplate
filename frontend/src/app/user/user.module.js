@@ -4,7 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-System.register("user.model", [], function (exports_1, context_1) {
+System.register("models/user.model", [], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     return {
@@ -13,7 +13,7 @@ System.register("user.model", [], function (exports_1, context_1) {
         }
     };
 });
-System.register("auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators", "rxjs"], function (exports_2, context_2) {
+System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators", "rxjs"], function (exports_2, context_2) {
     "use strict";
     var core_1, http_1, operators_1, rxjs_1, AuthService;
     var __moduleName = context_2 && context_2.id;
@@ -36,42 +36,54 @@ System.register("auth.service", ["@angular/core", "@angular/common/http", "rxjs/
             AuthService = /** @class */ (function () {
                 function AuthService(http) {
                     this.http = http;
+                    this.server_url = "https://zrbania.uwmsois.com";
                 }
-                AuthService.prototype.loginUser = function (userName, password) {
+                // Auth
+                AuthService.prototype.loginUser = function (username, password) {
                     var _this = this;
-                    var loginInfo = { username: userName, password: password };
-                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post('/api/login', loginInfo, options)
-                        .pipe(operators_1.tap(function (data) {
-                        _this.currentUser = data['user'];
-                    }))
-                        .pipe(operators_1.catchError(function (err) {
-                        return rxjs_1.of(false);
-                    }));
+                    var loginInfo = { username: username, password: password };
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Authorization': 'authkey' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', loginInfo, options)
+                        .pipe(operators_1.tap(function (data) { _this.currentUser = data['user']; }))
+                        .pipe(operators_1.catchError(function (err) { return rxjs_1.of(false); }))
+                        .pipe(operators_1.map(function (Users) { _this.setToken(Users[0].name); return Users; }));
+                };
+                AuthService.prototype.setToken = function (token) {
+                    localStorage.setItem('token', token);
+                };
+                AuthService.prototype.getToken = function () {
+                    return localStorage.getItem('token');
+                };
+                AuthService.prototype.deleteToken = function () {
+                    localStorage.removeItem('token');
+                };
+                AuthService.prototype.isLoggedIn = function () {
+                    var usertoken = this.getToken();
+                    if (usertoken != null) {
+                        return true;
+                    }
+                    return false;
                 };
                 AuthService.prototype.isAuthenticated = function () {
                     return !!this.currentUser;
                 };
-                AuthService.prototype.checkAuthenticationStatus = function () {
-                    var _this = this;
-                    this.http.get('/api/currentIdentity')
-                        .pipe(operators_1.tap(function (data) {
-                        if (data instanceof Object) {
-                            _this.currentUser = data;
-                        }
-                    }))
-                        .subscribe();
-                };
-                AuthService.prototype.updateCurrentUser = function (firstName, lastName) {
-                    this.currentUser.firstName = firstName;
-                    this.currentUser.lastName = lastName;
-                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.put("/api/users/" + this.currentUser.id, this.currentUser, options);
-                };
                 AuthService.prototype.logout = function () {
                     this.currentUser = undefined;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post('/api/logout', {}, options);
+                    return this.http.post(this.server_url + '/backend/admin/auth/logout.php', {}, options);
+                };
+                // Insert, Update 
+                AuthService.prototype.userRegistration = function (firstName, lastName, email, username, password) {
+                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', { firstName: firstName, lastName: lastName, email: email, username: username, password: password }).pipe(operators_1.map(function (Users) { return Users; }));
+                };
+                AuthService.prototype.updateCurrentUser = function (firstName, lastName, email, username, password) {
+                    this.currentUser.firstName = firstName;
+                    this.currentUser.lastName = lastName;
+                    this.currentUser.email = email;
+                    this.currentUser.username = username;
+                    this.currentUser.password = password;
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.put("/api/users/" + this.currentUser.id, this.currentUser, options);
                 };
                 AuthService = __decorate([
                     core_1.Injectable()
@@ -82,7 +94,7 @@ System.register("auth.service", ["@angular/core", "@angular/common/http", "rxjs/
         }
     };
 });
-System.register("profile.component", ["@angular/core", "@angular/forms"], function (exports_3, context_3) {
+System.register("user/profile/profile.component", ["@angular/core", "@angular/forms"], function (exports_3, context_3) {
     "use strict";
     var core_2, forms_1, ProfileComponent;
     var __moduleName = context_3 && context_3.id;
@@ -104,21 +116,27 @@ System.register("profile.component", ["@angular/core", "@angular/forms"], functi
                 ProfileComponent.prototype.ngOnInit = function () {
                     this.firstName = new forms_1.FormControl(this.authService.currentUser.firstName, [forms_1.Validators.required, forms_1.Validators.pattern('[a-zA-Z].*')]);
                     this.lastName = new forms_1.FormControl(this.authService.currentUser.lastName, forms_1.Validators.required);
+                    this.email = new forms_1.FormControl(this.authService.currentUser.email, forms_1.Validators.required);
+                    this.username = new forms_1.FormControl(this.authService.currentUser.username, forms_1.Validators.required);
+                    this.password = new forms_1.FormControl(this.authService.currentUser.password, forms_1.Validators.required);
                     this.profileForm = new forms_1.FormGroup({
                         firstName: this.firstName,
-                        lastName: this.lastName
+                        lastName: this.lastName,
+                        email: this.email,
+                        username: this.username,
+                        password: this.password
                     });
                 };
                 ProfileComponent.prototype.saveProfile = function (formValues) {
                     if (this.profileForm.valid) {
-                        this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
+                        this.authService.updateCurrentUser(formValues.firstName, formValues.lastName, formValues.email, formValues.username, formValues.password);
                         this.router.navigate(['main']);
                     }
                 };
                 ProfileComponent.prototype.logout = function () {
                     var _this = this;
                     this.authService.logout().subscribe(function () {
-                        _this.router.navigate(['/user/login']);
+                        _this.router.navigate(['main']);
                     });
                 };
                 ProfileComponent.prototype.validateFirstName = function () {
@@ -126,6 +144,15 @@ System.register("profile.component", ["@angular/core", "@angular/forms"], functi
                 };
                 ProfileComponent.prototype.validateLastName = function () {
                     return this.lastName.valid || this.lastName.untouched;
+                };
+                ProfileComponent.prototype.validateEmail = function () {
+                    return this.email.valid || this.email.untouched;
+                };
+                ProfileComponent.prototype.validateUsername = function () {
+                    return this.username.valid || this.username.untouched;
+                };
+                ProfileComponent.prototype.validatePassword = function () {
+                    return this.password.valid || this.password.untouched;
                 };
                 ProfileComponent.prototype.cancel = function () {
                     this.router.navigate(['main']);
@@ -143,7 +170,7 @@ System.register("profile.component", ["@angular/core", "@angular/forms"], functi
         }
     };
 });
-System.register("login.component", ["@angular/core"], function (exports_4, context_4) {
+System.register("user/login/login.component", ["@angular/core"], function (exports_4, context_4) {
     "use strict";
     var core_3, LoginComponent;
     var __moduleName = context_4 && context_4.id;
@@ -162,13 +189,14 @@ System.register("login.component", ["@angular/core"], function (exports_4, conte
                 }
                 LoginComponent.prototype.login = function (formValues) {
                     var _this = this;
-                    this.authService.loginUser(formValues.userName, formValues.password)
+                    this.authService.loginUser(formValues.username, formValues.password)
                         .subscribe(function (resp) {
-                        if (!resp) {
-                            _this.loginInvalid = true;
+                        if (resp) {
+                            _this.authService.isAuthenticated();
+                            _this.router.navigate(['main']);
                         }
                         else {
-                            _this.router.navigate(['main']);
+                            _this.loginInvalid = true;
                         }
                     });
                 };
@@ -187,7 +215,7 @@ System.register("login.component", ["@angular/core"], function (exports_4, conte
         }
     };
 });
-System.register("user.routes", ["profile.component", "login.component"], function (exports_5, context_5) {
+System.register("user/user.routes", ["user/profile/profile.component", "user/login/login.component"], function (exports_5, context_5) {
     "use strict";
     var profile_component_1, login_component_1, userRoutes;
     var __moduleName = context_5 && context_5.id;
@@ -208,14 +236,43 @@ System.register("user.routes", ["profile.component", "login.component"], functio
         }
     };
 });
-System.register("user.module", ["@angular/core", "@angular/common", "@angular/router", "@angular/forms", "user.routes", "profile.component", "login.component"], function (exports_6, context_6) {
+System.register("user/register/register.component", ["@angular/core"], function (exports_6, context_6) {
     "use strict";
-    var core_4, common_1, router_1, forms_2, user_routes_1, profile_component_2, login_component_2, UserModule;
+    var core_4, RegisterComponent;
     var __moduleName = context_6 && context_6.id;
     return {
         setters: [
             function (core_4_1) {
                 core_4 = core_4_1;
+            }
+        ],
+        execute: function () {
+            RegisterComponent = /** @class */ (function () {
+                function RegisterComponent() {
+                }
+                RegisterComponent.prototype.ngOnInit = function () {
+                };
+                RegisterComponent = __decorate([
+                    core_4.Component({
+                        selector: 'app-register',
+                        templateUrl: './register.component.html',
+                        styleUrls: ['./register.component.scss']
+                    })
+                ], RegisterComponent);
+                return RegisterComponent;
+            }());
+            exports_6("RegisterComponent", RegisterComponent);
+        }
+    };
+});
+System.register("user/user.module", ["@angular/core", "@angular/common", "@angular/router", "@angular/forms", "user/user.routes", "user/profile/profile.component", "user/login/login.component", "user/register/register.component"], function (exports_7, context_7) {
+    "use strict";
+    var core_5, common_1, router_1, forms_2, user_routes_1, profile_component_2, login_component_2, register_component_1, UserModule;
+    var __moduleName = context_7 && context_7.id;
+    return {
+        setters: [
+            function (core_5_1) {
+                core_5 = core_5_1;
             },
             function (common_1_1) {
                 common_1 = common_1_1;
@@ -234,6 +291,9 @@ System.register("user.module", ["@angular/core", "@angular/common", "@angular/ro
             },
             function (login_component_2_1) {
                 login_component_2 = login_component_2_1;
+            },
+            function (register_component_1_1) {
+                register_component_1 = register_component_1_1;
             }
         ],
         execute: function () {
@@ -241,7 +301,7 @@ System.register("user.module", ["@angular/core", "@angular/common", "@angular/ro
                 function UserModule() {
                 }
                 UserModule = __decorate([
-                    core_4.NgModule({
+                    core_5.NgModule({
                         imports: [
                             common_1.CommonModule,
                             forms_2.FormsModule,
@@ -250,14 +310,15 @@ System.register("user.module", ["@angular/core", "@angular/common", "@angular/ro
                         ],
                         declarations: [
                             profile_component_2.ProfileComponent,
-                            login_component_2.LoginComponent
+                            login_component_2.LoginComponent,
+                            register_component_1.RegisterComponent
                         ],
                         providers: []
                     })
                 ], UserModule);
                 return UserModule;
             }());
-            exports_6("UserModule", UserModule);
+            exports_7("UserModule", UserModule);
         }
     };
 });

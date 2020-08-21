@@ -39,6 +39,30 @@
 		"oAP": "/build/.idea",
 		"oF": 0
 		},
+	"/backend/admin/auth/login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/admin/auth/login.php",
+		"oF": 0
+		},
+	"/backend/admin/auth/logout.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/admin/auth/logout.php",
+		"oF": 0
+		},
+	"/backend/admin/auth/register.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/admin/auth/register.php",
+		"oF": 0
+		},
 	"/backend/CRUD/delete.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -71,6 +95,14 @@
 		"oAP": "/backend/events/read.php",
 		"oF": 0
 		},
+	"/backend/items/delete.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/items/delete.php",
+		"oF": 0
+		},
 	"/backend/items/insert.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -93,6 +125,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/backend/items/read.php",
+		"oF": 0
+		},
+	"/backend/items/update.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/items/update.php",
 		"oF": 0
 		},
 	"/backend/mysql_connection.php": {
@@ -141,13 +181,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/3rdpartylicenses.txt",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/4.d34521c2411d8c7b01d5.js": {
+	"/frontend/dist/AngularJSTemplate/4.f57c1d3006ed0f567681.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/4.d34521c2411d8c7b01d5-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/4.f57c1d3006ed0f567681-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -286,13 +326,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/index.html",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/main.c406a234cfe0845c8673.js": {
+	"/frontend/dist/AngularJSTemplate/main.a395b2aeeee550da941b.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/main.c406a234cfe0845c8673-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/main.a395b2aeeee550da941b-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -316,24 +356,24 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/primary.f5622e8907f0bef2e016.ttf",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/runtime.9094afe75c605e3c5f4f.js": {
+	"/frontend/dist/AngularJSTemplate/runtime.95210d123a66b1f535c2.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/runtime.9094afe75c605e3c5f4f-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/runtime.95210d123a66b1f535c2-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/styles.46e0cdbd698f921f6fcc.css": {
+	"/frontend/dist/AngularJSTemplate/styles.3139daefd40019b8af31.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/styles.46e0cdbd698f921f6fcc-min.css",
+		"oAP": "/frontend/dist/AngularJSTemplate/styles.3139daefd40019b8af31-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -564,6 +604,55 @@
 		"rC": 0,
 		"tEC": 0
 		},
+	"/frontend/src/app/common/errors/not-found.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/common/errors/not-found.component.html",
+		"oF": 0
+		},
+	"/frontend/src/app/common/errors/not-found.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/common/errors/not-found.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/frontend/src/app/common/errors/not-found.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/common/errors/not-found.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/common/errors/not-found.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/common/errors/not-found.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
 	"/frontend/src/app/common/jQuery.service.ts": {
 		"cDF": 0,
 		"ft": 128,
@@ -574,31 +663,6 @@
 		"moT": 2,
 		"oA": 1,
 		"oAP": "/frontend/src/app/common/jQuery.service.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/common/keyword-filter.pipe.spec.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/frontend/src/app/common/keyword-filter.pipe.spec-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/frontend/src/app/common/keyword-filter.pipe.spec.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 0,
-		"oAP": "/frontend/src/app/common/keyword-filter.pipe.spec.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
@@ -666,306 +730,6 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/events/create-event.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/create-event.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/create-event.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/create-event.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/create-event.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/create-event.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event-details/create-session.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/create-session.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/event-details/create-session.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/create-session.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/event-details/create-session.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/event-details/create-session.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event-details/event-details.component.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/event-details.component-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/frontend/src/app/events/event-details/event-details.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/event-details.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/event-details/event-details.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/event-details.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/event-details/event-details.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/event-details/event-details.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event-details/index.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/index.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event-details/sessions.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/sessions.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/event-details/sessions.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event-details/sessions.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/event-details/sessions.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/event-details/sessions.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event-resolver.service.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/event-resolver.service.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/event.component.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event.component-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"/frontend/src/app/events/event.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/event.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/event.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/event.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/event.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/events-resolver.service.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/events-resolver.service.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/events.component.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/events.component.html",
-		"oF": 0
-		},
-	"/frontend/src/app/events/events.component.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"ec": 1,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/events.component.css",
-		"oF": 0,
-		"oS": 0,
-		"sct": 0
-		},
-	"/frontend/src/app/events/events.component.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/events.component.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/shared/index.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/events/shared/index.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
-	"/frontend/src/app/events/shared/restricted-words.validator.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 0,
-		"oAP": "/frontend/src/app/events/shared/restricted-words.validator.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
 	"/frontend/src/app/functions/functions.component.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -1000,6 +764,16 @@
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
+		},
+	"/frontend/src/app/items/create-item/create-item.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/create-item/create-item.component-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/frontend/src/app/items/create-item/create-item.component.html": {
 		"cB": 0,
@@ -1271,6 +1045,76 @@
 		"rC": 0,
 		"tEC": 0
 		},
+	"/frontend/src/app/items/update-item/update-item.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/frontend/src/app/items/update-item/update-item.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component.html",
+		"oF": 0
+		},
+	"/frontend/src/app/items/update-item/update-item.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/frontend/src/app/items/update-item/update-item.component.spec.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component.spec-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/frontend/src/app/items/update-item/update-item.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/items/update-item/update-item.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/items/update-item/update-item.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
 	"/frontend/src/app/main-nav/main-nav.component.css": {
 		"aP": 1,
 		"bl": 0,
@@ -1488,31 +1332,6 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/services/events.service.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/frontend/src/app/services/events.service-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/frontend/src/app/services/events.service.ts": {
-		"cDF": 0,
-		"ft": 128,
-		"jxM": 0,
-		"ma": 0,
-		"mi": 0,
-		"moR": 0,
-		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/services/events.service.js",
-		"oF": 0,
-		"rC": 0,
-		"tEC": 0
-		},
 	"/frontend/src/app/services/index.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1563,15 +1382,25 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/user/login.component.html": {
+	"/frontend/src/app/user/login/login.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/login/login.component-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/frontend/src/app/user/login/login.component.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/user/login.component.html",
+		"oAP": "/frontend/src/app/user/login/login.component.html",
 		"oF": 0
 		},
-	"/frontend/src/app/user/login.component.scss": {
+	"/frontend/src/app/user/login/login.component.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1579,12 +1408,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/user/login.component.css",
+		"oAP": "/frontend/src/app/user/login/login.component.css",
 		"oF": 0,
 		"oS": 0,
 		"sct": 0
 		},
-	"/frontend/src/app/user/login.component.ts": {
+	"/frontend/src/app/user/login/login.component.ts": {
 		"cDF": 0,
 		"ft": 128,
 		"jxM": 0,
@@ -1593,20 +1422,41 @@
 		"moR": 0,
 		"moT": 2,
 		"oA": 1,
-		"oAP": "/frontend/src/app/user/login.component.js",
+		"oAP": "/frontend/src/app/user/login/login.component.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/user/profile.component.html": {
+	"/frontend/src/app/user/profile/profile.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/profile/profile.component-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/frontend/src/app/user/profile/profile.component.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/user/profile.component.html",
+		"oAP": "/frontend/src/app/user/profile/profile.component.html",
 		"oF": 0
 		},
-	"/frontend/src/app/user/profile.component.scss": {
+	"/frontend/src/app/user/profile/profile.component.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/profile/profile.component-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/frontend/src/app/user/profile/profile.component.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1614,12 +1464,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/user/profile.component.css",
+		"oAP": "/frontend/src/app/user/profile/profile.component.css",
 		"oF": 0,
 		"oS": 0,
 		"sct": 0
 		},
-	"/frontend/src/app/user/profile.component.ts": {
+	"/frontend/src/app/user/profile/profile.component.ts": {
 		"cDF": 0,
 		"ft": 128,
 		"jxM": 0,
@@ -1628,7 +1478,56 @@
 		"moR": 0,
 		"moT": 2,
 		"oA": 1,
-		"oAP": "/frontend/src/app/user/profile.component.js",
+		"oAP": "/frontend/src/app/user/profile/profile.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/user/register/register.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/register/register.component.html",
+		"oF": 0
+		},
+	"/frontend/src/app/user/register/register.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/register/register.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/frontend/src/app/user/register/register.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/register/register.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/user/register/register.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/user/register/register.component.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0

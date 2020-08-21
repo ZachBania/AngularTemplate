@@ -14,8 +14,7 @@ $id = $data->id;
 echo json_encode($request_body);
 if(isset($data)){
     
-$sql = "Delete From tbl_backend 
-        WHERE id=$id";
+$sql = "Delete From Items WHERE id=$id";
 $result = mysqli_query($conn,$sql);
 
 }

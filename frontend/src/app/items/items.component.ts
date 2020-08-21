@@ -15,11 +15,11 @@ export class ItemsComponent implements OnInit {
     
   }
 
-  keyword: string;
+  name: string;
   category: string;
 
   reset($event): void {
-    this.keyword = '';
+    this.name = '';
     this.category = '';
   }
 

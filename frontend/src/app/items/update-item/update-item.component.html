@@ -1,0 +1,55 @@
+<h1>Update Item</h1>
+
+<div class="col-md-6">
+  <form [formGroup]="updateForm" (ngSubmit)="updateItem(updateForm.value)" autocomplete="off" novalidate>
+    
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.id?.invalid && updateForm.controls.id?.touched}">
+      <em *ngIf="updateForm.controls.id?.invalid && (updateForm.controls.id?.touched)">*</em>
+      <label for="id">Item id:</label>
+      <input formControlName="id" (ngModel)="currentItem.id" name="id" id="name" type="text" class="form-control" placeholder="id" required/>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.name?.invalid && updateForm.controls.name?.touched}">
+      <em *ngIf="updateForm.controls.name?.invalid && (updateForm.controls.name?.touched)">*</em>
+      <label for="name">Item name:</label>
+      <input formControlName="name" (ngModel)="currentItem.name" name="name" id="name" type="text" class="form-control" placeholder="name" required/>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.description?.invalid && updateForm.controls.description?.touched}">
+        <em *ngIf="updateForm.controls.description?.invalid && (updateForm.controls.description?.touched)">*</em>
+        <label for="description">Item Description:</label>
+        <input formControlName="description" (ngModel)="currentItem.description" name="description" id="description" type="text" class="form-control" placeholder="description" required/>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.price?.invalid && updateForm.controls.price?.touched}">
+        <em *ngIf="updateForm.controls.price?.invalid && (updateForm.controls.price?.touched)">*</em>
+        <label for="price">Item Price:</label>
+        <input formControlName="price" (ngModel)="currentItem.price" name="price" id="price" type="text" class="form-control" placeholder="price" required/>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.inventory?.invalid && updateForm.controls.inventory?.touched}">
+        <em *ngIf="updateForm.controls.inventory?.invalid && (updateForm.controls.inventory?.touched)">*</em>
+        <label for="inventory">Item Inventory:</label>
+        <input formControlName="inventory" (ngModel)="currentItem.inventory" name="inventory" id="inventory" type="text" class="form-control" placeholder="inventory" required/>
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.category?.invalid && updateForm.controls.category?.touched}">
+        <em *ngIf="updateForm.controls.category?.invalid && (updateForm.controls.category?.touched)">*</em>
+        <label for="category">Item Category:</label>
+        <input formControlName="category" (ngModel)="currentItem.category" name="category" id="category" type="text" class="form-control" placeholder="category" required/>
+    </div>
+    
+    <div class="form-group" [ngClass]="{'error': updateForm.controls.image_url?.invalid && updateForm.controls.image_url?.touched}">
+      <em *ngIf="updateForm.controls.image_url?.invalid && updateForm.controls.image_url?.touched && updateForm.controls.image_url?.errors.required">*</em>
+      <label for="image_url">Image:</label>
+      <input formControlName="image_url" (ngModel)="currentItem.image_url" name="image_url" pattern=".*\/.*.(png|jpg)" id="image_url" type="text" class="form-control" placeholder="preview.png" required/>
+      <em *ngIf="updateForm.controls.image_url?.invalid && updateForm.controls.image_url?.touched  && updateForm.controls.image_url?.errors.pattern">Must be a png or jpg url</em>
+      <img [src]="updateForm.controls.image_url.value" *ngIf="updateForm.controls.image_url?.valid" />
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

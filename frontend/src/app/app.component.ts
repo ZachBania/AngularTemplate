@@ -9,11 +9,28 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   
   brandTitle: string = "Angular Template";
+  isAuthenticated: boolean;
 
-  constructor(public auth: AuthService) {}
-  
-    ngOnInit() {
-      this.auth.checkAuthenticationStatus();
+  constructor(public authService: AuthService) {
+
+  }
+  async ngOnInit() {
+    this.isAuthenticated = this.authService.isAuthenticated();
+
+    if(this.authService.isAuthenticated())
+    {
+      console.log("isAuthenticated == true");
     }
+    else{
+      console.log("isAuthenticated == false");
+    }
+    if(this.authService.isLoggedIn())
+    {
+      console.log("isLoggedIn == true");
+    }
+    else{
+      console.log("isLoggedIn == false");
+    }
+  }
   
 }

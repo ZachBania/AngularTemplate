@@ -14,62 +14,50 @@ import  { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
 
 import { FunctionsComponent } from './functions/functions.component';
 
-import { EventsComponent } from './events/events.component';
-import { EventComponent } from './events/event.component'
-import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { CreateEventComponent } from './events/create-event.component';
-
 import { ItemsComponent } from './items/items.component';
 import { ItemComponent } from './items/item.component';
 import { ItemDetailsComponent } from './items/item-details/item-details.component';
 import { CreateItemComponent } from './items/create-item/create-item.component';
 
-import { SessionsComponent } from './events/event-details/sessions.component';
-import { CreateSessionComponent } from './events/event-details/create-session.component';
-
 import { SimpleModalComponent } from './common/simple-modal.component';
 
 // Provide Services
-import { EventsService } from './services/events.service';
 import { AuthService } from './services/auth.service';
 import { JQ_TOKEN } from './common/jQuery.service';
 let jQuery = window['$'];
-import { EventsResolver } from './events/events-resolver.service'
-import { EventResolver } from './events/event-resolver.service'
 
 // Import Pipes
 import { DropdownFilterPipe } from './common/dropdown-filter.pipe';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { KeywordFilterPipe } from './common/keyword-filter.pipe';
+import { NotFoundComponent } from './common/errors/not-found.component';
+import { UpdateItemComponent } from './items/update-item/update-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    MainNavComponent,
     MainSidebarComponent,
     //Function Components
     FunctionsComponent,
-    // Events Components
-    EventsComponent,
-    EventComponent,
-    EventDetailsComponent,
-    CreateEventComponent,
-    SessionsComponent,
-    CreateSessionComponent,
+
     // Other Components
     SimpleModalComponent,
     // Pipes
     DropdownFilterPipe,
+    KeywordFilterPipe,
     // Directives
     ModalTriggerDirective,
-    MainNavComponent,
     // Items
     ItemsComponent,
     ItemComponent,
     ItemDetailsComponent,
     CreateItemComponent,
-    KeywordFilterPipe,
+    // Other
+    NotFoundComponent,
+    UpdateItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,10 +67,7 @@ import { KeywordFilterPipe } from './common/keyword-filter.pipe';
     HttpClientModule
   ],
   providers: [
-    EventsService,
     AuthService,
-    EventsResolver,
-    EventResolver,
     { provide: JQ_TOKEN, useValue: jQuery },
   ],
   bootstrap: [AppComponent]

@@ -23,14 +23,6 @@ export class ItemDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.itemsService.getItem(+params['id']).subscribe((res: any) => {
          this.object = res;
-        //  this.item.id = this.object.id;
-        //  this.item.name = this.object.name;
-        //  this.item.description = this.object.description;
-        //  this.item.price = this.object.price;
-        //  this.item.inventory = this.object.inventory;
-        //  this.item.category = this.object.category;
-        //  this.item.image_url = this.object.image_url;
-         
       })  
     });
 

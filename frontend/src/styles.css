@@ -81,6 +81,10 @@ html, body {
   max-width: 60em;
   background: white;
 }
+.container footer {
+  clear: both;
+  display: block;
+}
 .container footer ul.nav li {
   clear: both;
 }

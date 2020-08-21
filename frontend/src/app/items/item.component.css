@@ -10,28 +10,57 @@
   color: white;
   border: #0385D2 solid 0.25em;
 }
-.item div:nth-child(1) {
-  width: 70%;
-  float: left;
-}
-.item div:nth-child(1) h2 {
+.item h2 {
   color: #0385D2;
   font-family: primary;
   font-size: 1.5em;
 }
-.item div:nth-child(1) p {
+.item hr {
+  clear: both;
+  margin: 0;
+  padding: 0.5em 0;
+}
+.item p {
   color: white;
   font-family: Arial;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
-.item div:nth-child(2) {
+.item p a:link,
+.item p a:visited {
+  background: none;
+  color: white;
+  font-family: Arial;
+  border: none;
+  float: left;
+  margin: 0;
+  padding: 0 1em 0 0;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.item p a:link:hover, .item p a:link:active,
+.item p a:visited:hover,
+.item p a:visited:active {
+  color: #0385D2;
+}
+.item div:nth-of-type(1) {
+  width: 70%;
+  float: left;
+}
+.item div:nth-of-type(2) {
   background: black;
   float: right;
-  width: 30%;
-  height: 5em;
+  width: 8em;
+  height: 6em;
   overflow: hidden;
-  outline: red solid 1px;
+  border: white solid 0.25em;
+  border-radius: 0.1em;
+  display: block;
+  position: relative;
 }
-.item div:nth-child(2) img {
+.item div:nth-of-type(2) img {
   width: 100%;
 }
 .item button {
@@ -39,6 +68,17 @@
   font-family: Arial;
   color: black;
   margin: 1em 0;
+  border: black solid 0.25em;
+  border-radius: 0.25em;
+  padding: 0.5em 0;
   clear: both;
   display: block;
+  width: 7.5em;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.item button:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 0.5em black;
 }

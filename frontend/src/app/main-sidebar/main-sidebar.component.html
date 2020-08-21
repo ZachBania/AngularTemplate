@@ -3,10 +3,10 @@
     <p>Hi {{auth.currentUser.firstName}}</p>
   </div>
 
-  <form id="searchForm" (ngSubmit)="searchSessions(searchTerm)" class="searchForm"  >
+  <form id="searchForm" (ngSubmit)="searchItems(searchTerm)" class="searchForm"  >
     <div class="form-group">
       <p>
-        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Events" >
+        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Items" >
         <button class="btn btn-default" modal-trigger="searchResults">Search</button> 
       </p>
     </div>
@@ -15,7 +15,7 @@
   
   <app-simple-modal closeOnBodyClick="true" elementId="searchResults" title="Matching Sessions">
     <ul>
-      <li *ngFor="let session of foundSessions"><a [routerLink]="['/events', session.eventId]">{{session.name}}</a></li>
+      <li *ngFor="let item of matchingItems"><a [routerLink]="['/items', item.id]">{{item.name}}</a></li>
     </ul>
       
   </app-simple-modal>

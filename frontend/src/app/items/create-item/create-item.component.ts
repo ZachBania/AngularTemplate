@@ -16,7 +16,6 @@ export class CreateItemComponent implements OnInit {
 
   }
 
-
   saveItem(formValues) {
     this.itemsService.saveItem(formValues).subscribe(() => {
       this.isDirty = false
@@ -31,5 +30,4 @@ export class CreateItemComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 }

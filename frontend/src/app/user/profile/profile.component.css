@@ -1,0 +1,51 @@
+@font-face {
+  src: url("./assets/fonts/primary.ttf");
+  font-family: primary;
+}
+h1 {
+  color: #0385D2;
+  font-family: primary;
+  font-size: 2.5em;
+  padding: 0.5em;
+  background: black;
+}
+
+form {
+  padding: 1em;
+}
+form .form-group {
+  clear: both;
+  padding: 0.5em 0;
+}
+form .form-group em {
+  float: left;
+  color: red;
+}
+form .form-group label {
+  width: 10em;
+  font-size: 1em;
+  font-family: Arial;
+  color: black;
+  float: left;
+}
+form .form-group input.form-control {
+  width: 10em;
+  font-size: 1em;
+  font-family: Arial;
+  color: black;
+  background: transparent;
+  display: block;
+  float: left;
+}
+form .form-group button {
+  width: calc(10em - .25em);
+  font-size: 1em;
+  padding: 0;
+  font-family: Arial;
+  color: black;
+  font-weight: 900;
+}
+form .form-group button[type=submit] {
+  margin: 0 0.5em 0 0;
+  background: #0385D2;
+}

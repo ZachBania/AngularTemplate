@@ -46,6 +46,7 @@ footer {
   font-size: 1em;
   width: 100%;
   clear: both;
+  position: relative;
 }
 footer h2 {
   color: #0385D2;

@@ -10,7 +10,7 @@ export class MainNavComponent {
   constructor(public auth: AuthService) {}
   
   ngOnInit() {
-    this.auth.checkAuthenticationStatus();
+    this.auth.isAuthenticated();
   }
 
 }

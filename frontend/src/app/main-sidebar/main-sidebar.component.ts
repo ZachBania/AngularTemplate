@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IEvent, EventsService, ISession } from '../events/shared/index';
 import { AuthService } from '../services/auth.service';
+import { ItemsService } from './../services/index';
+import { IItem } from './../models/index'
 
 @Component({
   selector: 'app-main-sidebar',
@@ -9,25 +10,23 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./main-sidebar.component.scss']
 })
 export class MainSidebarComponent implements OnInit {
-  event: IEvent;
-  session: ISession;
+  
+  item: IItem;
 
 
-
-  constructor(public auth: AuthService, private eventService: EventsService, private route:ActivatedRoute) { }
+  constructor(public auth: AuthService, private itemsService: ItemsService, private route:ActivatedRoute) { }
   ngOnInit(): void {
     this.route.data.forEach((data) => {
-      this.event = data['event'];
+      this.item = data['item'];
     })
-    this.auth.checkAuthenticationStatus();
+    // this.auth.checkAuthenticationStatus();
   }  
 
   searchTerm: string = "";
-  foundSessions: ISession[]
-  searchSessions(searchTerm) {
-    this.eventService.searchSessions(searchTerm).subscribe(sessions => {
-      this.foundSessions = sessions;
-      console.log(this.foundSessions);
+  matchingItems: IItem[]
+  searchItems(searchTerm) {
+    this.itemsService.searchItems(searchTerm).subscribe(items => {
+      this.matchingItems = items;
     })
   }
 

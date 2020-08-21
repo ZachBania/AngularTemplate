@@ -1,14 +1,16 @@
 <div class="item" > 
+    <h2>{{ item.name }}</h2>
+    <p><a [routerLink]="['/items/update-item', item.id]" class="btn btn-primary">Update</a></p>
+    <p><a (click)="serviceDeleteItem(item)" href="javascript:void" class="btn btn-primary">Delete</a></p>
+    <hr>
     <div>
-        <h2>{{ item.name }}</h2>
         <p>{{ item.description }}</p>
         <p>{{ item.price | currency }}</p>
         <p>{{ item.inventory }} Avaiable</p>
         <p>{{ item.category }}</p>
     </div>
     <div>
-        <img src="../../assets/images/items/{{ item.image_url }}"/>
+        <img src="./../../assets/images/items/{{ item.image_url }}"/>
     </div>
     <button [routerLink]="['/items', item.id]" class="btn btn-primary">Item Details</button>
-
 </div>

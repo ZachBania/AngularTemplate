@@ -24,6 +24,27 @@ aside {
   height: 10em;
   outline: black solid 1px;
 }
+aside a:link,
+aside a:visited {
+  background: #0385D2;
+  font-family: Arial;
+  color: black;
+  margin: 1em 0;
+  border: black solid 0.25em;
+  border-radius: 0.25em;
+  padding: 0.5em 0;
+  clear: both;
+  display: block;
+  width: 45%;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+aside a:hover,
+aside a:active {
+  text-decoration: none;
+  box-shadow: inset 0 0 0.5em black;
+}
 aside button {
   background: #0385D2;
   font-family: Arial;
@@ -35,4 +56,11 @@ aside button {
   clear: both;
   display: block;
   width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+aside button:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 0.5em black;
 }

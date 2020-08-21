@@ -1,6 +1,6 @@
 <?php
     
-require 'mysql_connection.php';
+require './../mysql_connection.php';
 
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -10,9 +10,11 @@ $request_body = file_get_contents('php://input');
 $data = json_decode($request_body);
 
 $name = $data->name;
-$mobile = $data->mobile;
-$designation = $data->designation;
-$salary = $data->salary;
+$description = $data->description;
+$price = $data->price;
+$inventory = $data->inventory;
+$category = $data->category;
+$image_url = $data->image_url;
 
 echo json_encode($request_body);
 if(isset($data)){

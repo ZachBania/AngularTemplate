@@ -2,26 +2,30 @@
 
 <main>
     <app-item *ngFor='let item of items | filter: form.value' [item]='item' (itemDetailClick)='detailClick($event)'></app-item>
-</main>
+</main> 
 <aside>
-    <h2>Filter Items</h2>
-
-    <form novalidate #form="ngForm">
-        <div class="form-group">
-            <p><input type="text" class="form-control" name="name" [(ngModel)]="keyword" placeholder="keyword"></p>
-        </div>
-        <div class="form-group">
-            <p>Item Category
-                <select class="form-control" name="category" [(ngModel)]="category">
-                    <option></option>      
-                    <option value="category1">Category One</option>
-                    <option value="category2">Category Two</option>
-                    <option value="category3">Category Three</option>
-                    <option value="category4">Category Four</option>
-                    <option value="category5">Category Five</option>
-                </select>
-            </p>
-        </div> 
-        <p><button type="button" (click)="reset($event)">Clear Fitlers</button></p>
+    <div>
+        <p><a [routerLink]="['/items/create-item']">Create Item</a></p>
+    </div>
+    <div>
+        <h2>Filter Items</h2>
+        <form novalidate #form="ngForm">
+            <div class="form-group">
+                <p><input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="keyword"></p>
+            </div>
+            <div class="form-group">
+                <p>Item Category
+                    <select class="form-control" name="category" [(ngModel)]="category">
+                        <option></option>      
+                        <option value="category1">Category One</option>
+                        <option value="category2">Category Two</option>
+                        <option value="category3">Category Three</option>
+                        <option value="category4">Category Four</option>
+                        <option value="category5">Category Five</option>
+                    </select>
+                </p>
+            </div> 
+            <p><button type="button" (click)="reset($event)">Clear Fitlers</button></p>
         </form>
+    </div>
 </aside>

@@ -77,6 +77,8 @@ html, body, *, .row {
 
 	// Global footer Styling
 	footer {
+		clear: both;
+		display: block;
 		ul.nav {
 			li {
 				clear: both;
