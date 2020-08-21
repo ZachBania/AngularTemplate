@@ -2,6 +2,10 @@
 
 This template was designed to demonstrate the capabilities of framework synchronization, and provide a base architecture for future projects.
 
+## Production Server
+
+[https://zrbania.uwmsois.com/](https://zrbania.uwmsois.com/)
+
 ## Development server
 
 Run `npm run server` using Node.js for 8808 port listening. Followed by `npm start` to launch the application. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
