@@ -1,8 +1,5 @@
 <h1>Avaiable Items</h1>
 
-<main>
-    <app-item *ngFor='let item of items | filter: form.value' [item]='item' (itemDetailClick)='detailClick($event)'></app-item>
-</main> 
 <aside>
     <div>
         <p><a [routerLink]="['/items/create-item']">Create Item</a></p>
@@ -24,3 +21,6 @@
         </form>
     </div>
 </aside>
+<main>
+    <app-item *ngFor='let item of items | filter: form.value' [item]='item' (itemDetailClick)='detailClick($event)'></app-item>
+</main> 

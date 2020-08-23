@@ -20,9 +20,9 @@ export class LoginComponent {
     this.authService.loginUser(formValues.username, formValues.password)
     .subscribe(resp => {
         if(resp) {
-          if( this.authService.isAuthenticated()) {
+          // if( this.authService.isAuthenticated()) {
             this.router.navigate(['main']);
-          }
+          // }
         } else {
           this.loginInvalid = true;
         }

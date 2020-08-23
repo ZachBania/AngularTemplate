@@ -64,6 +64,13 @@ aside {
         text-decoration: none;
         box-shadow: inset 0 0 .5em $subTwoHighlight;
     }
+
+    &::after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 1em;
+    }
 }
 
 @media (max-width: 767px) {
@@ -74,5 +81,20 @@ aside {
         margin: 0 auto;
         float: none;
         width: 100%;
+    }
+
+    aside {
+
+        p {
+            width: 100%;
+            display: block;
+            margin: .5em 0;
+            input,
+            select {
+                float: right;
+                width: 50%;
+
+            }
+        }
     }
 }
