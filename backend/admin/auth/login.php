@@ -1,12 +1,16 @@
-<?php
+<?php 
 include_once("../../mysql_connection.php");
 
 $data = file_get_contents("php://input");
 $request = json_decode($data);
 
 if(isset($data) && !empty($data)) {
-    $password = $request->password;
-    $username = $request->username;
+    $first_name = $data->first_name;
+    $last_name = $data->last_name;
+    $email = $data->email;
+    $username = $data->username;
+    $password = $data->password;
+    
     $sql = "SELECT * FROM Users WHERE username='$username' AND password='$password'";
     
     if($result = mysqli_query($conn,$sql)) {

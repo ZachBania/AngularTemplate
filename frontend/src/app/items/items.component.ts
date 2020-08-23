@@ -23,10 +23,14 @@ export class ItemsComponent implements OnInit {
     this.category = '';
   }
 
-  ngOnInit(): any {
+  fetchData() {
     this.itemsService.getItems().subscribe(res => {
       this.items = res;
     });
+  }
+
+  ngOnInit(): any {
+    this.fetchData();
   }
 
 }

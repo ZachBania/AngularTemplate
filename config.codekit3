@@ -636,6 +636,16 @@
 		"rC": 0,
 		"tEC": 0
 		},
+	"/frontend/src/app/common/simple-modal.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/common/simple-modal.component-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/frontend/src/app/common/simple-modal.component.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -670,6 +680,16 @@
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
+		},
+	"/frontend/src/app/functions/functions.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/functions/functions.component-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/frontend/src/app/functions/functions.component.html": {
 		"cB": 0,
@@ -1145,6 +1165,16 @@
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
+		},
+	"/frontend/src/app/main/main.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main/main.component-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"/frontend/src/app/main/main.component.html": {
 		"cB": 0,

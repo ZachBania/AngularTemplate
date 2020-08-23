@@ -15,13 +15,8 @@
             </div>
             <div class="form-group">
                 <p>Item Category
-                    <select class="form-control" name="category" [(ngModel)]="category">
-                        <option></option>      
-                        <option value="category1">Category One</option>
-                        <option value="category2">Category Two</option>
-                        <option value="category3">Category Three</option>
-                        <option value="category4">Category Four</option>
-                        <option value="category5">Category Five</option>
+                    <select class="form-control" name="category" [(ngModel)]="category">    
+                        <option *ngFor='let item of items' value='{{ item.category }}'>{{item.category}}</option>
                     </select>
                 </p>
             </div> 

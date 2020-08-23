@@ -19,12 +19,11 @@ import { NotFoundComponent } from './common/errors/not-found.component';
 export const routes: Routes = [ // Routing order matters
   { path: 'main', component: MainComponent },
   { path: 'functions', component: FunctionsComponent },
+
   { path: 'items', component: ItemsComponent },
   { path: 'items/create-item', component: CreateItemComponent },
   { path: 'items/update-item/:id', component: UpdateItemComponent },
   { path: 'items/:id', component: ItemDetailsComponent },
-
-
 
   { path: 'user', loadChildren: () => import('src/app/user/user.module').then(m => m.UserModule) },
  

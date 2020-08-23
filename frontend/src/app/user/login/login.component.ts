@@ -20,10 +20,9 @@ export class LoginComponent {
     this.authService.loginUser(formValues.username, formValues.password)
     .subscribe(resp => {
         if(resp) {
-    
-          this.authService.isAuthenticated();
-
-          this.router.navigate(['main']);
+          if( this.authService.isAuthenticated()) {
+            this.router.navigate(['main']);
+          }
         } else {
           this.loginInvalid = true;
         }
@@ -32,6 +31,6 @@ export class LoginComponent {
   
  
   cancel() {
-    this.router.navigate(['main'])
+    this.router.navigate(['main']);
   }
 }

@@ -1,30 +1,25 @@
 <?php
+
 include_once("./../../mysql_connection.php");
 
-$postdata = file_get_contents("php://input");
-if(isset($postdata) && !empty($postdata)) {
-    
-    $request = json_decode($postdata);
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-control-allow-origin, access-control-allow-methods, access-control-allow-headers');
 
-    $first_name = trim($request->username);
-    $last_name = trim($request->username);
-    $email = trim($request->email);
-    $username = trim($request->username);
-    $password = mysqli_real_escape_string($mysqli, trim($request->password));
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body);
 
-    $sql = "INSERT INTO Users (first_name,last_name,email,username,password) 
-            VALUES ('$first_name','$last_name','$email','$username','$password')";
+$first_name = $data->first_name;
+$last_name = $data->last_name;
+$email = $data->email;
+$username = $data->username;
+$password = $data->password;
 
-    if ($mysqli->query($sql) === TRUE) {
-        $authdata = [
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'username' => $username,
-            'password' => $password,
-        ];
-        echo json_encode($authdata);
-    }
+// echo json_encode($request_body);
+if(isset($data)){
+    $sql = "INSERT INTO Users (first_name, last_name, email, username, password) VALUES ('$first_name','$last_name','$email','$username','$password')";
+    $result = mysqli_query($conn,$sql);
+
+    $authdata = ['first_name' => $first_name,'last_name' => $last_name,'email' => $email,'username' => $username,'password' => $password];
 }
-
 ?>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
+import { IUser } from './../../models/index';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  newUser: IUser;
+  isDirty:boolean = true
+  constructor(private authService: AuthService, private router: Router) {
 
-  ngOnInit(): void {
   }
 
+  saveUser(formValues) {
+    this.authService.userRegistration(formValues).subscribe(() => {
+      this.isDirty = false
+      this.router.navigate(['/user/login'])
+    });
+  }
+
+  cancel() {
+    this.router.navigate(['/user/login'])
+  }
+
+  ngOnInit(): void {
+
+  }
 }
