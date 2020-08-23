@@ -1,10 +1,10 @@
 export interface IUser {
   id: number;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
   username: string;
   password: string;
-  dateCreated: string;
-  permissionLevel: string;
+  date_created: string;
+  permission_level: string;
 }

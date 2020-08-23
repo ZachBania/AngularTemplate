@@ -14,7 +14,9 @@ export class AppComponent {
   constructor(public authService: AuthService) {
 
   }
-  async ngOnInit() {
+  
+  ngOnInit() {
+
     this.isAuthenticated = this.authService.isAuthenticated();
 
     if(this.authService.isAuthenticated())
@@ -23,13 +25,6 @@ export class AppComponent {
     }
     else{
       console.log("isAuthenticated == false");
-    }
-    if(this.authService.isLoggedIn())
-    {
-      console.log("isLoggedIn == true");
-    }
-    else{
-      console.log("isLoggedIn == false");
     }
   }
   

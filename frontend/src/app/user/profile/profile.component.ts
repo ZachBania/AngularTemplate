@@ -10,8 +10,8 @@ import { Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   profileForm:FormGroup
-  private firstName:FormControl
-  private lastName:FormControl
+  private first_name:FormControl
+  private last_name:FormControl
   private email:FormControl
   private username:FormControl
   private password:FormControl
@@ -21,15 +21,15 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
-    this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
+    this.first_name = new FormControl(this.authService.currentUser.first_name, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
+    this.last_name = new FormControl(this.authService.currentUser.last_name, Validators.required);
     this.email = new FormControl(this.authService.currentUser.email, Validators.required);
     this.username = new FormControl(this.authService.currentUser.username, Validators.required);
     this.password = new FormControl(this.authService.currentUser.password, Validators.required);
 
     this.profileForm = new FormGroup({
-      firstName: this.firstName,
-      lastName: this.lastName,
+      first_name: this.first_name,
+      last_name: this.last_name,
       email: this.email,
       username: this.username,
       password: this.password,
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName, formValues.email, formValues.username, formValues.password)
+      this.authService.updateCurrentUser(formValues.first_name, formValues.last_name, formValues.email, formValues.username, formValues.password)
       this.router.navigate(['main'])
     }
   }
@@ -50,11 +50,11 @@ export class ProfileComponent implements OnInit {
   }
 
   validateFirstName() {
-    return this.firstName.valid || this.firstName.untouched
+    return this.first_name.valid || this.first_name.untouched
   }
   
   validateLastName() {
-    return this.lastName.valid || this.lastName.untouched
+    return this.last_name.valid || this.last_name.untouched
   }
 
   validateEmail() {

@@ -3,16 +3,16 @@
   <div class="col-md-4">
     <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
       <div class="form-group" [ngClass]="{'error' : !validateFirstName() }">
-        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">*</em>
-        <label for="firstName">First Name:</label>
-        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
-        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Must start with a letter</em>
+        <em *ngIf="!validateFirstName() && profileForm.controls.first_name.errors.required">*</em>
+        <label for="first_name">First Name:</label>
+        <input formControlName="first_name" id="first_name" type="text" class="form-control" placeholder="First Name..." />
+        <em *ngIf="!validateFirstName() && profileForm.controls.first_name.errors.pattern">Must start with a letter</em>
       </div>
 
       <div class="form-group"  [ngClass]="{'error' : !validateLastName() }">
         <em *ngIf="!validateLastName()">*</em>
-        <label for="lastName">Last Name:</label>
-        <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
+        <label for="last_name">Last Name:</label>
+        <input formControlName="last_name" id="last_name" type="text" class="form-control" placeholder="Last Name..." />
       </div>
 
       <div class="form-group"  [ngClass]="{'error' : !validateEmail() }">
