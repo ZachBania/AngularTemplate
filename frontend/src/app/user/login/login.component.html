@@ -1,26 +1,13 @@
-<h1>Profile Login</h1>
+<h2 class="text-center">Login</h2>
 
-<div class="col-md-4">
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate>
-    <div class="form-group" >
-      <em *ngIf="loginForm.controls.username?.invalid && (loginForm.controls.username?.touched || mouseoverLogin)">*</em>
-      <label for="username">User Name:</label>
-      <input (ngModel)="username" name="username" required id="username" type="text" class="form-control" placeholder="User Name..." />
-    </div>
-   
-    <div class="form-group" >
-      <em *ngIf="loginForm.controls.password?.invalid  && (loginForm.controls.password?.touched || mouseoverLogin)">*</em>
-      <label for="password">Password:</label>
-      <input (ngModel)="password" name="password" required id="password" type="password" class="form-control"placeholder="Password..." />
-    </div>
-
-    <div class="form-group" >
-      <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
-        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
-      </span>
-      <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
-    </div>
-
-    <p *ngIf="loginInvalid" class="alert alert-danger">Invalid Login Info</p>
-  </form>
+<form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
 </div>
+<div class="form-group">
+<label for="Password">Password</label>
+<input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
+</div>
+<button type="submit" class="btn btn-success" >Login</button>
+</form>

@@ -4,42 +4,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
@@ -195,39 +159,89 @@ System.register("app/services/items.service", ["@angular/core", "rxjs", "rxjs/op
         }
     };
 });
-System.register("app/services/index", ["app/services/items.service"], function (exports_5, context_5) {
+System.register("app/models/user.model", [], function (exports_5, context_5) {
     "use strict";
     var __moduleName = context_5 && context_5.id;
-    function exportStar_1(m) {
-        var exports = {};
-        for (var n in m) {
-            if (n !== "default") exports[n] = m[n];
-        }
-        exports_5(exports);
-    }
-    return {
-        setters: [
-            function (items_service_1_1) {
-                exportStar_1(items_service_1_1);
-            }
-        ],
-        execute: function () {
-        }
-    };
-});
-System.register("app/models/events.model", [], function (exports_6, context_6) {
-    "use strict";
-    var __moduleName = context_6 && context_6.id;
     return {
         setters: [],
         execute: function () {
         }
     };
 });
-System.register("app/models/index", ["app/models/events.model", "app/models/items.model"], function (exports_7, context_7) {
+System.register("app/services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_6, context_6) {
+    "use strict";
+    var core_4, http_2, operators_2, AuthService;
+    var __moduleName = context_6 && context_6.id;
+    return {
+        setters: [
+            function (core_4_1) {
+                core_4 = core_4_1;
+            },
+            function (http_2_1) {
+                http_2 = http_2_1;
+            },
+            function (operators_2_1) {
+                operators_2 = operators_2_1;
+            }
+        ],
+        execute: function () {
+            AuthService = /** @class */ (function () {
+                function AuthService(http, router) {
+                    this.http = http;
+                    this.router = router;
+                    this.server_url = "https://zrbania.uwmsois.com";
+                    this.baseUrl = "http://localhost/angular_admin/php";
+                    this.getLoggedInName = new core_4.EventEmitter();
+                }
+                AuthService.prototype.userlogin = function (username, password) {
+                    var _this = this;
+                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
+                        .pipe(operators_2.tap(function (data) { _this.currentUser = data['user']; }))
+                        .pipe(operators_2.map(function (Users) { _this.setToken(Users[0].name); _this.getLoggedInName.emit(true); return Users; }));
+                };
+                AuthService.prototype.userRegistration = function (formValues) {
+                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
+                        .pipe(operators_2.map(function (Users) { return Users; }));
+                };
+                AuthService.prototype.setToken = function (token) {
+                    localStorage.setItem('token', token);
+                };
+                AuthService.prototype.getToken = function () {
+                    return localStorage.getItem('token');
+                };
+                AuthService.prototype.deleteToken = function () {
+                    localStorage.removeItem('token');
+                };
+                AuthService.prototype.isAuthenticated = function () {
+                    var usertoken = this.getToken();
+                    if (usertoken != null) {
+                        return true;
+                    }
+                    return false;
+                };
+                AuthService.prototype.logout = function () {
+                    this.deleteToken();
+                    window.location.href = window.location.href;
+                    this.router.navigate(['main']);
+                };
+                __decorate([
+                    core_4.Output()
+                ], AuthService.prototype, "getLoggedInName");
+                AuthService = __decorate([
+                    core_4.Injectable()
+                ], AuthService);
+                return AuthService;
+            }());
+            exports_6("AuthService", AuthService);
+        }
+    };
+});
+System.register("app/services/index", ["app/services/items.service", "app/services/auth.service"], function (exports_7, context_7) {
     "use strict";
     var __moduleName = context_7 && context_7.id;
-    function exportStar_2(m) {
+    function exportStar_1(m) {
         var exports = {};
         for (var n in m) {
             if (n !== "default") exports[n] = m[n];
@@ -236,25 +250,60 @@ System.register("app/models/index", ["app/models/events.model", "app/models/item
     }
     return {
         setters: [
-            function (events_model_1_1) {
-                exportStar_2(events_model_1_1);
+            function (items_service_1_1) {
+                exportStar_1(items_service_1_1);
             },
-            function (items_model_1_1) {
-                exportStar_2(items_model_1_1);
+            function (auth_service_1_1) {
+                exportStar_1(auth_service_1_1);
             }
         ],
         execute: function () {
         }
     };
 });
-System.register("app/items/items.component", ["@angular/core"], function (exports_8, context_8) {
+System.register("app/models/events.model", [], function (exports_8, context_8) {
     "use strict";
-    var core_4, ItemsComponent;
     var __moduleName = context_8 && context_8.id;
     return {
+        setters: [],
+        execute: function () {
+        }
+    };
+});
+System.register("app/models/index", ["app/models/events.model", "app/models/items.model", "app/models/user.model"], function (exports_9, context_9) {
+    "use strict";
+    var __moduleName = context_9 && context_9.id;
+    function exportStar_2(m) {
+        var exports = {};
+        for (var n in m) {
+            if (n !== "default") exports[n] = m[n];
+        }
+        exports_9(exports);
+    }
+    return {
         setters: [
-            function (core_4_1) {
-                core_4 = core_4_1;
+            function (events_model_1_1) {
+                exportStar_2(events_model_1_1);
+            },
+            function (items_model_1_1) {
+                exportStar_2(items_model_1_1);
+            },
+            function (user_model_1_1) {
+                exportStar_2(user_model_1_1);
+            }
+        ],
+        execute: function () {
+        }
+    };
+});
+System.register("app/items/items.component", ["@angular/core"], function (exports_10, context_10) {
+    "use strict";
+    var core_5, ItemsComponent;
+    var __moduleName = context_10 && context_10.id;
+    return {
+        setters: [
+            function (core_5_1) {
+                core_5 = core_5_1;
             }
         ],
         execute: function () {
@@ -267,14 +316,17 @@ System.register("app/items/items.component", ["@angular/core"], function (export
                     this.name = '';
                     this.category = '';
                 };
-                ItemsComponent.prototype.ngOnInit = function () {
+                ItemsComponent.prototype.fetchData = function () {
                     var _this = this;
                     this.itemsService.getItems().subscribe(function (res) {
                         _this.items = res;
                     });
                 };
+                ItemsComponent.prototype.ngOnInit = function () {
+                    this.fetchData();
+                };
                 ItemsComponent = __decorate([
-                    core_4.Component({
+                    core_5.Component({
                         selector: 'app-items',
                         templateUrl: './items.component.html',
                         styleUrls: ['./items.component.scss']
@@ -282,18 +334,18 @@ System.register("app/items/items.component", ["@angular/core"], function (export
                 ], ItemsComponent);
                 return ItemsComponent;
             }());
-            exports_8("ItemsComponent", ItemsComponent);
+            exports_10("ItemsComponent", ItemsComponent);
         }
     };
 });
-System.register("app/items/item-details/item-details.component", ["@angular/core"], function (exports_9, context_9) {
+System.register("app/items/item-details/item-details.component", ["@angular/core"], function (exports_11, context_11) {
     "use strict";
-    var core_5, ItemDetailsComponent;
-    var __moduleName = context_9 && context_9.id;
+    var core_6, ItemDetailsComponent;
+    var __moduleName = context_11 && context_11.id;
     return {
         setters: [
-            function (core_5_1) {
-                core_5 = core_5_1;
+            function (core_6_1) {
+                core_6 = core_6_1;
             }
         ],
         execute: function () {
@@ -312,7 +364,7 @@ System.register("app/items/item-details/item-details.component", ["@angular/core
                     });
                 };
                 ItemDetailsComponent = __decorate([
-                    core_5.Component({
+                    core_6.Component({
                         selector: 'app-item-details',
                         templateUrl: './item-details.component.html',
                         styleUrls: ['./item-details.component.scss']
@@ -320,18 +372,18 @@ System.register("app/items/item-details/item-details.component", ["@angular/core
                 ], ItemDetailsComponent);
                 return ItemDetailsComponent;
             }());
-            exports_9("ItemDetailsComponent", ItemDetailsComponent);
+            exports_11("ItemDetailsComponent", ItemDetailsComponent);
         }
     };
 });
-System.register("app/items/update-item/update-item.component", ["@angular/core"], function (exports_10, context_10) {
+System.register("app/items/update-item/update-item.component", ["@angular/core"], function (exports_12, context_12) {
     "use strict";
-    var core_6, UpdateItemComponent;
-    var __moduleName = context_10 && context_10.id;
+    var core_7, UpdateItemComponent;
+    var __moduleName = context_12 && context_12.id;
     return {
         setters: [
-            function (core_6_1) {
-                core_6 = core_6_1;
+            function (core_7_1) {
+                core_7 = core_7_1;
             }
         ],
         execute: function () {
@@ -379,7 +431,7 @@ System.register("app/items/update-item/update-item.component", ["@angular/core"]
                     });
                 };
                 UpdateItemComponent = __decorate([
-                    core_6.Component({
+                    core_7.Component({
                         selector: 'app-update-item',
                         templateUrl: './update-item.component.html',
                         styleUrls: ['./update-item.component.scss']
@@ -387,18 +439,18 @@ System.register("app/items/update-item/update-item.component", ["@angular/core"]
                 ], UpdateItemComponent);
                 return UpdateItemComponent;
             }());
-            exports_10("UpdateItemComponent", UpdateItemComponent);
+            exports_12("UpdateItemComponent", UpdateItemComponent);
         }
     };
 });
-System.register("app/items/create-item/create-item.component", ["@angular/core"], function (exports_11, context_11) {
+System.register("app/items/create-item/create-item.component", ["@angular/core"], function (exports_13, context_13) {
     "use strict";
-    var core_7, CreateItemComponent;
-    var __moduleName = context_11 && context_11.id;
+    var core_8, CreateItemComponent;
+    var __moduleName = context_13 && context_13.id;
     return {
         setters: [
-            function (core_7_1) {
-                core_7 = core_7_1;
+            function (core_8_1) {
+                core_8 = core_8_1;
             }
         ],
         execute: function () {
@@ -421,7 +473,7 @@ System.register("app/items/create-item/create-item.component", ["@angular/core"]
                 CreateItemComponent.prototype.ngOnInit = function () {
                 };
                 CreateItemComponent = __decorate([
-                    core_7.Component({
+                    core_8.Component({
                         selector: 'app-create-item',
                         templateUrl: './create-item.component.html',
                         styleUrls: ['./create-item.component.scss']
@@ -429,18 +481,18 @@ System.register("app/items/create-item/create-item.component", ["@angular/core"]
                 ], CreateItemComponent);
                 return CreateItemComponent;
             }());
-            exports_11("CreateItemComponent", CreateItemComponent);
+            exports_13("CreateItemComponent", CreateItemComponent);
         }
     };
 });
-System.register("app/common/errors/not-found.component", ["@angular/core"], function (exports_12, context_12) {
+System.register("app/common/errors/not-found.component", ["@angular/core"], function (exports_14, context_14) {
     "use strict";
-    var core_8, NotFoundComponent;
-    var __moduleName = context_12 && context_12.id;
+    var core_9, NotFoundComponent;
+    var __moduleName = context_14 && context_14.id;
     return {
         setters: [
-            function (core_8_1) {
-                core_8 = core_8_1;
+            function (core_9_1) {
+                core_9 = core_9_1;
             }
         ],
         execute: function () {
@@ -450,7 +502,7 @@ System.register("app/common/errors/not-found.component", ["@angular/core"], func
                 NotFoundComponent.prototype.ngOnInit = function () {
                 };
                 NotFoundComponent = __decorate([
-                    core_8.Component({
+                    core_9.Component({
                         selector: 'app-not-found',
                         templateUrl: './not-found.component.html',
                         styleUrls: ['./not-found.component.scss']
@@ -458,14 +510,14 @@ System.register("app/common/errors/not-found.component", ["@angular/core"], func
                 ], NotFoundComponent);
                 return NotFoundComponent;
             }());
-            exports_12("NotFoundComponent", NotFoundComponent);
+            exports_14("NotFoundComponent", NotFoundComponent);
         }
     };
 });
-System.register("app/app-routing.module", ["app/main/main.component", "app/functions/functions.component", "app/items/items.component", "app/items/item-details/item-details.component", "app/items/update-item/update-item.component", "app/items/create-item/create-item.component", "app/common/errors/not-found.component"], function (exports_13, context_13) {
+System.register("app/app-routing.module", ["app/main/main.component", "app/functions/functions.component", "app/items/items.component", "app/items/item-details/item-details.component", "app/items/update-item/update-item.component", "app/items/create-item/create-item.component", "app/common/errors/not-found.component"], function (exports_15, context_15) {
     "use strict";
     var main_component_1, functions_component_1, items_component_1, item_details_component_1, update_item_component_1, create_item_component_1, not_found_component_1, routes;
-    var __moduleName = context_13 && context_13.id;
+    var __moduleName = context_15 && context_15.id;
     return {
         setters: [
             function (main_component_1_1) {
@@ -491,110 +543,20 @@ System.register("app/app-routing.module", ["app/main/main.component", "app/funct
             }
         ],
         execute: function () {
-            exports_13("routes", routes = [
+            exports_15("routes", routes = [
                 { path: 'main', component: main_component_1.MainComponent },
                 { path: 'functions', component: functions_component_1.FunctionsComponent },
                 { path: 'items', component: items_component_1.ItemsComponent },
                 { path: 'items/create-item', component: create_item_component_1.CreateItemComponent },
                 { path: 'items/update-item/:id', component: update_item_component_1.UpdateItemComponent },
                 { path: 'items/:id', component: item_details_component_1.ItemDetailsComponent },
-                { path: 'user', loadChildren: function () { return context_13["import"]('src/app/user/user.module').then(function (m) { return m.UserModule; }); } },
+                { path: 'user', loadChildren: function () { return context_15["import"]('src/app/user/user.module').then(function (m) { return m.UserModule; }); } },
                 // Error routes
                 { path: '404', component: not_found_component_1.NotFoundComponent },
                 // Default routes
                 // { path: '', redirectTo: '/main', pathMatch: 'full' }, 
                 { path: '**', redirectTo: '/main', pathMatch: 'full' },
             ]);
-        }
-    };
-});
-System.register("app/models/user.model", [], function (exports_14, context_14) {
-    "use strict";
-    var __moduleName = context_14 && context_14.id;
-    return {
-        setters: [],
-        execute: function () {
-        }
-    };
-});
-System.register("app/services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators", "rxjs"], function (exports_15, context_15) {
-    "use strict";
-    var core_9, http_2, operators_2, rxjs_2, AuthService;
-    var __moduleName = context_15 && context_15.id;
-    return {
-        setters: [
-            function (core_9_1) {
-                core_9 = core_9_1;
-            },
-            function (http_2_1) {
-                http_2 = http_2_1;
-            },
-            function (operators_2_1) {
-                operators_2 = operators_2_1;
-            },
-            function (rxjs_2_1) {
-                rxjs_2 = rxjs_2_1;
-            }
-        ],
-        execute: function () {
-            AuthService = /** @class */ (function () {
-                function AuthService(http) {
-                    this.http = http;
-                    this.server_url = "https://zrbania.uwmsois.com";
-                }
-                // Auth
-                AuthService.prototype.loginUser = function (username, password) {
-                    var _this = this;
-                    var loginInfo = { username: username, password: password };
-                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Authorization': 'authkey' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', loginInfo, options)
-                        .pipe(operators_2.tap(function (data) { _this.currentUser = data['user']; }))
-                        .pipe(operators_2.catchError(function (err) { return rxjs_2.of(false); }))
-                        .pipe(operators_2.map(function (Users) { _this.setToken(Users[0].name); return Users; }));
-                };
-                AuthService.prototype.setToken = function (token) {
-                    localStorage.setItem('token', token);
-                };
-                AuthService.prototype.getToken = function () {
-                    return localStorage.getItem('token');
-                };
-                AuthService.prototype.deleteToken = function () {
-                    localStorage.removeItem('token');
-                };
-                AuthService.prototype.isLoggedIn = function () {
-                    var usertoken = this.getToken();
-                    if (usertoken != null) {
-                        return true;
-                    }
-                    return false;
-                };
-                AuthService.prototype.isAuthenticated = function () {
-                    return !!this.currentUser;
-                };
-                AuthService.prototype.logout = function () {
-                    this.currentUser = undefined;
-                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/logout.php', {}, options);
-                };
-                // Insert, Update 
-                AuthService.prototype.userRegistration = function (firstName, lastName, email, username, password) {
-                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', { firstName: firstName, lastName: lastName, email: email, username: username, password: password }).pipe(operators_2.map(function (Users) { return Users; }));
-                };
-                AuthService.prototype.updateCurrentUser = function (firstName, lastName, email, username, password) {
-                    this.currentUser.firstName = firstName;
-                    this.currentUser.lastName = lastName;
-                    this.currentUser.email = email;
-                    this.currentUser.username = username;
-                    this.currentUser.password = password;
-                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.put("/api/users/" + this.currentUser.id, this.currentUser, options);
-                };
-                AuthService = __decorate([
-                    core_9.Injectable()
-                ], AuthService);
-                return AuthService;
-            }());
-            exports_15("AuthService", AuthService);
         }
     };
 });
@@ -611,28 +573,27 @@ System.register("app/app.component", ["@angular/core"], function (exports_16, co
         execute: function () {
             AppComponent = /** @class */ (function () {
                 function AppComponent(authService) {
+                    var _this = this;
                     this.authService = authService;
                     this.brandTitle = "Angular Template";
+                    authService.getLoggedInName.subscribe(function (name) { return _this.changeName(name); });
+                    if (this.authService.isAuthenticated()) {
+                        console.log("loggedin");
+                        this.loginbtn = false;
+                        this.logoutbtn = true;
+                    }
+                    else {
+                        this.loginbtn = true;
+                        this.logoutbtn = false;
+                    }
                 }
-                AppComponent.prototype.ngOnInit = function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            this.isAuthenticated = this.authService.isAuthenticated();
-                            if (this.authService.isAuthenticated()) {
-                                console.log("isAuthenticated == true");
-                            }
-                            else {
-                                console.log("isAuthenticated == false");
-                            }
-                            if (this.authService.isLoggedIn()) {
-                                console.log("isLoggedIn == true");
-                            }
-                            else {
-                                console.log("isLoggedIn == false");
-                            }
-                            return [2 /*return*/];
-                        });
-                    });
+                AppComponent.prototype.changeName = function (name) {
+                    this.logoutbtn = name;
+                    this.loginbtn = !name;
+                };
+                AppComponent.prototype.logout = function () {
+                    this.authService.deleteToken();
+                    window.location.href = window.location.href;
                 };
                 AppComponent = __decorate([
                     core_10.Component({
@@ -940,7 +901,7 @@ System.register("app/common/keyword-filter.pipe", ["@angular/core"], function (e
 });
 System.register("app/app.module", ["@angular/platform-browser", "@angular/core", "@angular/forms", "@angular/common/http", "app/app-routing.module", "@angular/router", "app/app.component", "app/main/main.component", "app/main-nav/main-nav.component", "app/main-sidebar/main-sidebar.component", "app/functions/functions.component", "app/items/items.component", "app/items/item.component", "app/items/item-details/item-details.component", "app/items/create-item/create-item.component", "app/common/simple-modal.component", "app/services/auth.service", "app/common/jQuery.service", "app/common/dropdown-filter.pipe", "app/common/modal-trigger.directive", "app/common/keyword-filter.pipe", "app/common/errors/not-found.component", "app/items/update-item/update-item.component"], function (exports_25, context_25) {
     "use strict";
-    var platform_browser_1, core_19, forms_1, http_3, app_routing_module_1, router_1, app_component_1, main_component_2, main_nav_component_1, main_sidebar_component_1, functions_component_2, items_component_2, item_component_1, item_details_component_2, create_item_component_2, simple_modal_component_1, auth_service_1, jQuery_service_3, jQuery, dropdown_filter_pipe_1, modal_trigger_directive_1, keyword_filter_pipe_1, not_found_component_2, update_item_component_2, AppModule;
+    var platform_browser_1, core_19, forms_1, http_3, app_routing_module_1, router_1, app_component_1, main_component_2, main_nav_component_1, main_sidebar_component_1, functions_component_2, items_component_2, item_component_1, item_details_component_2, create_item_component_2, simple_modal_component_1, auth_service_2, jQuery_service_3, jQuery, dropdown_filter_pipe_1, modal_trigger_directive_1, keyword_filter_pipe_1, not_found_component_2, update_item_component_2, AppModule;
     var __moduleName = context_25 && context_25.id;
     return {
         setters: [
@@ -992,8 +953,8 @@ System.register("app/app.module", ["@angular/platform-browser", "@angular/core",
             function (simple_modal_component_1_1) {
                 simple_modal_component_1 = simple_modal_component_1_1;
             },
-            function (auth_service_1_1) {
-                auth_service_1 = auth_service_1_1;
+            function (auth_service_2_1) {
+                auth_service_2 = auth_service_2_1;
             },
             function (jQuery_service_3_1) {
                 jQuery_service_3 = jQuery_service_3_1;
@@ -1052,7 +1013,7 @@ System.register("app/app.module", ["@angular/platform-browser", "@angular/core",
                             http_3.HttpClientModule
                         ],
                         providers: [
-                            auth_service_1.AuthService,
+                            auth_service_2.AuthService,
                             { provide: jQuery_service_3.JQ_TOKEN, useValue: jQuery },
                         ],
                         bootstrap: [app_component_1.AppComponent]

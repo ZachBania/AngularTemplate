@@ -1,34 +1,34 @@
 <h1>Register for an Account</h1>
 
 <div class="col-md-6">
-  <form #newUserForm="ngForm" (ngSubmit)="saveUser(newUserForm.value)" autocomplete="off" novalidate>
+  <form #registerForm="ngForm" (ngSubmit)="saveUser(registerForm.value)" autocomplete="off" novalidate>
     
-    <div class="form-group" [ngClass]="{'error': newUserForm.controls.first_name?.invalid && newUserForm.controls.first_name?.touched}">
-      <em *ngIf="newUserForm.controls.first_name?.invalid && (newUserForm.controls.first_name?.touched)">*</em>
+    <div class="form-group" [ngClass]="{'error': registerForm.controls.first_name?.invalid && registerForm.controls.first_name?.touched}">
+      <em *ngIf="registerForm.controls.first_name?.invalid && (registerForm.controls.first_name?.touched)">*</em>
       <label for="first_name">First name:</label>
       <input (ngModel)="newUser.first_name" name="first_name" required id="first_name" type="text" class="form-control" placeholder="first name" />
     </div>
 
-    <div class="form-group" [ngClass]="{'error': newUserForm.controls.last_name?.invalid && newUserForm.controls.last_name?.touched}">
-        <em *ngIf="newUserForm.controls.last_name?.invalid && (newUserForm.controls.last_name?.touched)">*</em>
+    <div class="form-group" [ngClass]="{'error': registerForm.controls.last_name?.invalid && registerForm.controls.last_name?.touched}">
+        <em *ngIf="registerForm.controls.last_name?.invalid && (registerForm.controls.last_name?.touched)">*</em>
         <label for="last_name">Last name:</label>
         <input (ngModel)="newUser.last_name" name="last_name" required id="last_name" type="text" class="form-control" placeholder="last name" />
     </div>
 
-    <div class="form-group" [ngClass]="{'error': newUserForm.controls.email?.invalid && newUserForm.controls.email?.touched}">
-        <em *ngIf="newUserForm.controls.email?.invalid && (newUserForm.controls.email?.touched)">*</em>
+    <div class="form-group" [ngClass]="{'error': registerForm.controls.email?.invalid && registerForm.controls.email?.touched}">
+        <em *ngIf="registerForm.controls.email?.invalid && (registerForm.controls.email?.touched)">*</em>
         <label for="email">User email:</label>
         <input (ngModel)="newUser.email" name="email" required id="email" type="text" class="form-control" placeholder="email" />
     </div>
 
-    <div class="form-group" [ngClass]="{'error': newUserForm.controls.username?.invalid && newUserForm.controls.username?.touched}">
-        <em *ngIf="newUserForm.controls.username?.invalid && (newUserForm.controls.username?.touched)">*</em>
+    <div class="form-group" [ngClass]="{'error': registerForm.controls.username?.invalid && registerForm.controls.username?.touched}">
+        <em *ngIf="registerForm.controls.username?.invalid && (registerForm.controls.username?.touched)">*</em>
         <label for="username">Username:</label>
         <input (ngModel)="newUser.username" name="username" required id="username" type="text" class="form-control" placeholder="username" />
     </div>
 
-    <div class="form-group" [ngClass]="{'error': newUserForm.controls.password?.invalid && newUserForm.controls.password?.touched}">
-        <em *ngIf="newUserForm.controls.password?.invalid && (newUserForm.controls.password?.touched)">*</em>
+    <div class="form-group" [ngClass]="{'error': registerForm.controls.password?.invalid && registerForm.controls.password?.touched}">
+        <em *ngIf="registerForm.controls.password?.invalid && (registerForm.controls.password?.touched)">*</em>
         <label for="password">Password:</label>
         <input (ngModel)="newUser.password" name="password" required id="password" type="text" class="form-control" placeholder="password" />
     </div>

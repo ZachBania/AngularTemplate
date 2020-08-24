@@ -127,9 +127,9 @@ System.register("models/index", ["models/events.model", "models/items.model", "m
         }
     };
 });
-System.register("app.component", ["@angular/core"], function (exports_6, context_6) {
+System.register("user/register/register.component", ["@angular/core"], function (exports_6, context_6) {
     "use strict";
-    var core_2, AppComponent;
+    var core_2, RegisterComponent;
     var __moduleName = context_6 && context_6.id;
     return {
         setters: [
@@ -138,51 +138,68 @@ System.register("app.component", ["@angular/core"], function (exports_6, context
             }
         ],
         execute: function () {
-            AppComponent = /** @class */ (function () {
-                function AppComponent(authService) {
-                    var _this = this;
+            RegisterComponent = /** @class */ (function () {
+                function RegisterComponent(authService, router) {
                     this.authService = authService;
-                    this.brandTitle = "Angular Template";
-                    authService.getLoggedInName.subscribe(function (name) { return _this.changeName(name); });
-                    if (this.authService.isAuthenticated()) {
-                        console.log("loggedin");
-                        this.loginbtn = false;
-                        this.logoutbtn = true;
-                    }
-                    else {
-                        this.loginbtn = true;
-                        this.logoutbtn = false;
-                    }
+                    this.router = router;
+                    this.isDirty = true;
                 }
-                AppComponent.prototype.changeName = function (name) {
-                    this.logoutbtn = name;
-                    this.loginbtn = !name;
+                RegisterComponent.prototype.saveUser = function (formValues) {
+                    var _this = this;
+                    this.authService.userRegistration(formValues).subscribe(function () {
+                        _this.isDirty = false;
+                        _this.router.navigate(['/user/login']);
+                    });
                 };
-                AppComponent.prototype.logout = function () {
-                    this.authService.deleteToken();
-                    window.location.href = window.location.href;
+                RegisterComponent.prototype.cancel = function () {
+                    this.router.navigate(['/user/login']);
                 };
-                AppComponent = __decorate([
+                RegisterComponent.prototype.ngOnInit = function () {
+                };
+                RegisterComponent = __decorate([
                     core_2.Component({
-                        selector: 'app-root',
-                        templateUrl: './app.component.html',
-                        styleUrls: ['./app.component.scss']
+                        selector: 'app-register',
+                        templateUrl: './register.component.html',
+                        styleUrls: ['./register.component.scss']
                     })
-                ], AppComponent);
-                return AppComponent;
+                ], RegisterComponent);
+                return RegisterComponent;
             }());
-            exports_6("AppComponent", AppComponent);
+            exports_6("RegisterComponent", RegisterComponent);
         }
     };
 });
-System.register("app.component.spec", [], function (exports_7, context_7) {
+System.register("user/register/register.component.spec", ["@angular/core/testing", "user/register/register.component"], function (exports_7, context_7) {
     "use strict";
+    var testing_1, register_component_1;
     var __moduleName = context_7 && context_7.id;
     return {
-        setters: [],
+        setters: [
+            function (testing_1_1) {
+                testing_1 = testing_1_1;
+            },
+            function (register_component_1_1) {
+                register_component_1 = register_component_1_1;
+            }
+        ],
         execute: function () {
-            // Range, State Change, Assert
-            describe('Core', function () {
+            describe('RegisterComponent', function () {
+                var component;
+                var fixture;
+                beforeEach(testing_1.async(function () {
+                    testing_1.TestBed.configureTestingModule({
+                        declarations: [register_component_1.RegisterComponent]
+                    })
+                        .compileComponents();
+                }));
+                beforeEach(function () {
+                    fixture = testing_1.TestBed.createComponent(register_component_1.RegisterComponent);
+                    component = fixture.componentInstance;
+                    fixture.detectChanges();
+                });
+                it('should create', function () {
+                    expect(component).toBeTruthy();
+                });
             });
         }
     };

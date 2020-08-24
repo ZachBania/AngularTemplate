@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { IUser } from './models/index';
 
 @Component({
   selector: 'app-root',
@@ -9,23 +10,33 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   
   brandTitle: string = "Angular Template";
-  isAuthenticated: boolean;
 
-  constructor(public authService: AuthService) {
-
+  currentUser: IUser;
+  loginbtn:boolean;
+  logoutbtn:boolean;
+  
+  constructor(private authService: AuthService) {
+  authService.getLoggedInName.subscribe(name => this.changeName(name));
+  if(this.authService.isAuthenticated())
+  {
+    console.log("loggedin");
+    this.loginbtn=false;
+    this.logoutbtn=true;
+  } else {
+    this.loginbtn=true;
+    this.logoutbtn=false;
   }
   
-  ngOnInit() {
-
-    this.isAuthenticated = this.authService.isAuthenticated();
-
-    if(this.authService.isAuthenticated())
-    {
-      console.log("isAuthenticated == true");
-    }
-    else{
-      console.log("isAuthenticated == false");
-    }
+  }
+  
+  private changeName(name: boolean): void {
+  this.logoutbtn = name;
+  this.loginbtn = !name;
+  }
+  logout()
+  {
+  this.authService.deleteToken();
+  window.location.href = window.location.href;
   }
   
 }

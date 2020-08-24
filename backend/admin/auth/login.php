@@ -1,36 +1,25 @@
 <?php 
-include_once("../../mysql_connection.php");
+include_once("./../../mysql_connection.php");
+
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-control-allow-origin, access-control-allow-methods, access-control-allow-headers');
 
 $data = file_get_contents("php://input");
 $request = json_decode($data);
 
-if(isset($data) && !empty($data)) {
-    $first_name = $data->first_name;
-    $last_name = $data->last_name;
-    $email = $data->email;
-    $username = $data->username;
-    $password = $data->password;
+if(isset($data) && !empty($data)){
+    $username = $request->username;
+    $password = $request->password;
+    $sql = "SELECT * FROM Users WHERE username='$username' and password='$password'";
+    $result = mysqli_query($conn,$sql);
+
+    $data = array();
     
-    $sql = "SELECT * FROM Users WHERE username='$username' AND password='$password'";
-    
-    if($result = mysqli_query($conn,$sql)) {
-        $rows = array();
-        while($row = mysqli_fetch_assoc($result)) {
-            $rows[] = $row;     
-        }
-        
-        $_SESSION["first_name"] = $rows["first_name"];
-        $_SESSION["last_name"] = $rows["last_name"];
-        $_SESSION["email"] = $rows["email"];
-        $_SESSION["username"] = $rows["username"];
-        $_SESSION["permission_level"] = $rows["permission_level"];
-        echo json_encode($rows);
-    
+    while($row = mysqli_fetch_array($result)){
+        $data[] = $row;
     }
-    else {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-        http_response_code(404);
-    }
+    
+    echo json_encode($data);
 }
+?>
