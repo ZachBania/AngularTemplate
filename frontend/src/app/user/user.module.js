@@ -35,42 +35,20 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.http = http;
                     this.router = router;
                     this.server_url = "https://zrbania.uwmsois.com";
-                    this.baseUrl = "http://localhost/angular_admin/php";
                     this.getLoggedInName = new core_1.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
                     var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
                     return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_1.tap(function (data) { _this.currentUser = data['user']; }))
-                        .pipe(operators_1.map(function (Users) { _this.setToken(Users[0].name); _this.getLoggedInName.emit(true); return Users; }));
+                        .pipe(operators_1.map(function (Users) {
+                        _this.setToken(JSON.stringify(Users[0]));
+                    }));
+                    this.currentUser = Users[0];
+                    this.getLoggedInName.emit(true);
+                    return Users;
                 };
-                AuthService.prototype.userRegistration = function (formValues) {
-                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
-                        .pipe(operators_1.map(function (Users) { return Users; }));
-                };
-                AuthService.prototype.setToken = function (token) {
-                    localStorage.setItem('token', token);
-                };
-                AuthService.prototype.getToken = function () {
-                    return localStorage.getItem('token');
-                };
-                AuthService.prototype.deleteToken = function () {
-                    localStorage.removeItem('token');
-                };
-                AuthService.prototype.isAuthenticated = function () {
-                    var usertoken = this.getToken();
-                    if (usertoken != null) {
-                        return true;
-                    }
-                    return false;
-                };
-                AuthService.prototype.logout = function () {
-                    this.deleteToken();
-                    window.location.href = window.location.href;
-                    this.router.navigate(['main']);
-                };
+                ;
                 __decorate([
                     core_1.Output()
                 ], AuthService.prototype, "getLoggedInName");
@@ -80,6 +58,38 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                 return AuthService;
             }());
             exports_2("AuthService", AuthService);
+            userRegistration(formValues);
+            {
+                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
+                    .pipe(operators_1.map(function (Users) { return Users; }));
+            }
+            setToken(token, string);
+            {
+                localStorage.setItem('token', token);
+            }
+            getToken();
+            {
+                return localStorage.getItem('token');
+            }
+            deleteToken();
+            {
+                localStorage.removeItem('token');
+            }
+            isAuthenticated();
+            {
+                var usertoken = this.getToken();
+                if (usertoken != null) {
+                    return true;
+                }
+                return false;
+            }
+            logout();
+            {
+                this.deleteToken();
+                window.location.href = window.location.href;
+                this.router.navigate(['main']);
+            }
         }
     };
 });
@@ -275,35 +285,33 @@ System.register("user/login/login.component", ["@angular/core", "@angular/forms"
         ],
         execute: function () {
             LoginComponent = /** @class */ (function () {
-                function LoginComponent(fb, dataService, router) {
-                    this.fb = fb;
-                    this.dataService = dataService;
+                function LoginComponent(formBuilder, authService, router) {
+                    this.formBuilder = formBuilder;
+                    this.authService = authService;
                     this.router = router;
-                    this.angForm = this.fb.group({
-                        email: ['', [forms_2.Validators.required, forms_2.Validators.minLength(1), forms_2.Validators.email]],
+                    this.loginForm = this.formBuilder.group({
+                        username: ['', forms_2.Validators.required],
                         password: ['', forms_2.Validators.required]
                     });
                 }
                 LoginComponent.prototype.ngOnInit = function () {
                 };
-                LoginComponent.prototype.postdata = function (angForm1) {
+                LoginComponent.prototype.postLogin = function (formValues) {
                     var _this = this;
-                    this.dataService.userlogin(angForm1.value.email, angForm1.value.password)
-                        .pipe(operators_3.first())
-                        .subscribe(function (data) {
-                        var redirect = _this.dataService.redirectUrl ? _this.dataService.redirectUrl : '/dashboard';
+                    this.authService.userlogin(formValues.username, formValues.password).pipe(operators_3.first()).subscribe(function (data) {
+                        var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/main';
                         _this.router.navigate([redirect]);
                     }, function (error) {
                         alert("User name or password is incorrect");
                     });
                 };
-                Object.defineProperty(LoginComponent.prototype, "email", {
-                    get: function () { return this.angForm.get('email'); },
+                Object.defineProperty(LoginComponent.prototype, "username", {
+                    get: function () { return this.loginForm.get('username'); },
                     enumerable: false,
                     configurable: true
                 });
                 Object.defineProperty(LoginComponent.prototype, "password", {
-                    get: function () { return this.angForm.get('password'); },
+                    get: function () { return this.loginForm.get('password'); },
                     enumerable: false,
                     configurable: true
                 });

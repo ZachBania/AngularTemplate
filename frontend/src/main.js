@@ -190,15 +190,18 @@ System.register("app/services/auth.service", ["@angular/core", "@angular/common/
                     this.http = http;
                     this.router = router;
                     this.server_url = "https://zrbania.uwmsois.com";
-                    this.baseUrl = "http://localhost/angular_admin/php";
                     this.getLoggedInName = new core_4.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
                     var _this = this;
                     var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
                     return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_2.tap(function (data) { _this.currentUser = data['user']; }))
-                        .pipe(operators_2.map(function (Users) { _this.setToken(Users[0].name); _this.getLoggedInName.emit(true); return Users; }));
+                        .pipe(operators_2.map(function (Users) {
+                        _this.setToken(JSON.stringify(Users[0]));
+                        _this.currentUser = Users[0];
+                        _this.getLoggedInName.emit(true);
+                        return Users;
+                    }));
                 };
                 AuthService.prototype.userRegistration = function (formValues) {
                     var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -577,8 +580,11 @@ System.register("app/app.component", ["@angular/core"], function (exports_16, co
                     this.authService = authService;
                     this.brandTitle = "Angular Template";
                     authService.getLoggedInName.subscribe(function (name) { return _this.changeName(name); });
+                    if (this.authService.isAuthenticated() == true) {
+                        this.currentUser = JSON.parse(this.authService.getToken());
+                        console.log("currentUser: ", this.currentUser);
+                    }
                     if (this.authService.isAuthenticated()) {
-                        console.log("loggedin");
                         this.loginbtn = false;
                         this.logoutbtn = true;
                     }
@@ -651,18 +657,21 @@ System.register("app/main-sidebar/main-sidebar.component", ["@angular/core"], fu
         ],
         execute: function () {
             MainSidebarComponent = /** @class */ (function () {
-                function MainSidebarComponent(auth, itemsService, route) {
-                    this.auth = auth;
+                function MainSidebarComponent(authService, itemsService, route) {
+                    this.authService = authService;
                     this.itemsService = itemsService;
                     this.route = route;
                     this.searchTerm = "";
+                    if (this.authService.isAuthenticated() == true) {
+                        this.currentUser = JSON.parse(this.authService.getToken());
+                    }
                 }
                 MainSidebarComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.route.data.forEach(function (data) {
                         _this.item = data['item'];
                     });
-                    // this.auth.checkAuthenticationStatus();
+                    console.log("mainsidebar currentUser", this.currentUser);
                 };
                 MainSidebarComponent.prototype.searchItems = function (searchTerm) {
                     var _this = this;
@@ -670,6 +679,9 @@ System.register("app/main-sidebar/main-sidebar.component", ["@angular/core"], fu
                         _this.matchingItems = items;
                     });
                 };
+                __decorate([
+                    core_12.Output()
+                ], MainSidebarComponent.prototype, "currentUser");
                 MainSidebarComponent = __decorate([
                     core_12.Component({
                         selector: 'app-main-sidebar',

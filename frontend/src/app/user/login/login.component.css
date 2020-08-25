@@ -139,30 +139,3 @@ form .form-group button[type=submit] {
   margin: 0 0.5em 0 0;
   background: #0385D2;
 }
-
-.form-controls-table {
-  padding: 1em;
-}
-.form-controls-table h2 {
-  color: black;
-  font-family: Arial;
-  font-size: 1.25em;
-}
-.form-controls-table p {
-  color: black;
-  font-family: Arial;
-}
-.form-controls-table table {
-  background: white;
-  width: calc(100% - 1em);
-  border: black solid 0.25em;
-  color: black;
-  font-family: Arial;
-}
-.form-controls-table table thead {
-  background: black;
-  color: white;
-}
-.form-controls-table table thead tr th p {
-  color: white;
-}

@@ -1157,6 +1157,45 @@
 		"rC": 0,
 		"tEC": 0
 		},
+	"/frontend/src/app/user/auth.guard.spec.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/auth.guard.spec-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/frontend/src/app/user/auth.guard.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/user/auth.guard.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/user/auth.guard.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/user/auth.guard.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
 	"/frontend/src/app/user/login/login.component.css": {
 		"aP": 1,
 		"bl": 0,

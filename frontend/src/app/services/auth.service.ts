@@ -2,26 +2,29 @@ import { Injectable, Output, EventEmitter } from '@angular/core'
 import { IUser } from '../models/user.model'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, catchError, map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import { Router} from '@angular/router';
 
  
 @Injectable()
 export class AuthService {
-  currentUser:IUser;
-
+  
   constructor(private http: HttpClient, private router: Router) {}
-
+  
+  currentUser: IUser;
   server_url: string = "https://zrbania.uwmsois.com";
   redirectUrl: string;
-  baseUrl:string = "http://localhost/angular_admin/php";
+  token: string;
 
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   
-    public userlogin(username, password) {
-      let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
-      return this.http.post<IUser>(this.server_url + '/backend/admin/auth/login.php', { username, password })
-      .pipe(tap(data => { this.currentUser = <IUser>data['user']; }))
-      .pipe(map(Users => { this.setToken(Users[0].name); this.getLoggedInName.emit(true); return Users; }));
+  public userlogin(username, password) {
+    let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    return this.http.post<IUser>(this.server_url + '/backend/admin/auth/login.php', { username, password })
+    .pipe(map(Users => { this.setToken(
+      JSON.stringify(Users[0])
+      );  this.currentUser = Users[0]; this.getLoggedInName.emit(true); return Users; }));
+      
   }
   
   public userRegistration(formValues) {

@@ -35,15 +35,18 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.http = http;
                     this.router = router;
                     this.server_url = "https://zrbania.uwmsois.com";
-                    this.baseUrl = "http://localhost/angular_admin/php";
                     this.getLoggedInName = new core_1.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
                     var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
                     return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_1.tap(function (data) { _this.currentUser = data['user']; }))
-                        .pipe(operators_1.map(function (Users) { _this.setToken(Users[0].name); _this.getLoggedInName.emit(true); return Users; }));
+                        .pipe(operators_1.map(function (Users) {
+                        _this.setToken(JSON.stringify(Users[0]));
+                        _this.currentUser = Users[0];
+                        _this.getLoggedInName.emit(true);
+                        return Users;
+                    }));
                 };
                 AuthService.prototype.userRegistration = function (formValues) {
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -144,8 +147,11 @@ System.register("app.component", ["@angular/core"], function (exports_6, context
                     this.authService = authService;
                     this.brandTitle = "Angular Template";
                     authService.getLoggedInName.subscribe(function (name) { return _this.changeName(name); });
+                    // if (this.authService.isAuthenticated() == true) {
+                    //   this.currentUser = JSON.parse(this.authService.getToken()) as IUser;      
+                    //   console.log("currentUser: ", this.currentUser);
+                    // }
                     if (this.authService.isAuthenticated()) {
-                        console.log("loggedin");
                         this.loginbtn = false;
                         this.logoutbtn = true;
                     }

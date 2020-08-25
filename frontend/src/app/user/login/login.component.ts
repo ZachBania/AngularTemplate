@@ -10,29 +10,29 @@ templateUrl: './login.component.html',
 styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-angForm: FormGroup;
-constructor(private fb: FormBuilder,private dataService: AuthService,private router:Router) {
-this.angForm = this.fb.group({
-email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
-password: ['', Validators.required]
-});
+
+loginForm: FormGroup;
+constructor(private formBuilder: FormBuilder,private authService: AuthService,private router:Router) {
+    this.loginForm = this.formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+    });
 }
 
 ngOnInit() {
+
 }
-postdata(angForm1)
-{
-this.dataService.userlogin(angForm1.value.email,angForm1.value.password)
-.pipe(first())
-.subscribe(
-data => {
-const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/dashboard';
-this.router.navigate([redirect]);
-},
-error => {
-alert("User name or password is incorrect")
-});
-}
-get email() { return this.angForm.get('email'); }
-get password() { return this.angForm.get('password'); }
+
+postLogin(formValues) {
+    this.authService.userlogin(formValues.username,formValues.password).pipe(first()).subscribe(
+    data => {
+        const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/main';
+            this.router.navigate([redirect]);
+        },
+        error => {
+            alert("User name or password is incorrect");
+        });
+    }
+    get username() { return this.loginForm.get('username'); }
+    get password() { return this.loginForm.get('password'); }
 }

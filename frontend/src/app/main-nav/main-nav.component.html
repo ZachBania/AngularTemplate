@@ -12,7 +12,9 @@
       <ul class="dropdown-menu">
         <li><a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/login']">Login</a></li>
         <li><a *ngIf="!auth.isAuthenticated()" [routerLink]="['/user/register']">Register</a></li>
+
         <li><a *ngIf="auth.isAuthenticated()" [routerLink]="['/user/profile']">Edit Profile</a></li>
+        <li><a *ngIf="auth.isAuthenticated()" href="javascript:void;" (click)="auth.logout()">Logout</a></li>
       </ul>
     </li>
   </ul>
