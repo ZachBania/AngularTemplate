@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router} from '@angular/router';
+import { IUser } from 'src/app/models';
 
 @Component({
   selector: 'app-profile',
@@ -9,64 +10,52 @@ import { Router} from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  profileForm:FormGroup
-  private first_name:FormControl
-  private last_name:FormControl
-  private email:FormControl
-  private username:FormControl
-  private password:FormControl
 
-  constructor(private router:Router, private authService:AuthService) {
+  currentUser: IUser;
+  
+  profileForm: FormGroup = this.formBuilder.group({
+    id: [''],
+    first_name: [''],
+    last_name: [''],
+    email: [''],
+    username: [''],
+    password: [''],
+    date_created: [''],
+    permission_level: ['']
+  });
+  
 
+  constructor(private router:Router, private authService:AuthService, private formBuilder: FormBuilder) {
+
+  }
+
+  updateCurrentUser(formValues) {
+    if (this.profileForm.valid) {
+      this.authService.updateCurrentUser(formValues).subscribe(() => {
+        this.router.navigate(['/user/profile'])
+      });
+    }
   }
 
   ngOnInit() {
-    this.first_name = new FormControl(this.authService.currentUser.first_name, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
-    this.last_name = new FormControl(this.authService.currentUser.last_name, Validators.required);
-    this.email = new FormControl(this.authService.currentUser.email, Validators.required);
-    this.username = new FormControl(this.authService.currentUser.username, Validators.required);
-    this.password = new FormControl(this.authService.currentUser.password, Validators.required);
 
-    this.profileForm = new FormGroup({
-      first_name: this.first_name,
-      last_name: this.last_name,
-      email: this.email,
-      username: this.username,
-      password: this.password,
-    })
-  }
-
-  saveProfile(formValues) {
-    if (this.profileForm.valid) {
-      // this.authService.updateCurrentUser(formValues.first_name, formValues.last_name, formValues.email, formValues.username, formValues.password)
-      this.router.navigate(['main'])
-    }
+    this.profileForm.setValue({
+      id: this.authService.currentUser.id,
+      first_name: this.authService.currentUser.first_name,
+      last_name: this.authService.currentUser.last_name,
+      email: this.authService.currentUser.email,
+      username: this.authService.currentUser.username,
+      password: this.authService.currentUser.password,
+      date_created: this.authService.currentUser.date_created,
+      permission_level: this.authService.currentUser.permission_level,
+    });
+    
   }
 
   logout() {
     this.authService.logout();
   }
-
-  validateFirstName() {
-    return this.first_name.valid || this.first_name.untouched
-  }
   
-  validateLastName() {
-    return this.last_name.valid || this.last_name.untouched
-  }
-
-  validateEmail() {
-    return this.email.valid || this.email.untouched
-  }
-
-  validateUsername() {
-    return this.username.valid || this.username.untouched
-  }
-
-  validatePassword() {
-    return this.password.valid || this.password.untouched
-  }
-
   cancel() {
     this.router.navigate(['main'])
   }

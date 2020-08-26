@@ -170,7 +170,8 @@ System.register("app/models/user.model", [], function (exports_5, context_5) {
 });
 System.register("app/services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_6, context_6) {
     "use strict";
-    var core_4, http_2, operators_2, AuthService;
+    var _this, core_4, http_2, operators_2, AuthService;
+    _this = this;
     var __moduleName = context_6 && context_6.id;
     return {
         setters: [
@@ -193,42 +194,14 @@ System.register("app/services/auth.service", ["@angular/core", "@angular/common/
                     this.getLoggedInName = new core_4.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
-                    var _this = this;
                     var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_2.map(function (Users) {
-                        _this.setToken(JSON.stringify(Users[0]));
-                        _this.currentUser = Users[0];
-                        _this.getLoggedInName.emit(true);
-                        return Users;
-                    }));
+                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password }, options)
+                        .pipe(operators_2.map(function (user) { localStorage.setItem('user', JSON.stringify(user)); }));
+                    this.currentUser = Users[0];
+                    this.getLoggedInName.emit(true);
+                    return Users;
                 };
-                AuthService.prototype.userRegistration = function (formValues) {
-                    var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
-                        .pipe(operators_2.map(function (Users) { return Users; }));
-                };
-                AuthService.prototype.setToken = function (token) {
-                    localStorage.setItem('token', token);
-                };
-                AuthService.prototype.getToken = function () {
-                    return localStorage.getItem('token');
-                };
-                AuthService.prototype.deleteToken = function () {
-                    localStorage.removeItem('token');
-                };
-                AuthService.prototype.isAuthenticated = function () {
-                    var usertoken = this.getToken();
-                    if (usertoken != null) {
-                        return true;
-                    }
-                    return false;
-                };
-                AuthService.prototype.logout = function () {
-                    this.deleteToken();
-                    window.location.href = window.location.href;
-                    this.router.navigate(['main']);
-                };
+                ;
                 __decorate([
                     core_4.Output()
                 ], AuthService.prototype, "getLoggedInName");
@@ -238,6 +211,49 @@ System.register("app/services/auth.service", ["@angular/core", "@angular/common/
                 return AuthService;
             }());
             exports_6("AuthService", AuthService);
+            userRegistration(user);
+            {
+                var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
+                    .pipe(operators_2.map(function (Users) { return Users; }));
+            }
+            updateCurrentUser(user);
+            {
+                var options = { headers: new http_2.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/update.php', user, options)
+                    .pipe(operators_2.map(function (Users) {
+                    _this.setToken(JSON.stringify(Users[0]));
+                    _this.currentUser = Users[0];
+                    _this.getLoggedInName.emit(true);
+                    return Users;
+                }));
+            }
+            setToken(token, string);
+            {
+                localStorage.setItem('token', token);
+            }
+            getToken();
+            {
+                return localStorage.getItem('token');
+            }
+            deleteToken();
+            {
+                localStorage.removeItem('token');
+            }
+            isAuthenticated();
+            {
+                var token = this.getToken();
+                if (token != null || token != 'undefined') {
+                    return true;
+                }
+                return false;
+            }
+            logout();
+            {
+                this.deleteToken();
+                window.location.href = window.location.href;
+                this.router.navigate(['main']);
+            }
         }
     };
 });
@@ -583,6 +599,7 @@ System.register("app/app.component", ["@angular/core"], function (exports_16, co
                     if (this.authService.isAuthenticated() == true) {
                         this.currentUser = JSON.parse(this.authService.getToken());
                         console.log("currentUser: ", this.currentUser);
+                        console.log("isAuthenticated: true");
                     }
                     if (this.authService.isAuthenticated()) {
                         this.loginbtn = false;
@@ -671,7 +688,6 @@ System.register("app/main-sidebar/main-sidebar.component", ["@angular/core"], fu
                     this.route.data.forEach(function (data) {
                         _this.item = data['item'];
                     });
-                    console.log("mainsidebar currentUser", this.currentUser);
                 };
                 MainSidebarComponent.prototype.searchItems = function (searchTerm) {
                     var _this = this;

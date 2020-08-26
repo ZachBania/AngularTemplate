@@ -1,42 +1,39 @@
 
-  <h1>Edit Your Profile </h1>
-  <div class="col-md-4">
-    <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
-      <div class="form-group" [ngClass]="{'error' : !validateFirstName() }">
-        <em *ngIf="!validateFirstName() && profileForm.controls.first_name.errors.required">*</em>
-        <label for="first_name">First Name:</label>
-        <input formControlName="first_name" id="first_name" type="text" class="form-control" placeholder="First Name..." />
-        <em *ngIf="!validateFirstName() && profileForm.controls.first_name.errors.pattern">Must start with a letter</em>
-      </div>
+<h1>Edit Your Profile </h1>
 
-      <div class="form-group"  [ngClass]="{'error' : !validateLastName() }">
-        <em *ngIf="!validateLastName()">*</em>
-        <label for="last_name">Last Name:</label>
-        <input formControlName="last_name" id="last_name" type="text" class="form-control" placeholder="Last Name..." />
-      </div>
+<form [formGroup]="profileForm" (ngSubmit)="updateCurrentUser(profileForm.value)" autocomplete="off" novalidate>
+  <div class="form-group" [ngClass]="{'error' : (profileForm.controls.first_name?.invalid) && (profileForm.controls.first_name?.touched) }">
+    <em *ngIf="(profileForm.controls.first_name?.invalid) && (profileForm.controls.first_name?.touched)">*</em>
+    <label for="first_name">First Name:</label>
+    <input formControlName="first_name" (ngModel)="currentUser.first_name" id="first_name" type="text" class="form-control" placeholder="First Name..." />
+  </div>
 
-      <div class="form-group"  [ngClass]="{'error' : !validateEmail() }">
-        <em *ngIf="!validateEmail()">*</em>
-        <label for="email">Email:</label>
-        <input formControlName="email" id="email" type="text" class="form-control" placeholder="email" />
-      </div>
+  <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.last_name?.invalid) && (profileForm.controls.last_name?.touched) }">
+    <em *ngIf="(profileForm.controls.last_name?.invalid) && (profileForm.controls.last_name?.touched)">*</em>
+    <label for="last_name">Last Name:</label>
+    <input formControlName="last_name" (ngModel)="currentUser.last_name" id="last_name" type="text" class="form-control" placeholder="Last Name..." />
+  </div>
 
-      <div class="form-group"  [ngClass]="{'error' : !validateUsername() }">
-        <em *ngIf="!validateUsername()">*</em>
-        <label for="username">Username:</label>
-        <input formControlName="username" id="username" type="text" class="form-control" placeholder="Username" />
-      </div>
+  <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.email?.invalid) && (profileForm.controls.email?.touched) }">
+    <em *ngIf="(profileForm.controls.email?.invalid) && (profileForm.controls.email?.touched)">*</em>
+    <label for="email">Email:</label>
+    <input formControlName="email" (ngModel)="currentUser.email" id="email" type="text" class="form-control" placeholder="email" />
+  </div>
 
-      <div class="form-group"  [ngClass]="{'error' : !validatePassword() }">
-        <em *ngIf="!validatePassword()">*</em>
-        <label for="password">Password:</label>
-        <input formControlName="password" id="password" type="text" class="form-control" placeholder="Password" />
-      </div>
-      
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
-        <button type="button" class="btn btn-default" (click)="logout()">Logout</button>
-      </div>
-    </form>
-  <div>
+  <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.username?.invalid) && (profileForm.controls.username?.touched) }">
+    <em *ngIf="(profileForm.controls.username?.invalid) && (profileForm.controls.username?.touched)">*</em>
+    <label for="username">Username:</label>
+    <input formControlName="username" (ngModel)="currentUser.username" id="username" type="text" class="form-control" placeholder="Username" />
+  </div>
+
+  <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.password?.invalid) && (profileForm.controls.password?.touched) }">
+    <em *ngIf="(profileForm.controls.password?.invalid) && (profileForm.controls.password?.touched)">*</em>
+    <label for="password">Password:</label>
+    <input formControlName="password" (ngModel)="currentUser.password" id="password" type="text" class="form-control" placeholder="Password" />
+  </div>
+  
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+  </div>
+</form>

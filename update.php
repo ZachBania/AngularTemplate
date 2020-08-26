@@ -1,6 +1,6 @@
 <?php
-
-include_once("./../../mysql_connection.php");
+    
+require './../../mysql_connection.php';
 
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -24,5 +24,4 @@ if(isset($data)){
         $sql = "UPDATE Users SET first_name = '$first_name', last_name = '$last_name', email = '$email', username = '$username', password = '$password' WHERE Users.id = '$id'";
         $result = mysqli_query($conn,$sql);
 }
-
 ?>

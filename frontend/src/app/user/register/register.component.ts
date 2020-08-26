@@ -16,8 +16,8 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  saveUser(formValues) {
-    this.authService.userRegistration(formValues).subscribe(() => {
+  saveUser(user) {
+    this.authService.userRegistration(user).subscribe(() => {
       this.isDirty = false
       this.router.navigate(['/user/login'])
     });

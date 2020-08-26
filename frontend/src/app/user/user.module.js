@@ -15,7 +15,8 @@ System.register("models/user.model", [], function (exports_1, context_1) {
 });
 System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_2, context_2) {
     "use strict";
-    var core_1, http_1, operators_1, AuthService;
+    var _this, core_1, http_1, operators_1, AuthService;
+    _this = this;
     var __moduleName = context_2 && context_2.id;
     return {
         setters: [
@@ -38,12 +39,9 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.getLoggedInName = new core_1.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
-                    var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_1.map(function (Users) {
-                        _this.setToken(JSON.stringify(Users[0]));
-                    }));
+                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password }, options)
+                        .pipe(operators_1.map(function (user) { localStorage.setItem('user', JSON.stringify(user)); }));
                     this.currentUser = Users[0];
                     this.getLoggedInName.emit(true);
                     return Users;
@@ -58,11 +56,22 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                 return AuthService;
             }());
             exports_2("AuthService", AuthService);
-            userRegistration(formValues);
+            userRegistration(user);
             {
                 var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
+                return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
                     .pipe(operators_1.map(function (Users) { return Users; }));
+            }
+            updateCurrentUser(user);
+            {
+                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/update.php', user, options)
+                    .pipe(operators_1.map(function (Users) {
+                    _this.setToken(JSON.stringify(Users[0]));
+                    _this.currentUser = Users[0];
+                    _this.getLoggedInName.emit(true);
+                    return Users;
+                }));
             }
             setToken(token, string);
             {
@@ -78,8 +87,8 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
             }
             isAuthenticated();
             {
-                var usertoken = this.getToken();
-                if (usertoken != null) {
+                var token = this.getToken();
+                if (token != null || token != 'undefined') {
                     return true;
                 }
                 return false;
@@ -93,62 +102,55 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
         }
     };
 });
-System.register("user/profile/profile.component", ["@angular/core", "@angular/forms"], function (exports_3, context_3) {
+System.register("user/profile/profile.component", ["@angular/core"], function (exports_3, context_3) {
     "use strict";
-    var core_2, forms_1, ProfileComponent;
+    var core_2, ProfileComponent;
     var __moduleName = context_3 && context_3.id;
     return {
         setters: [
             function (core_2_1) {
                 core_2 = core_2_1;
-            },
-            function (forms_1_1) {
-                forms_1 = forms_1_1;
             }
         ],
         execute: function () {
             ProfileComponent = /** @class */ (function () {
-                function ProfileComponent(router, authService) {
+                function ProfileComponent(router, authService, formBuilder) {
                     this.router = router;
                     this.authService = authService;
-                }
-                ProfileComponent.prototype.ngOnInit = function () {
-                    this.first_name = new forms_1.FormControl(this.authService.currentUser.first_name, [forms_1.Validators.required, forms_1.Validators.pattern('[a-zA-Z].*')]);
-                    this.last_name = new forms_1.FormControl(this.authService.currentUser.last_name, forms_1.Validators.required);
-                    this.email = new forms_1.FormControl(this.authService.currentUser.email, forms_1.Validators.required);
-                    this.username = new forms_1.FormControl(this.authService.currentUser.username, forms_1.Validators.required);
-                    this.password = new forms_1.FormControl(this.authService.currentUser.password, forms_1.Validators.required);
-                    this.profileForm = new forms_1.FormGroup({
-                        first_name: this.first_name,
-                        last_name: this.last_name,
-                        email: this.email,
-                        username: this.username,
-                        password: this.password
+                    this.formBuilder = formBuilder;
+                    this.profileForm = this.formBuilder.group({
+                        id: [''],
+                        first_name: [''],
+                        last_name: [''],
+                        email: [''],
+                        username: [''],
+                        password: [''],
+                        date_created: [''],
+                        permission_level: ['']
                     });
-                };
-                ProfileComponent.prototype.saveProfile = function (formValues) {
+                }
+                ProfileComponent.prototype.updateCurrentUser = function (formValues) {
+                    var _this = this;
                     if (this.profileForm.valid) {
-                        // this.authService.updateCurrentUser(formValues.first_name, formValues.last_name, formValues.email, formValues.username, formValues.password)
-                        this.router.navigate(['main']);
+                        this.authService.updateCurrentUser(formValues).subscribe(function () {
+                            _this.router.navigate(['/user/profile']);
+                        });
                     }
+                };
+                ProfileComponent.prototype.ngOnInit = function () {
+                    this.profileForm.setValue({
+                        id: this.authService.currentUser.id,
+                        first_name: this.authService.currentUser.first_name,
+                        last_name: this.authService.currentUser.last_name,
+                        email: this.authService.currentUser.email,
+                        username: this.authService.currentUser.username,
+                        password: this.authService.currentUser.password,
+                        date_created: this.authService.currentUser.date_created,
+                        permission_level: this.authService.currentUser.permission_level
+                    });
                 };
                 ProfileComponent.prototype.logout = function () {
                     this.authService.logout();
-                };
-                ProfileComponent.prototype.validateFirstName = function () {
-                    return this.first_name.valid || this.first_name.untouched;
-                };
-                ProfileComponent.prototype.validateLastName = function () {
-                    return this.last_name.valid || this.last_name.untouched;
-                };
-                ProfileComponent.prototype.validateEmail = function () {
-                    return this.email.valid || this.email.untouched;
-                };
-                ProfileComponent.prototype.validateUsername = function () {
-                    return this.username.valid || this.username.untouched;
-                };
-                ProfileComponent.prototype.validatePassword = function () {
-                    return this.password.valid || this.password.untouched;
                 };
                 ProfileComponent.prototype.cancel = function () {
                     this.router.navigate(['main']);
@@ -269,15 +271,15 @@ System.register("services/index", ["services/items.service", "services/auth.serv
 });
 System.register("user/login/login.component", ["@angular/core", "@angular/forms", "rxjs/operators"], function (exports_7, context_7) {
     "use strict";
-    var core_4, forms_2, operators_3, LoginComponent;
+    var core_4, forms_1, operators_3, LoginComponent;
     var __moduleName = context_7 && context_7.id;
     return {
         setters: [
             function (core_4_1) {
                 core_4 = core_4_1;
             },
-            function (forms_2_1) {
-                forms_2 = forms_2_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             },
             function (operators_3_1) {
                 operators_3 = operators_3_1;
@@ -290,11 +292,14 @@ System.register("user/login/login.component", ["@angular/core", "@angular/forms"
                     this.authService = authService;
                     this.router = router;
                     this.loginForm = this.formBuilder.group({
-                        username: ['', forms_2.Validators.required],
-                        password: ['', forms_2.Validators.required]
+                        username: ['', forms_1.Validators.required],
+                        password: ['', forms_1.Validators.required]
                     });
                 }
                 LoginComponent.prototype.ngOnInit = function () {
+                };
+                LoginComponent.prototype.cancel = function () {
+                    this.router.navigate(['main']);
                 };
                 LoginComponent.prototype.postLogin = function (formValues) {
                     var _this = this;
@@ -380,9 +385,9 @@ System.register("user/register/register.component", ["@angular/core"], function 
                     this.router = router;
                     this.isDirty = true;
                 }
-                RegisterComponent.prototype.saveUser = function (formValues) {
+                RegisterComponent.prototype.saveUser = function (user) {
                     var _this = this;
-                    this.authService.userRegistration(formValues).subscribe(function () {
+                    this.authService.userRegistration(user).subscribe(function () {
                         _this.isDirty = false;
                         _this.router.navigate(['/user/login']);
                     });
@@ -432,7 +437,7 @@ System.register("user/user.routes", ["user/profile/profile.component", "user/log
 });
 System.register("user/user.module", ["@angular/core", "@angular/common", "@angular/router", "@angular/forms", "user/user.routes", "user/profile/profile.component", "user/login/login.component", "user/register/register.component"], function (exports_12, context_12) {
     "use strict";
-    var core_6, common_1, router_1, forms_3, user_routes_1, profile_component_2, login_component_2, register_component_2, UserModule;
+    var core_6, common_1, router_1, forms_2, user_routes_1, profile_component_2, login_component_2, register_component_2, UserModule;
     var __moduleName = context_12 && context_12.id;
     return {
         setters: [
@@ -445,8 +450,8 @@ System.register("user/user.module", ["@angular/core", "@angular/common", "@angul
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (forms_3_1) {
-                forms_3 = forms_3_1;
+            function (forms_2_1) {
+                forms_2 = forms_2_1;
             },
             function (user_routes_1_1) {
                 user_routes_1 = user_routes_1_1;
@@ -469,8 +474,8 @@ System.register("user/user.module", ["@angular/core", "@angular/common", "@angul
                     core_6.NgModule({
                         imports: [
                             common_1.CommonModule,
-                            forms_3.FormsModule,
-                            forms_3.ReactiveFormsModule,
+                            forms_2.FormsModule,
+                            forms_2.ReactiveFormsModule,
                             router_1.RouterModule.forChild(user_routes_1.userRoutes)
                         ],
                         declarations: [

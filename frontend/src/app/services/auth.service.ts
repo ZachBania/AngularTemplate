@@ -20,18 +20,23 @@ export class AuthService {
   
   public userlogin(username, password) {
     let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    return this.http.post<IUser>(this.server_url + '/backend/admin/auth/login.php', { username, password })
-    .pipe(map(Users => { this.setToken(
-      JSON.stringify(Users[0])
-      );  this.currentUser = Users[0]; this.getLoggedInName.emit(true); return Users; }));
-      
+    return this.http.post<IUser>(this.server_url + '/backend/admin/auth/login.php', { username, password }, options)
+    .pipe(map(Users => { this.setToken(JSON.stringify(Users[0]));  
+      this.currentUser = Users[0]; this.getLoggedInName.emit(true); return Users; }));
   }
   
-  public userRegistration(formValues) {
+  public userRegistration(user) {
     let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    return this.http.post<any>(this.server_url + '/backend/admin/auth/register.php', formValues, options)
+    return this.http.post<IUser>(this.server_url + '/backend/admin/auth/register.php', user, options)
     .pipe(map(Users => { return Users;  }));
   }
+
+  public updateCurrentUser(user) {
+    let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    return this.http.post<IUser>(this.server_url + '/backend/admin/auth/update.php', user, options)
+    .pipe(map(Users => { this.setToken(JSON.stringify(Users[0]));  
+    this.currentUser = Users[0]; this.getLoggedInName.emit(true); return Users; }));
+  } 
   
   setToken(token: string) {
     localStorage.setItem('token', token);
@@ -42,10 +47,11 @@ export class AuthService {
   deleteToken() {
     localStorage.removeItem('token');
   }
+
   isAuthenticated() {
-    const usertoken = this.getToken();
-    if (usertoken != null) {
-    return true
+    const token = this.getToken();
+    if (token != null || token != 'undefined') {
+    return true;
     }
     return false;
   }

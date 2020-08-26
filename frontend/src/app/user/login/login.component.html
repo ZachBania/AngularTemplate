@@ -9,5 +9,8 @@
         <label for="Password">Password:</label>
         <input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
     </div>
-    <button type="submit" class="btn" >Login</button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    </div>
 </form>

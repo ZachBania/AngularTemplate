@@ -20,6 +20,7 @@ export class AppComponent {
     if (this.authService.isAuthenticated() == true) {
       this.currentUser = JSON.parse(this.authService.getToken()) as IUser;      
       console.log("currentUser: ", this.currentUser);
+      console.log("isAuthenticated: true");
     }
 
     if(this.authService.isAuthenticated()) {

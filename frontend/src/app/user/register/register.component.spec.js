@@ -15,7 +15,8 @@ System.register("models/user.model", [], function (exports_1, context_1) {
 });
 System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_2, context_2) {
     "use strict";
-    var core_1, http_1, operators_1, AuthService;
+    var _this, core_1, http_1, operators_1, AuthService;
+    _this = this;
     var __moduleName = context_2 && context_2.id;
     return {
         setters: [
@@ -38,42 +39,14 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.getLoggedInName = new core_1.EventEmitter();
                 }
                 AuthService.prototype.userlogin = function (username, password) {
-                    var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password })
-                        .pipe(operators_1.map(function (Users) {
-                        _this.setToken(JSON.stringify(Users[0]));
-                        _this.currentUser = Users[0];
-                        _this.getLoggedInName.emit(true);
-                        return Users;
-                    }));
+                    return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password }, options)
+                        .pipe(operators_1.map(function (Users) { localStorage.setItem('user', JSON.stringify(user)); }));
+                    this.currentUser = Users[0];
+                    this.getLoggedInName.emit(true);
+                    return Users;
                 };
-                AuthService.prototype.userRegistration = function (formValues) {
-                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', formValues, options)
-                        .pipe(operators_1.map(function (Users) { return Users; }));
-                };
-                AuthService.prototype.setToken = function (token) {
-                    localStorage.setItem('token', token);
-                };
-                AuthService.prototype.getToken = function () {
-                    return localStorage.getItem('token');
-                };
-                AuthService.prototype.deleteToken = function () {
-                    localStorage.removeItem('token');
-                };
-                AuthService.prototype.isAuthenticated = function () {
-                    var usertoken = this.getToken();
-                    if (usertoken != null) {
-                        return true;
-                    }
-                    return false;
-                };
-                AuthService.prototype.logout = function () {
-                    this.deleteToken();
-                    window.location.href = window.location.href;
-                    this.router.navigate(['main']);
-                };
+                ;
                 __decorate([
                     core_1.Output()
                 ], AuthService.prototype, "getLoggedInName");
@@ -83,6 +56,49 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                 return AuthService;
             }());
             exports_2("AuthService", AuthService);
+            userRegistration(user);
+            {
+                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
+                    .pipe(operators_1.map(function (Users) { return Users; }));
+            }
+            updateCurrentUser(user);
+            {
+                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                return this.http.post(this.server_url + '/backend/admin/auth/update.php', user, options)
+                    .pipe(operators_1.map(function (Users) {
+                    _this.setToken(JSON.stringify(Users[0]));
+                    _this.currentUser = Users[0];
+                    _this.getLoggedInName.emit(true);
+                    return Users;
+                }));
+            }
+            setToken(token, string);
+            {
+                localStorage.setItem('token', token);
+            }
+            getToken();
+            {
+                return localStorage.getItem('token');
+            }
+            deleteToken();
+            {
+                localStorage.removeItem('token');
+            }
+            isAuthenticated();
+            {
+                var token = this.getToken();
+                if (token != null || token != 'undefined') {
+                    return true;
+                }
+                return false;
+            }
+            logout();
+            {
+                this.deleteToken();
+                window.location.href = window.location.href;
+                this.router.navigate(['main']);
+            }
         }
     };
 });
@@ -147,9 +163,9 @@ System.register("user/register/register.component", ["@angular/core"], function 
                     this.router = router;
                     this.isDirty = true;
                 }
-                RegisterComponent.prototype.saveUser = function (formValues) {
+                RegisterComponent.prototype.saveUser = function (user) {
                     var _this = this;
-                    this.authService.userRegistration(formValues).subscribe(function () {
+                    this.authService.userRegistration(user).subscribe(function () {
                         _this.isDirty = false;
                         _this.router.navigate(['/user/login']);
                     });

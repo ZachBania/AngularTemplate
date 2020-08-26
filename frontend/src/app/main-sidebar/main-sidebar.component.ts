@@ -26,8 +26,6 @@ export class MainSidebarComponent implements OnInit {
     this.route.data.forEach((data) => {
       this.item = data['item'];
     })
-    
-    console.log("mainsidebar currentUser",this.currentUser)
 
   }  
 
