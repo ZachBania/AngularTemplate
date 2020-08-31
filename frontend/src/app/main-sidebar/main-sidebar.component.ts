@@ -16,9 +16,10 @@ export class MainSidebarComponent implements OnInit {
   
   constructor(public authService: AuthService, private itemsService: ItemsService, private route:ActivatedRoute) { 
 
-    if (this.authService.isAuthenticated() == true) {
-      this.currentUser = JSON.parse(this.authService.getToken()) as IUser;   
+    if(this.authService.isAuthenticated() == true) {
+      this.authService.currentUser.subscribe(x => this.currentUser = x); 
     }
+
   }
   
 

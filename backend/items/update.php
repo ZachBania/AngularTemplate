@@ -19,7 +19,7 @@ $image_url = $data->image_url;
 
 echo json_encode($request_body);
 
-if(isset($data)){
+if(isset($data) && !empty($data)){
         $sql = "UPDATE Items SET name = '$name', description = '$description', price = '$price', inventory = '$inventory', category = '$category', image_url = '$image_url' WHERE Items.id = '$id'";
         $result = mysqli_query($conn,$sql);
 }

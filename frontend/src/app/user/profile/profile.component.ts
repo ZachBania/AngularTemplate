@@ -26,30 +26,32 @@ export class ProfileComponent implements OnInit {
   
 
   constructor(private router:Router, private authService:AuthService, private formBuilder: FormBuilder) {
-
+    if(this.authService.isAuthenticated() == true) {
+      this.authService.currentUser.subscribe(x => this.currentUser = x);
+    }
   }
 
-  updateCurrentUser(formValues) {
-    if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues).subscribe(() => {
-        this.router.navigate(['/user/profile'])
-      });
-    }
+  updateUser(formValues) { 
+    this.authService.updateCurrentUser(formValues).subscribe(() => {
+      this.router.navigate(['/main']);
+    });
   }
 
   ngOnInit() {
 
     this.profileForm.setValue({
-      id: this.authService.currentUser.id,
-      first_name: this.authService.currentUser.first_name,
-      last_name: this.authService.currentUser.last_name,
-      email: this.authService.currentUser.email,
-      username: this.authService.currentUser.username,
-      password: this.authService.currentUser.password,
-      date_created: this.authService.currentUser.date_created,
-      permission_level: this.authService.currentUser.permission_level,
+      id: this.currentUser.id,
+      first_name: this.currentUser.first_name,
+      last_name: this.currentUser.last_name,
+      email: this.currentUser.email,
+      username: this.currentUser.username,
+      password: this.currentUser.password,
+      date_created: this.currentUser.date_created,
+      permission_level: this.currentUser.permission_level,
     });
     
+    // this.authService.updateCurrentUser(this.currentUser)
+    ;
   }
 
   logout() {

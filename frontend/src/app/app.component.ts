@@ -11,36 +11,19 @@ export class AppComponent {
   
   brandTitle: string = "Angular Template";
   currentUser: IUser;
-  loginbtn:boolean;
-  logoutbtn:boolean;
   
   constructor(private authService: AuthService) {
-    authService.getLoggedInName.subscribe(name => this.changeName(name));
-
-    if (this.authService.isAuthenticated() == true) {
-      this.currentUser = JSON.parse(this.authService.getToken()) as IUser;      
-      console.log("currentUser: ", this.currentUser);
-      console.log("isAuthenticated: true");
-    }
-
-    if(this.authService.isAuthenticated()) {
-        this.loginbtn=false;
-        this.logoutbtn=true;
-      } else {
-        this.loginbtn=true;
-        this.logoutbtn=false;
-      }
-    }
     
-    private changeName(name: boolean): void {
-    this.logoutbtn = name;
-    this.loginbtn = !name;
+      // this.authService.currentUser.subscribe(x => this.currentUser = x);
+
   }
+    
+   
 
 
   
   logout() {
-    this.authService.deleteToken();
+    this.authService.logout();
     window.location.href = window.location.href;
   }
   

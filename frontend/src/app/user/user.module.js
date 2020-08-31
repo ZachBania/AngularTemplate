@@ -13,10 +13,9 @@ System.register("models/user.model", [], function (exports_1, context_1) {
         }
     };
 });
-System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_2, context_2) {
+System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators", "rxjs"], function (exports_2, context_2) {
     "use strict";
-    var _this, core_1, http_1, operators_1, AuthService;
-    _this = this;
+    var core_1, http_1, operators_1, rxjs_1, AuthService;
     var __moduleName = context_2 && context_2.id;
     return {
         setters: [
@@ -28,6 +27,9 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
             },
             function (operators_1_1) {
                 operators_1 = operators_1_1;
+            },
+            function (rxjs_1_1) {
+                rxjs_1 = rxjs_1_1;
             }
         ],
         execute: function () {
@@ -37,68 +39,71 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.router = router;
                     this.server_url = "https://zrbania.uwmsois.com";
                     this.getLoggedInName = new core_1.EventEmitter();
+                    this.currentUserSubject = new rxjs_1.BehaviorSubject(JSON.parse(localStorage.getItem('user')));
+                    this.currentUser = this.currentUserSubject.asObservable();
                 }
+                Object.defineProperty(AuthService.prototype, "userValue", {
+                    get: function () {
+                        return this.currentUserSubject.value;
+                    },
+                    enumerable: false,
+                    configurable: true
+                });
                 AuthService.prototype.userlogin = function (username, password) {
+                    var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
                     return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password }, options)
-                        .pipe(operators_1.map(function (user) { localStorage.setItem('user', JSON.stringify(user)); }));
-                    this.currentUser = Users[0];
-                    this.getLoggedInName.emit(true);
-                    return Users;
+                        .pipe(operators_1.map(function (data) {
+                        // store user details token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('user', JSON.stringify(data));
+                        _this.currentUserSubject.next(data);
+                        return data;
+                    }));
                 };
-                ;
+                AuthService.prototype.userRegistration = function (user) {
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
+                        .pipe(operators_1.map(function (data) { return data; }));
+                };
+                AuthService.prototype.updateCurrentUser = function (formValues) {
+                    var _this = this;
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/update.php', formValues, options)
+                        .pipe(operators_1.map(function (data) {
+                        // Map the data to local storage
+                        // assign data to currentUserSubject WHERE this.currentUser = this.currentUserSubject.asObservable();
+                        _this.currentUserSubject = JSON.parse(data);
+                        // view data
+                        console.log("data", data);
+                        console.log("currentUserSubject", _this.currentUserSubject);
+                        console.log("currentUser", _this.currentUser);
+                        return data;
+                    }));
+                };
+                AuthService.prototype.isAuthenticated = function () {
+                    var user = localStorage.getItem('user');
+                    if (user == null || user == 'undefined' || user == '[]') {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                };
+                AuthService.prototype.logout = function () {
+                    // remove user from local storage and set current user to null
+                    localStorage.removeItem('user');
+                    this.currentUserSubject.next(null);
+                    this.router.navigate(['/main']);
+                };
                 __decorate([
                     core_1.Output()
                 ], AuthService.prototype, "getLoggedInName");
                 AuthService = __decorate([
-                    core_1.Injectable()
+                    core_1.Injectable({ providedIn: 'root' })
                 ], AuthService);
                 return AuthService;
             }());
             exports_2("AuthService", AuthService);
-            userRegistration(user);
-            {
-                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
-                    .pipe(operators_1.map(function (Users) { return Users; }));
-            }
-            updateCurrentUser(user);
-            {
-                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                return this.http.post(this.server_url + '/backend/admin/auth/update.php', user, options)
-                    .pipe(operators_1.map(function (Users) {
-                    _this.setToken(JSON.stringify(Users[0]));
-                    _this.currentUser = Users[0];
-                    _this.getLoggedInName.emit(true);
-                    return Users;
-                }));
-            }
-            setToken(token, string);
-            {
-                localStorage.setItem('token', token);
-            }
-            getToken();
-            {
-                return localStorage.getItem('token');
-            }
-            deleteToken();
-            {
-                localStorage.removeItem('token');
-            }
-            isAuthenticated();
-            {
-                var token = this.getToken();
-                if (token != null || token != 'undefined') {
-                    return true;
-                }
-                return false;
-            }
-            logout();
-            {
-                this.deleteToken();
-                window.location.href = window.location.href;
-                this.router.navigate(['main']);
-            }
         }
     };
 });
@@ -115,6 +120,7 @@ System.register("user/profile/profile.component", ["@angular/core"], function (e
         execute: function () {
             ProfileComponent = /** @class */ (function () {
                 function ProfileComponent(router, authService, formBuilder) {
+                    var _this = this;
                     this.router = router;
                     this.authService = authService;
                     this.formBuilder = formBuilder;
@@ -128,26 +134,35 @@ System.register("user/profile/profile.component", ["@angular/core"], function (e
                         date_created: [''],
                         permission_level: ['']
                     });
+                    if (this.authService.isAuthenticated() == true) {
+                        this.authService.currentUser.subscribe(function (x) { return _this.currentUser = x; });
+                        this.currentUser = this.currentUser[0];
+                    }
                 }
-                ProfileComponent.prototype.updateCurrentUser = function (formValues) {
+                ProfileComponent.prototype.updateUser = function (formValues) {
                     var _this = this;
                     if (this.profileForm.valid) {
-                        this.authService.updateCurrentUser(formValues).subscribe(function () {
-                            _this.router.navigate(['/user/profile']);
+                        this.authService.updateCurrentUser(formValues).subscribe(function (data) {
+                            var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/user/profile';
+                            _this.router.navigate([redirect]);
+                        }, function (error) {
+                            console.log(error);
                         });
                     }
                 };
                 ProfileComponent.prototype.ngOnInit = function () {
                     this.profileForm.setValue({
-                        id: this.authService.currentUser.id,
-                        first_name: this.authService.currentUser.first_name,
-                        last_name: this.authService.currentUser.last_name,
-                        email: this.authService.currentUser.email,
-                        username: this.authService.currentUser.username,
-                        password: this.authService.currentUser.password,
-                        date_created: this.authService.currentUser.date_created,
-                        permission_level: this.authService.currentUser.permission_level
+                        id: this.currentUser.id,
+                        first_name: this.currentUser.first_name,
+                        last_name: this.currentUser.last_name,
+                        email: this.currentUser.email,
+                        username: this.currentUser.username,
+                        password: this.currentUser.password,
+                        date_created: this.currentUser.date_created,
+                        permission_level: this.currentUser.permission_level
                     });
+                    // this.authService.updateCurrentUser(this.currentUser)
+                    ;
                 };
                 ProfileComponent.prototype.logout = function () {
                     this.authService.logout();
@@ -179,15 +194,15 @@ System.register("models/items.model", [], function (exports_4, context_4) {
 });
 System.register("services/items.service", ["@angular/core", "rxjs", "rxjs/operators", "@angular/common/http"], function (exports_5, context_5) {
     "use strict";
-    var core_3, rxjs_1, operators_2, http_2, ItemsService;
+    var core_3, rxjs_2, operators_2, http_2, ItemsService;
     var __moduleName = context_5 && context_5.id;
     return {
         setters: [
             function (core_3_1) {
                 core_3 = core_3_1;
             },
-            function (rxjs_1_1) {
-                rxjs_1 = rxjs_1_1;
+            function (rxjs_2_1) {
+                rxjs_2 = rxjs_2_1;
             },
             function (operators_2_1) {
                 operators_2 = operators_2_1;
@@ -232,7 +247,7 @@ System.register("services/items.service", ["@angular/core", "rxjs", "rxjs/operat
                     if (operation === void 0) { operation = 'operation'; }
                     return function (error) {
                         console.error(error);
-                        return rxjs_1.of(result);
+                        return rxjs_2.of(result);
                     };
                 };
                 ItemsService = __decorate([
@@ -303,23 +318,15 @@ System.register("user/login/login.component", ["@angular/core", "@angular/forms"
                 };
                 LoginComponent.prototype.postLogin = function (formValues) {
                     var _this = this;
-                    this.authService.userlogin(formValues.username, formValues.password).pipe(operators_3.first()).subscribe(function (data) {
+                    this.authService.userlogin(formValues.username, formValues.password)
+                        .pipe(operators_3.first()).subscribe(function (data) {
                         var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/main';
                         _this.router.navigate([redirect]);
                     }, function (error) {
-                        alert("User name or password is incorrect");
+                        alert("username or password entered doesn't match our records.");
+                        console.log(error);
                     });
                 };
-                Object.defineProperty(LoginComponent.prototype, "username", {
-                    get: function () { return this.loginForm.get('username'); },
-                    enumerable: false,
-                    configurable: true
-                });
-                Object.defineProperty(LoginComponent.prototype, "password", {
-                    get: function () { return this.loginForm.get('password'); },
-                    enumerable: false,
-                    configurable: true
-                });
                 LoginComponent = __decorate([
                     core_4.Component({
                         selector: 'app-login',

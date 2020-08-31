@@ -13,10 +13,9 @@ System.register("models/user.model", [], function (exports_1, context_1) {
         }
     };
 });
-System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators"], function (exports_2, context_2) {
+System.register("services/auth.service", ["@angular/core", "@angular/common/http", "rxjs/operators", "rxjs"], function (exports_2, context_2) {
     "use strict";
-    var _this, core_1, http_1, operators_1, AuthService;
-    _this = this;
+    var core_1, http_1, operators_1, rxjs_1, AuthService;
     var __moduleName = context_2 && context_2.id;
     return {
         setters: [
@@ -28,6 +27,9 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
             },
             function (operators_1_1) {
                 operators_1 = operators_1_1;
+            },
+            function (rxjs_1_1) {
+                rxjs_1 = rxjs_1_1;
             }
         ],
         execute: function () {
@@ -37,68 +39,71 @@ System.register("services/auth.service", ["@angular/core", "@angular/common/http
                     this.router = router;
                     this.server_url = "https://zrbania.uwmsois.com";
                     this.getLoggedInName = new core_1.EventEmitter();
+                    this.currentUserSubject = new rxjs_1.BehaviorSubject(JSON.parse(localStorage.getItem('user')));
+                    this.currentUser = this.currentUserSubject.asObservable();
                 }
+                Object.defineProperty(AuthService.prototype, "userValue", {
+                    get: function () {
+                        return this.currentUserSubject.value;
+                    },
+                    enumerable: false,
+                    configurable: true
+                });
                 AuthService.prototype.userlogin = function (username, password) {
+                    var _this = this;
                     var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
                     return this.http.post(this.server_url + '/backend/admin/auth/login.php', { username: username, password: password }, options)
-                        .pipe(operators_1.map(function (Users) { localStorage.setItem('user', JSON.stringify(user)); }));
-                    this.currentUser = Users[0];
-                    this.getLoggedInName.emit(true);
-                    return Users;
+                        .pipe(operators_1.map(function (data) {
+                        // store user details token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem('user', JSON.stringify(data));
+                        _this.currentUserSubject.next(data);
+                        return data;
+                    }));
                 };
-                ;
+                AuthService.prototype.userRegistration = function (user) {
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
+                        .pipe(operators_1.map(function (data) { return data; }));
+                };
+                AuthService.prototype.updateCurrentUser = function (formValues) {
+                    var _this = this;
+                    var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
+                    return this.http.post(this.server_url + '/backend/admin/auth/update.php', formValues, options)
+                        .pipe(operators_1.map(function (data) {
+                        // Map the data to local storage
+                        // assign data to currentUserSubject WHERE this.currentUser = this.currentUserSubject.asObservable();
+                        _this.currentUserSubject = JSON.parse(data);
+                        // view data
+                        console.log("data", data);
+                        console.log("currentUserSubject", _this.currentUserSubject);
+                        console.log("currentUser", _this.currentUser);
+                        return data;
+                    }));
+                };
+                AuthService.prototype.isAuthenticated = function () {
+                    var user = localStorage.getItem('user');
+                    if (user == null || user == 'undefined' || user == '[]') {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                };
+                AuthService.prototype.logout = function () {
+                    // remove user from local storage and set current user to null
+                    localStorage.removeItem('user');
+                    this.currentUserSubject.next(null);
+                    this.router.navigate(['/main']);
+                };
                 __decorate([
                     core_1.Output()
                 ], AuthService.prototype, "getLoggedInName");
                 AuthService = __decorate([
-                    core_1.Injectable()
+                    core_1.Injectable({ providedIn: 'root' })
                 ], AuthService);
                 return AuthService;
             }());
             exports_2("AuthService", AuthService);
-            userRegistration(user);
-            {
-                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                return this.http.post(this.server_url + '/backend/admin/auth/register.php', user, options)
-                    .pipe(operators_1.map(function (Users) { return Users; }));
-            }
-            updateCurrentUser(user);
-            {
-                var options = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
-                return this.http.post(this.server_url + '/backend/admin/auth/update.php', user, options)
-                    .pipe(operators_1.map(function (Users) {
-                    _this.setToken(JSON.stringify(Users[0]));
-                    _this.currentUser = Users[0];
-                    _this.getLoggedInName.emit(true);
-                    return Users;
-                }));
-            }
-            setToken(token, string);
-            {
-                localStorage.setItem('token', token);
-            }
-            getToken();
-            {
-                return localStorage.getItem('token');
-            }
-            deleteToken();
-            {
-                localStorage.removeItem('token');
-            }
-            isAuthenticated();
-            {
-                var token = this.getToken();
-                if (token != null || token != 'undefined') {
-                    return true;
-                }
-                return false;
-            }
-            logout();
-            {
-                this.deleteToken();
-                window.location.href = window.location.href;
-                this.router.navigate(['main']);
-            }
         }
     };
 });

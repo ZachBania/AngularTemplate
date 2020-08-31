@@ -23,24 +23,23 @@ export class LoginComponent implements OnInit {
 
     }
 
-
     cancel() {
         this.router.navigate(['main'])
     }
 
     postLogin(formValues) {
-        this.authService.userlogin(formValues.username,formValues.password).pipe(first()).subscribe(
-        data => {
-            const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/main';
-                this.router.navigate([redirect]);
-            },
-        error => {
-            alert("User name or password is incorrect");
-        });
+        this.authService.userlogin(formValues)
+        .pipe(first()).subscribe(
+            data => {
+                const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/main';
+                    this.router.navigate([redirect]);
+                },
+            error => {
+                alert("username or password entered doesn't match our records.")
+                console.log(error)
+            }
+        );
     }
-
-    get username() { return this.loginForm.get('username'); }
-    get password() { return this.loginForm.get('password'); }
 }
 
   

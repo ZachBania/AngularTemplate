@@ -1,35 +1,35 @@
 
 <h1>Edit Your Profile </h1>
 
-<form [formGroup]="profileForm" (ngSubmit)="updateCurrentUser(profileForm.value)" autocomplete="off" novalidate>
+<form [formGroup]="profileForm" (ngSubmit)="updateUser(profileForm.value)" autocomplete="off" novalidate>
   <div class="form-group" [ngClass]="{'error' : (profileForm.controls.first_name?.invalid) && (profileForm.controls.first_name?.touched) }">
     <em *ngIf="(profileForm.controls.first_name?.invalid) && (profileForm.controls.first_name?.touched)">*</em>
     <label for="first_name">First Name:</label>
-    <input formControlName="first_name" (ngModel)="currentUser.first_name" id="first_name" type="text" class="form-control" placeholder="First Name..." />
+    <input formControlName="first_name" (ngModel)="currentUser.first_name" name="first_name" id="first_name" type="text" class="form-control" placeholder="First Name..." />
   </div>
 
   <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.last_name?.invalid) && (profileForm.controls.last_name?.touched) }">
     <em *ngIf="(profileForm.controls.last_name?.invalid) && (profileForm.controls.last_name?.touched)">*</em>
     <label for="last_name">Last Name:</label>
-    <input formControlName="last_name" (ngModel)="currentUser.last_name" id="last_name" type="text" class="form-control" placeholder="Last Name..." />
+    <input formControlName="last_name" (ngModel)="currentUser.last_name" name="last_name" id="last_name" type="text" class="form-control" placeholder="Last Name..." />
   </div>
 
   <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.email?.invalid) && (profileForm.controls.email?.touched) }">
     <em *ngIf="(profileForm.controls.email?.invalid) && (profileForm.controls.email?.touched)">*</em>
     <label for="email">Email:</label>
-    <input formControlName="email" (ngModel)="currentUser.email" id="email" type="text" class="form-control" placeholder="email" />
+    <input formControlName="email" (ngModel)="currentUser.email" name="email" id="email" type="text" class="form-control" placeholder="email" />
   </div>
 
   <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.username?.invalid) && (profileForm.controls.username?.touched) }">
     <em *ngIf="(profileForm.controls.username?.invalid) && (profileForm.controls.username?.touched)">*</em>
     <label for="username">Username:</label>
-    <input formControlName="username" (ngModel)="currentUser.username" id="username" type="text" class="form-control" placeholder="Username" />
+    <input formControlName="username" (ngModel)="currentUser.username" name="username" id="username" type="text" class="form-control" placeholder="Username" />
   </div>
 
   <div class="form-group"  [ngClass]="{'error' : (profileForm.controls.password?.invalid) && (profileForm.controls.password?.touched) }">
     <em *ngIf="(profileForm.controls.password?.invalid) && (profileForm.controls.password?.touched)">*</em>
     <label for="password">Password:</label>
-    <input formControlName="password" (ngModel)="currentUser.password" id="password" type="text" class="form-control" placeholder="Password" />
+    <input formControlName="password" (ngModel)="currentUser.password" name="password" id="password" type="text" class="form-control" placeholder="Password" />
   </div>
   
   <div class="form-group">

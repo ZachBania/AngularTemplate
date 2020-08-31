@@ -157,13 +157,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/3rdpartylicenses.txt",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/4.17cd56639c62c7bb4779.js": {
+	"/frontend/dist/AngularJSTemplate/4.d03996f0a8aa76d8530d.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/4.17cd56639c62c7bb4779-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/4.d03996f0a8aa76d8530d-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -302,13 +302,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/index.html",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/main.9ba334f4f5f34fb14367.js": {
+	"/frontend/dist/AngularJSTemplate/main.563dd2ca72db8200fb07.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/main.9ba334f4f5f34fb14367-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/main.563dd2ca72db8200fb07-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -324,13 +324,13 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/runtime.d21dae4bf0a22123bfd7.js": {
+	"/frontend/dist/AngularJSTemplate/runtime.98627997cf7addef803c.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/runtime.d21dae4bf0a22123bfd7-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/runtime.98627997cf7addef803c-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -1916,14 +1916,6 @@
 		"pME": 1,
 		"rFN": 0,
 		"uCM": 0
-		},
-	"/update.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/update.php",
-		"oF": 0
 		}
 	},
 "hooks": [
