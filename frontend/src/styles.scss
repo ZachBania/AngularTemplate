@@ -75,43 +75,6 @@ html, body, *, .row {
 	background: $subThreeHighlight;
 
 
-	// Global footer Styling
-	footer {
-		clear: both;
-		display: block;
-		ul.nav {
-			li {
-				clear: both;
-				a:link,
-				a:visited {
-					color: $subThreeHighlight;
-					font-family: $subTwoFont;
-					transition: .25s;
-					margin: 0;
-					padding: 0;
-					clear: both;
-				}
-				a:active,
-				a:hover,
-				a:focus,
-				a:active {
-					color: $primaryHighlight;
-					text-decoration: none;
-					background: transparent; 
-					background-color: transparent; 
-				}
-			}
-		}
-	}
-
-	&:after {
-		content: " ";
-		color: transparent;
-		display: block;
-		clear: both;
-		width: 100%;
-	}
-}
 
 // /* -- ##Device = Desktops -- */
 // @media (min-width: 1281px) {
@@ -166,3 +129,5 @@ html, body, *, .row {
 //   body { padding: .25em; }
   
 // }
+
+}

@@ -21,13 +21,11 @@ export class MainSidebarComponent implements OnInit {
     }
 
   }
-  
 
   ngOnInit(): void {
     this.route.data.forEach((data) => {
       this.item = data['item'];
     })
-
   }  
 
   searchTerm: string = "";

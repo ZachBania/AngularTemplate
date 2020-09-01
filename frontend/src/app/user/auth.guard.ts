@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from './../services/index';
 
 @Injectable({
@@ -20,7 +19,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     this.authService.redirectUrl = routeurl;
-    this.router.navigate(['/login'], {queryParams: { returnUrl: routeurl }} );
+    this.router.navigate(['/main'], {queryParams: { returnUrl: routeurl }} );
     }
   
 }

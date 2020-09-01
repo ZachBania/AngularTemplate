@@ -39,9 +39,8 @@ export class ItemsService {
     return this.http.post<IItem>(this.server_url + '/backend/items/delete.php', item, options); 
   }
 
-
   searchItems(searchTerm: string): Observable<IItem[]> {
-    this.http.post<IItem[]>(this.server_url + '/main/search?search=' + searchTerm,"")
+    this.http.post<IItem[]>(this.server_url + '/main/search?search=' + searchTerm,"'")
     return this.http.get<IItem[]>(this.server_url + '/backend/items/read.php/search?search=' + searchTerm)
       .pipe(catchError(this.handleError<IItem[]>('searchItems')));
   }

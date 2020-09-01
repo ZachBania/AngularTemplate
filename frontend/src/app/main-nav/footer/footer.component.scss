@@ -1,0 +1,103 @@
+@import './../../../styles-variables.scss';
+
+footer {
+    background-color:$subTwoHighlight;
+    color: $subThreeHighlight;
+    padding:1em 0;
+    margin: 0;
+    font-size:1em;
+    width: 100%;
+    clear: both;
+    position: relative;
+  
+    h2 {
+        color: $primaryHighlight;
+        font-family: $primaryFont;
+        font-size: 1.25em;
+        padding: .5em 0;
+    }
+    p {
+        color: $subThreeHighlight;
+        font-family: $subTwoFont;
+    }
+
+
+    .navbar-nav {
+
+        li {
+            background: $subTwoHighlight;
+            color: $subThreeHighlight;
+            margin: 0;
+            padding: 0;
+            clear: both;
+
+            a:link,
+            a:visited,
+            a:focus {
+                color: $subThreeHighlight;
+                background: $subTwoHighlight;
+                font-family: $subTwoFont;
+                margin: 0;
+                padding: 0;
+            }
+            a:hover,
+            a:active {
+                
+            }
+
+            &.dropdown,
+            ul.dropdown-menu {
+                background: $subTwoHighlight;
+                margin: 0;
+                padding: 0;
+                right: auto;
+
+                li {
+                    margin: 0;
+                    padding: 0;
+                    text-align: left;
+                    font-family: $subTwoFont;
+                    
+                    a:link,
+                    a:visited {
+                        background: $subTwoHighlight;
+                        color: $subThreeHighlight;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    a:hover,
+                    a:active {
+                        background: $subTwoHighlight;
+                    }
+                }
+            }
+        }
+    }
+  
+    .social-icons {
+        padding: 1em 0;
+        width: 15em;
+        float: right;
+  
+      li {
+          width: 25%;
+          float: left;
+          color: black;
+          i {
+              color: $subThreeHighlight;
+              width: 100%;
+              margin: 0 auto;
+              display: block;
+              font-size: 2.5em;
+              text-align: center;
+              transition:.25s; 
+  
+              &:hover,
+              &:active {
+                color: $primaryHighlight;
+                cursor: pointer;
+              }
+          }
+      }
+  }
+  }

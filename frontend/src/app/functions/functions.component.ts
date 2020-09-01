@@ -16,18 +16,9 @@ export class FunctionsComponent  {
     { tabId: 4, tabTitle: "Tab Four", tabDescription: "Tab Four Description", tabMeta: "Tab Four Meta" }, 
   ];
 
-  taskStatus: string;
-  taskType: string;
 
-  tasks: { taskId: number, taskTitle: string, taskDescription: string, taskStatus: string, taskType: string, taskContributors: string[] }[] = [
-    { taskId: 1, taskTitle: 'Project One', taskDescription: 'Upgrade your website', taskStatus: 'complete', taskType: 'development', taskContributors: ['you']},
-    { taskId: 2, taskTitle: 'Project Two', taskDescription: 'Upgrade your marketing', taskStatus: 'in-progress', taskType: 'marketing', taskContributors: ['you']},
-    { taskId: 3, taskTitle: 'Project Three', taskDescription: 'Upgrade your business', taskStatus: 'incomplete', taskType: 'global', taskContributors: ['you']},
-  ];
 
-  reset($event): void {
-    this.taskStatus = '';
-    this.taskType = '';
-  }
+
+
 
 }

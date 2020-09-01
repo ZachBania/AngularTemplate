@@ -2,13 +2,13 @@
 @import './../../styles-variables.scss';
 
 header {
-    background: url('https://ak.picdn.net/shutterstock/videos/8106805/thumb/1.jpg') no-repeat;
+    background: $subTwoHighlight;
     background-size: 75em;
     background-position-x: center;
-    padding: 10em 1em 5em 1em;
+    padding: 5em 1em 5em 1em;
     
     background-position-y: -15em;
-    box-shadow: inset 0 0 5em $subTwoHighlight;
+    // box-shadow: inset 0 0 5em $subTwoHighlight;
     
     h1 {
         font-size: 2em;
@@ -24,7 +24,7 @@ header {
 }
 
 main {
-    border: $subTwoHighlight solid .25em;
+    // border: $subTwoHighlight solid .25em;
     width: calc(70% - 1em);
     min-height: 20em;
     margin: .5em;
@@ -36,6 +36,30 @@ main {
         font-family: $subTwoFont;
         color: $subTwoHighlight;
         padding: .5em;
+
+        i {
+            color: $primaryHighlight;
+            margin: 0;
+            padding: 0 .5em 0 0;
+            display: block;
+            float: left;
+        }
+        
+        a:link,
+        a:visited {
+            color: $subTwoHighlight;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+            float: left;
+            transition: .25s;
+        }
+        a:hover,
+        a:active {
+            color: $primaryHighlight;
+            text-decoration: none;
+        }
     }
 }
 

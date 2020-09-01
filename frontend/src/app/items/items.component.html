@@ -1,25 +1,17 @@
 <h1>Avaiable Items</h1>
 
 <aside>
-    <div>
-        <p><a [routerLink]="['/items/create-item']">Create Item</a></p>
-    </div>
-    <div>
-        <h2>Filter Items: </h2>
-        <form novalidate #form="ngForm">
-            <!-- <div class="form-group">
-                <p><input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="keyword"></p>
-            </div> -->
-            <div class="form-group">
-                <p>Item Category
-                    <select class="form-control" name="category" [(ngModel)]="category">    
-                        <option *ngFor='let item of items' value='{{ item.category }}'>{{item.category}}</option>
-                    </select>
-                </p>
-            </div> 
-            <p><button type="button" (click)="reset($event)">Clear Fitlers</button></p>
-        </form>
-    </div>
+    <h2>Filter Items: </h2>
+    <form novalidate #form="ngForm">
+        <div class="form-group">
+            <p>Item Category
+                <select class="form-control" name="category" [(ngModel)]="category">    
+                    <option *ngFor='let item of items' value='{{ item.category }}'>{{item.category}}</option>
+                </select>
+            </p>
+        </div> 
+        <p><button type="button" (click)="reset($event)">Clear Fitlers</button></p>
+    </form>
 </aside>
 <main>
     <app-item *ngFor='let item of items | filter: form.value' [item]='item' (itemDetailClick)='detailClick($event)'></app-item>

@@ -1,0 +1,96 @@
+@import './../../../styles-variables.scss';
+
+.navbar {   
+    background: $subTwoHighlight;
+    color: $subThreeHighlight;
+    padding: 0em;
+    margin: 0 auto;
+    margin-bottom: 0em;
+    border: none;
+    border-radius: 0em;
+
+    .container-fluid {
+        max-width: $maxWidthNav;
+
+        .navbar-header {
+
+            a:link,
+            a:visited {
+                color: $subThreeHighlight;
+                font-family: $primaryFont;
+                transition: .25s;
+                float: left;
+            }
+            a:hover,
+            a:active {
+                color: $primaryHighlight;
+            }
+
+            a:before {
+                background: url('./../../../assets/images/brand.png');
+                background-size: 100%;
+                float: left;
+                display: block;
+                content: " ";
+                color: transparent;
+                width: 1em;
+                height: 1em;
+                margin: 0 .5em 0 0;
+                padding: 0;
+            }
+        }
+
+        .navbar-collapse {
+            margin: 0;
+            padding: 0;
+
+            .navbar-nav {
+
+                li {
+                    background: $subTwoHighlight;
+                    margin: 0;
+                    padding: 0;
+                    color: $subThreeHighlight;
+ 
+                    a:link,
+                    a:visited {
+                        font-family: $subTwoFont;
+                    }
+                    a:hover,
+                    a:active {
+                        
+                    }
+
+                    &.dropdown,
+                    ul.dropdown-menu {
+                        background: $subTwoHighlight;
+                        overflow: visible;
+                        margin: 0;
+                        padding: 0;
+                        right: auto;
+     
+                        li {
+                            margin: 0;
+                            padding: 0 1em;
+                            text-align: left;
+                            font-family: $subTwoFont;
+                            
+                            a:link,
+                            a:visited {
+                                background: $subTwoHighlight;
+                                color: $subThreeHighlight;
+                                margin: 0;
+                                padding: 0;
+                            }
+                            a:hover,
+                            a:active {
+                                background: $subTwoHighlight;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

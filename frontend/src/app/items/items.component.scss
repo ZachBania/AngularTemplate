@@ -8,41 +8,23 @@ h1 {
     background: $subTwoHighlight;
 }
 
-main{
+main {
     width: 70%;
     padding: .5em;
     float: right;
-    outline: black solid 1px; // temp
 }
 
 aside {
     float: left;
     width: 30%;
     padding: .5em;
-    height: 10em; // temp
-    outline: black solid 1px; // temp
 
-    a:link,
-    a:visited {
-        background: $primaryHighlight;
-        font-family: $subTwoFont;
-        color: $subTwoHighlight;
-        margin: 1em 0;
-        border: $subTwoHighlight solid .25em;
-        border-radius: .25em;
-        padding: .5em 0;
+    &:after {
+        content: " ";
+        color: transparent;
+        width: 100%;
         clear: both;
         display: block;
-        width: 45%;   
-        text-align: center;
-        text-decoration: none;
-        transition: .25s;
-    }
- 
-    a:hover,
-    a:active {
-        text-decoration: none;
-        box-shadow: inset 0 0 .5em $subTwoHighlight;
     }
 
     button {
