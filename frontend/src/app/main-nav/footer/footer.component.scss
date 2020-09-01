@@ -80,7 +80,7 @@ footer {
         float: right;
   
       li {
-          width: 25%;
+          width: calc(100% /3);
           float: left;
           color: black;
           i {
