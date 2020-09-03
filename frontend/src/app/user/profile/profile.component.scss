@@ -37,6 +37,7 @@ form {
             float: left;
         }
         button {
+            border: $subTwoHighlight solid .25em;
             width: calc(10em - .25em);
             font-size: 1em;
             padding: 0;

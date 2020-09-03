@@ -93,12 +93,11 @@
   }
 }
 header {
-  background: url("https://ak.picdn.net/shutterstock/videos/8106805/thumb/1.jpg") no-repeat;
+  background: black;
   background-size: 75em;
   background-position-x: center;
   padding: 10em 1em 5em 1em;
   background-position-y: -15em;
-  box-shadow: inset 0 0 5em black;
 }
 header h1 {
   font-size: 2em;
@@ -112,7 +111,6 @@ header p {
 }
 
 main {
-  border: black solid 0.25em;
   width: calc(70% - 1em);
   min-height: 20em;
   margin: 0.5em;
@@ -124,6 +122,28 @@ main p {
   font-family: Arial;
   color: black;
   padding: 0.5em;
+}
+main p i {
+  color: #0385D2;
+  margin: 0;
+  padding: 0 0.5em 0 0;
+  display: block;
+  float: left;
+}
+main p a:link,
+main p a:visited {
+  color: black;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  float: left;
+  transition: 0.25s;
+}
+main p a:hover,
+main p a:active {
+  color: #0385D2;
+  text-decoration: none;
 }
 
 @media (max-width: 767px) {

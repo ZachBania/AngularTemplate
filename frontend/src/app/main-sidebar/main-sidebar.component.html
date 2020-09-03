@@ -1,6 +1,7 @@
 <aside>
   <div *ngIf="authService.isAuthenticated()" class="currentUser">
     <p>Hi {{ currentUser.first_name }}</p> 
+    <p><span>{{ currentUser.permission_level }}</span> <span>{{ time }}</span> </p> 
   </div>
 
   <form id="searchForm" (ngSubmit)="searchItems(searchTerm)" class="searchForm"  >

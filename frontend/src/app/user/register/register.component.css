@@ -128,6 +128,8 @@ form .form-group input.form-control {
   float: left;
 }
 form .form-group button {
+  background: white;
+  border: black solid 0.25em;
   width: calc(10em - .25em);
   font-size: 1em;
   padding: 0;
@@ -151,18 +153,4 @@ form .form-group button[type=submit] {
 .form-controls-table p {
   color: black;
   font-family: Arial;
-}
-.form-controls-table table {
-  background: white;
-  width: calc(100% - 1em);
-  border: black solid 0.25em;
-  color: black;
-  font-family: Arial;
-}
-.form-controls-table table thead {
-  background: black;
-  color: white;
-}
-.form-controls-table table thead tr th p {
-  color: white;
 }

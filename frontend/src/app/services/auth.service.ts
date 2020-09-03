@@ -22,15 +22,13 @@ export class AuthService {
   public get userValue(): IUser {
     return this.currentUserSubject.value;
 }
-
-  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   
   public userlogin(formValues) {
     let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
     return this.http.post<IUser>(this.server_url + '/backend/admin/auth/login.php', formValues, options)
     .pipe(map(data => {
-      // store user details token in local storage to keep user logged in between page refreshes
       localStorage.setItem('user', JSON.stringify(data));
+      sessionStorage.setItem('user', JSON.stringify(data));
       this.currentUserSubject.next(data);
       return data;
     }));
@@ -46,16 +44,9 @@ export class AuthService {
     let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
     return this.http.post<string>(this.server_url + '/backend/admin/auth/update.php', formValues, options)
     .pipe(map(data => {
-      // Map data into currentUser
-      // Map object into local storage
-      // .replace(/\\/g, "");
-
       localStorage.setItem('user', data); 
+      sessionStorage.setItem('user', data); 
       this.currentUserSubject.next(JSON.parse(localStorage.getItem('user')));
-      console.log('data', data)
-      console.log('this.currentUser', this.currentUser)
-      console.log('this.currentUserSubject', this.currentUserSubject);
-
       return data;
   }));
     
@@ -71,8 +62,8 @@ export class AuthService {
   }
 
   logout() {
-    // remove user from local storage and set current user to null
     localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     this.currentUserSubject.next(null);
     this.router.navigate(['/main']);
   }

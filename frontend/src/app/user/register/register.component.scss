@@ -36,6 +36,8 @@ form {
             float: left;
         }
         button {
+            background: $subThreeHighlight;
+            border: $subTwoHighlight solid .25em;
             width: calc(10em - .25em);
             font-size: 1em;
             padding: 0;
@@ -62,37 +64,5 @@ form {
     p {
         color: $subTwoHighlight;
         font-family: $subTwoFont;
-    }
-
-    table {
-        background: $subThreeHighlight;
-        width: calc(100% - 1em);
-        border: $subTwoHighlight solid .25em;
-        color: $subTwoHighlight;
-        font-family: $subTwoFont;
-    
-        thead {
-            background: $subTwoHighlight;
-            color: $subThreeHighlight;
-    
-            tr {
-                th {
-                    p {
-                        color: $subThreeHighlight;
-                    }
-                }
-            }
-        }
-    
-        tbody {
-    
-            tr {
-    
-                td {
-                    
-                }
-            }
-        }
-    
     }
 }

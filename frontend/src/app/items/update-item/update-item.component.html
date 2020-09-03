@@ -2,7 +2,7 @@
 
 <form [formGroup]="updateForm" (ngSubmit)="updateItem(updateForm.value)" autocomplete="off" novalidate>
 
-  <div class="form-group" [ngClass]="{'error': updateForm.controls.id?.invalid && updateForm.controls.id?.touched}">
+  <div *ngIf="false" class="form-group" [ngClass]="{'error': updateForm.controls.id?.invalid && updateForm.controls.id?.touched}">
     <em *ngIf="updateForm.controls.id?.invalid && (updateForm.controls.id?.touched)">*</em>
     <label for="id">Item id:</label>
     <input formControlName="id" (ngModel)="currentItem.id" name="id" id="name" type="text" class="form-control" placeholder="id" required/>

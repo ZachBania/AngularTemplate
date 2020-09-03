@@ -27,6 +27,15 @@ aside {
         display: block;
     }
 
+    select {
+        background: $subThreeHighlight;
+        font-family: $subTwoFont;
+        color: $subThreeHighlight;
+        border: $subTwoHighlight solid .25em;
+        width: 100%;
+        display: block;
+    }
+
     button {
         background: $primaryHighlight;
         font-family: $subTwoFont;

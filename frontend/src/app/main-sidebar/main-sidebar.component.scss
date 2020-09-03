@@ -1,10 +1,7 @@
-// Import variables
 @import './../../styles-variables.scss';
 
 aside {
-    // border: $subTwoHighlight solid .25em;
     width: calc(30% - 1em);
-    min-height: 10em;
     margin: .5em;
     padding: 0;
     float: left;
@@ -20,7 +17,7 @@ aside {
             font-size: 1.25em;
             width: 100%;
 
-            &:after {
+            &:nth-child(1):after {
                 font-size: 1em;
                 content: " ";
                 color: transparent;
@@ -36,6 +33,22 @@ aside {
                 border: solid .1em $subTwoHighlight;
                 border-radius: 50%;
             }
+            &:nth-child(2) {
+                font-size: 75%;
+                clear: both;
+                span {
+                    &:nth-child(2) {
+                        float: right;
+                    }
+                }
+            }
+        }
+        &:after {
+            content: " ";
+            display: block;
+            width: 100%;
+            height: auto;
+            clear: both;
         }
     }
 
@@ -50,6 +63,17 @@ aside {
             margin: 0;
             p {
                 width: 100%;
+                border: $subTwoHighlight solid .25em;
+                border-bottom: none;
+                padding: 0;
+                margin: 0;
+
+                &:after {
+                    content: " ";
+                    display: block;
+                    width: 100%;
+                    clear: both;
+                }
 
                 input {
                     font-family: $subTwoFont;
@@ -61,10 +85,11 @@ aside {
                     width: 70%;
                     clear: none;
                     float: left;
-                    padding: 1em;
+                    padding: 1.25em;
                     margin: 0;
                     border: none;
                     border-radius: 0em;
+                    line-height: 1em;
 
                     &:focus {
                         box-shadow: none;
@@ -78,22 +103,34 @@ aside {
                     clear: none;
                     float: left;
                     font-size: 1em;
-                    padding: .5em 0;
+                    padding: .75em 0;
                     margin: 0;
                     border: none;
                     border-radius: 0em;
+                    line-height: 1em;
+
                 }
             }
         }    
     }
 
     ul {
-
+        
         li {
-            color: $subTwoHighlight;
-    
+            
             a:link,
             a:visited {
+            
+                &:before {
+                    content: " ";
+                    background: $subTwoHighlight; 
+                    display: block;
+                    width: .5em;
+                    height: .5em;
+                    float: left;
+                    margin: .25em .25em 0 0;
+                }
+                background: $subThreeHighlight;
                 color: $subTwoHighlight;
                 font-family: $subTwoFont;
                 font-size: 1em;
@@ -103,6 +140,7 @@ aside {
                 padding: .25em .5em;
                 clear: both;
                 transition: .25s;
+                float: left;
             }
             a:hover,
             a:active {

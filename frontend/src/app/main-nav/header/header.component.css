@@ -1,0 +1,173 @@
+@font-face {
+  src: url("/assets/fonts/primary.ttf");
+  font-family: primary;
+}
+/* -- ##Device = Desktops -- */
+@media (min-width: 1281px) {
+  nav {
+    max-width: 1281px;
+  }
+
+  .container {
+    outline: red solid 0.25em;
+    min-width: 1281px;
+    font-size: 1.35em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Laptops, Desktops -- */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  nav {
+    max-width: 1280px;
+  }
+
+  .container {
+    outline: orange solid 0.25em;
+    max-width: 1280px;
+    font-size: 1.2em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Tablets, Ipads (portrait) -- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    max-width: 1024px;
+  }
+
+  .container {
+    outline: green solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Tablets, Ipads (landscape) -- */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  nav {
+    max-width: 1024px;
+  }
+
+  .container {
+    outline: blue solid 0.25em;
+    max-width: 1024px;
+    font-size: 1.1em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Low Resolution Tablets, Mobiles (Landscape) -- */
+@media (min-width: 481px) and (max-width: 767px) {
+  nav {
+    max-width: 767px;
+  }
+
+  .container {
+    outline: purple solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Most of the Smartphones Mobiles (Portrait) -- */
+@media (min-width: 320px) and (max-width: 480px) {
+  nav {
+    max-width: 480px;
+  }
+
+  .container {
+    outline: pink solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+.navbar {
+  background: black;
+  color: white;
+  padding: 0em;
+  margin: 0 auto;
+  margin-bottom: 0em;
+  border: none;
+  border-radius: 0em;
+}
+.navbar .container-fluid {
+  max-width: 100%;
+}
+.navbar .container-fluid .navbar-header a:link,
+.navbar .container-fluid .navbar-header a:visited {
+  color: white;
+  font-family: primary;
+  transition: 0.25s;
+  float: left;
+}
+.navbar .container-fluid .navbar-header a:hover,
+.navbar .container-fluid .navbar-header a:active {
+  color: #0385D2;
+}
+.navbar .container-fluid .navbar-header a:before {
+  background: url("./../../../assets/images/brand.png");
+  background-size: 100%;
+  float: left;
+  display: block;
+  content: " ";
+  color: transparent;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0 0;
+  padding: 0;
+}
+.navbar .container-fluid .navbar-collapse {
+  margin: 0;
+  padding: 0;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li {
+  background: black;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li a:link,
+.navbar .container-fluid .navbar-collapse .navbar-nav li a:visited {
+  font-family: Arial;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu {
+  background: black;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  right: auto;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown li,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu li {
+  margin: 0;
+  padding: 0 1em;
+  text-align: left;
+  font-family: Arial;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown li a:link,
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown li a:visited,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu li a:link,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu li a:visited {
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown li a:hover,
+.navbar .container-fluid .navbar-collapse .navbar-nav li.dropdown li a:active,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu li a:hover,
+.navbar .container-fluid .navbar-collapse .navbar-nav li ul.dropdown-menu li a:active {
+  background: black;
+}

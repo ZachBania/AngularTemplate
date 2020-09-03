@@ -100,10 +100,6 @@
   background: black;
   clear: both;
 }
-.item div {
-  outline: black solid 1px;
-  min-height: 10em;
-}
 .item div:nth-child(2) {
   width: 70%;
   float: left;

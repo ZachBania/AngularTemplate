@@ -171,35 +171,3 @@ html, body {
   max-width: 60em;
   background: white;
 }
-.container footer {
-  clear: both;
-  display: block;
-}
-.container footer ul.nav li {
-  clear: both;
-}
-.container footer ul.nav li a:link,
-.container footer ul.nav li a:visited {
-  color: white;
-  font-family: Arial;
-  transition: 0.25s;
-  margin: 0;
-  padding: 0;
-  clear: both;
-}
-.container footer ul.nav li a:active,
-.container footer ul.nav li a:hover,
-.container footer ul.nav li a:focus,
-.container footer ul.nav li a:active {
-  color: #0385D2;
-  text-decoration: none;
-  background: transparent;
-  background-color: transparent;
-}
-.container:after {
-  content: " ";
-  color: transparent;
-  display: block;
-  clear: both;
-  width: 100%;
-}

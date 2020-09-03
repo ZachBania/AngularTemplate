@@ -128,9 +128,11 @@ form .form-group input.form-control {
   float: left;
 }
 form .form-group button {
-  width: calc(10em - .25em);
+  background: white;
+  border: black solid 0.25em;
   font-size: 1em;
   padding: 0;
+  width: calc(10em - .25em);
   font-family: Arial;
   color: black;
   font-weight: 900;

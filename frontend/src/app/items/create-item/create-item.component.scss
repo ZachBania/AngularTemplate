@@ -36,9 +36,11 @@ form {
             float: left;
         }
         button {
-            width: calc(10em - .25em);
+            background: $subThreeHighlight;
+            border: $subTwoHighlight solid .25em;
             font-size: 1em;
             padding: 0;
+            width: calc(10em - .25em);
             font-family: $subTwoFont;
             color: $subTwoHighlight;
             font-weight: 900;

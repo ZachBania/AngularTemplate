@@ -1,0 +1,186 @@
+@font-face {
+  src: url("/assets/fonts/primary.ttf");
+  font-family: primary;
+}
+/* -- ##Device = Desktops -- */
+@media (min-width: 1281px) {
+  nav {
+    max-width: 1281px;
+  }
+
+  .container {
+    outline: red solid 0.25em;
+    min-width: 1281px;
+    font-size: 1.35em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Laptops, Desktops -- */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  nav {
+    max-width: 1280px;
+  }
+
+  .container {
+    outline: orange solid 0.25em;
+    max-width: 1280px;
+    font-size: 1.2em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Tablets, Ipads (portrait) -- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    max-width: 1024px;
+  }
+
+  .container {
+    outline: green solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Tablets, Ipads (landscape) -- */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  nav {
+    max-width: 1024px;
+  }
+
+  .container {
+    outline: blue solid 0.25em;
+    max-width: 1024px;
+    font-size: 1.1em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Low Resolution Tablets, Mobiles (Landscape) -- */
+@media (min-width: 481px) and (max-width: 767px) {
+  nav {
+    max-width: 767px;
+  }
+
+  .container {
+    outline: purple solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+/* -- ##Device = Most of the Smartphones Mobiles (Portrait) -- */
+@media (min-width: 320px) and (max-width: 480px) {
+  nav {
+    max-width: 480px;
+  }
+
+  .container {
+    outline: pink solid 0.25em;
+  }
+
+  body {
+    padding: 0.25em;
+  }
+}
+footer {
+  background-color: black;
+  color: white;
+  padding: 1em 0;
+  margin: 0;
+  font-size: 1em;
+  width: 100%;
+  clear: both;
+  position: relative;
+}
+footer h2 {
+  color: #0385D2;
+  font-family: primary;
+  font-size: 1.25em;
+  padding: 0.5em 0;
+}
+footer p {
+  color: white;
+  font-family: Arial;
+}
+footer .navbar-nav {
+  margin: 0;
+  padding: 0;
+}
+footer .navbar-nav li {
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+footer .navbar-nav li a:link,
+footer .navbar-nav li a:visited,
+footer .navbar-nav li a:focus {
+  color: white;
+  background: black;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+footer .navbar-nav li.dropdown,
+footer .navbar-nav li ul.dropdown-menu {
+  background: black;
+  margin: 0;
+  padding: 0;
+  right: auto;
+}
+footer .navbar-nav li.dropdown li,
+footer .navbar-nav li ul.dropdown-menu li {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-family: Arial;
+}
+footer .navbar-nav li.dropdown li a:link,
+footer .navbar-nav li.dropdown li a:visited,
+footer .navbar-nav li ul.dropdown-menu li a:link,
+footer .navbar-nav li ul.dropdown-menu li a:visited {
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+footer .navbar-nav li.dropdown li a:hover,
+footer .navbar-nav li.dropdown li a:active,
+footer .navbar-nav li ul.dropdown-menu li a:hover,
+footer .navbar-nav li ul.dropdown-menu li a:active {
+  background: black;
+}
+footer .social-icons {
+  padding: 1em 0;
+  width: 15em;
+  float: right;
+}
+footer .social-icons li {
+  width: calc(100% /3);
+  float: left;
+  color: black;
+}
+footer .social-icons li i {
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+  transition: 0.25s;
+}
+footer .social-icons li i:hover, footer .social-icons li i:active {
+  color: #0385D2;
+  cursor: pointer;
+}

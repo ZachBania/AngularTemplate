@@ -40,12 +40,7 @@ export class ItemsService {
   }
 
   searchItems(searchTerm?: string): Observable<IItem[]> {
-    return this.http.get<IItem[]>(this.server_url + '/backend/items/read.php/', {
-      params: {
-        search: searchTerm
-      }
-    }
-    )
+    return this.http.get<IItem[]>(this.server_url + '/backend/items/read.php/', { params: { search: searchTerm } } )
       .pipe(catchError(this.handleError<IItem[]>('searchItems')));
   }
 

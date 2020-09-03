@@ -111,14 +111,6 @@
 		"oAP": "/backend/items/update.php",
 		"oF": 0
 		},
-	"/backend/mysql_connection.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/backend/mysql_connection.php",
-		"oF": 0
-		},
 	"/frontend/angular.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -157,13 +149,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/3rdpartylicenses.txt",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/4.d03996f0a8aa76d8530d.js": {
+	"/frontend/dist/AngularJSTemplate/4.010af7e5c2b45436ca66.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/4.d03996f0a8aa76d8530d-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/4.010af7e5c2b45436ca66-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -302,13 +294,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/index.html",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/main.563dd2ca72db8200fb07.js": {
+	"/frontend/dist/AngularJSTemplate/main.bfa1bbe9d4dad17595bf.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/main.563dd2ca72db8200fb07-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/main.bfa1bbe9d4dad17595bf-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -324,24 +316,24 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/runtime.98627997cf7addef803c.js": {
+	"/frontend/dist/AngularJSTemplate/runtime.a4339a6209757f023cb5.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/runtime.98627997cf7addef803c-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/runtime.a4339a6209757f023cb5-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/styles.20f1c7eee6f1a6a1cd09.css": {
+	"/frontend/dist/AngularJSTemplate/styles.bb6b46dea6dfe25da234.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/styles.20f1c7eee6f1a6a1cd09-min.css",
+		"oAP": "/frontend/dist/AngularJSTemplate/styles.bb6b46dea6dfe25da234-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -1076,25 +1068,25 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/main-nav/main-nav.component.css": {
+	"/frontend/src/app/main-nav/footer/footer.component.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/main-nav/main-nav.component-min.css",
+		"oAP": "/frontend/src/app/main-nav/footer/footer.component-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"/frontend/src/app/main-nav/main-nav.component.html": {
+	"/frontend/src/app/main-nav/footer/footer.component.html": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/main-nav/main-nav.component.html",
+		"oAP": "/frontend/src/app/main-nav/footer/footer.component.html",
 		"oF": 0
 		},
-	"/frontend/src/app/main-nav/main-nav.component.scss": {
+	"/frontend/src/app/main-nav/footer/footer.component.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -1102,12 +1094,26 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/src/app/main-nav/main-nav.component.css",
+		"oAP": "/frontend/src/app/main-nav/footer/footer.component.css",
 		"oF": 0,
 		"oS": 0,
 		"sct": 0
 		},
-	"/frontend/src/app/main-nav/main-nav.component.ts": {
+	"/frontend/src/app/main-nav/footer/footer.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main-nav/footer/footer.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/main-nav/footer/footer.component.ts": {
 		"cDF": 0,
 		"ft": 128,
 		"jxM": 0,
@@ -1116,7 +1122,66 @@
 		"moR": 0,
 		"moT": 2,
 		"oA": 1,
-		"oAP": "/frontend/src/app/main-nav/main-nav.component.js",
+		"oAP": "/frontend/src/app/main-nav/footer/footer.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/main-nav/header/header.component.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main-nav/header/header.component-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/frontend/src/app/main-nav/header/header.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main-nav/header/header.component.html",
+		"oF": 0
+		},
+	"/frontend/src/app/main-nav/header/header.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main-nav/header/header.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/frontend/src/app/main-nav/header/header.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/main-nav/header/header.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/main-nav/header/header.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/main-nav/header/header.component.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
