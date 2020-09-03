@@ -1,8 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+/backend/mysql_connection.php
 # compiled output
-/backend
-mysql_connection.php
 /dist
 /tmp
 /out-tsc
