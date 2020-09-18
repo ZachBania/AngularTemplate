@@ -1,98 +1,98 @@
-@import './../../../styles-variables.scss';
+@import "./../../../styles-variables.scss";
 
-.navbar {   
-    background: $subTwoHighlight;
-    color: $subThreeHighlight;
-    padding: 0em;
-    margin: 0 auto;
-    margin-bottom: 0em;
-    border: none;
-    border-radius: 0em;
+.navbar {
+  background: $subTwoHighlight;
+  color: $subThreeHighlight;
+  padding: 0em;
+  margin: 0 auto;
+  margin-bottom: 0em;
+  border: none;
+  border-radius: 0em;
 
-    .container-fluid {
-        max-width: $maxWidthNav;
+  .container-fluid {
+    max-width: $maxWidthNav;
 
-        .navbar-header {
+    .navbar-header {
+      a:link,
+      a:visited {
+        color: $subThreeHighlight;
+        font-family: $primaryFont;
+        transition: 0.25s;
+        float: left;
+      }
+      a:hover,
+      a:active {
+        color: $primaryHighlight;
+      }
 
-            a:link,
-            a:visited {
-                color: $subThreeHighlight;
-                font-family: $primaryFont;
-                transition: .25s;
-                float: left;
+      a:before {
+        background: url("./../../../assets/images/brand.png");
+        background-size: 100%;
+        float: left;
+        display: block;
+        content: " ";
+        color: transparent;
+        width: 1em;
+        height: 1em;
+        margin: 0 0.5em 0 0;
+        padding: 0;
+      }
+    }
+
+    .navbar-collapse {
+      margin: 0;
+      padding: 0;
+
+      .navbar-nav {
+        margin: 0;
+        padding: 0;
+
+        li {
+          background: $subTwoHighlight;
+          margin: 0;
+          padding: 0;
+          color: $subThreeHighlight;
+
+          a:link,
+          a:visited {
+            font-family: $subTwoFont;
+
+            i:hover {
             }
-            a:hover,
-            a:active {
-                color: $primaryHighlight;
-            }
+          }
+          a:hover,
+          a:active {
+          }
 
-            a:before {
-                background: url('./../../../assets/images/brand.png');
-                background-size: 100%;
-                float: left;
-                display: block;
-                content: " ";
-                color: transparent;
-                width: 1em;
-                height: 1em;
-                margin: 0 .5em 0 0;
-                padding: 0;
-            }
-        }
-
-        .navbar-collapse {
+          &.dropdown,
+          ul.dropdown-menu {
+            background: $subTwoHighlight;
+            overflow: visible;
             margin: 0;
             padding: 0;
+            right: auto;
 
-            .navbar-nav {
+            li {
+              margin: 0;
+              padding: 0 1em;
+              text-align: left;
+              font-family: $subTwoFont;
+
+              a:link,
+              a:visited {
+                background: $subTwoHighlight;
+                color: $subThreeHighlight;
                 margin: 0;
                 padding: 0;
-    
-                li {
-                    background: $subTwoHighlight;
-                    margin: 0;
-                    padding: 0;
-                    color: $subThreeHighlight;
- 
-                    a:link,
-                    a:visited {
-                        font-family: $subTwoFont;
-                    }
-                    a:hover,
-                    a:active {
-                        
-                    }
-
-                    &.dropdown,
-                    ul.dropdown-menu {
-                        background: $subTwoHighlight;
-                        overflow: visible;
-                        margin: 0;
-                        padding: 0;
-                        right: auto;
-     
-                        li {
-                            margin: 0;
-                            padding: 0 1em;
-                            text-align: left;
-                            font-family: $subTwoFont;
-                            
-                            a:link,
-                            a:visited {
-                                background: $subTwoHighlight;
-                                color: $subThreeHighlight;
-                                margin: 0;
-                                padding: 0;
-                            }
-                            a:hover,
-                            a:active {
-                                background: $subTwoHighlight;
-                            }
-                        }
-                    }
-                }
+              }
+              a:hover,
+              a:active {
+                background: $subTwoHighlight;
+              }
             }
+          }
         }
-
+      }
     }
+  }
 }

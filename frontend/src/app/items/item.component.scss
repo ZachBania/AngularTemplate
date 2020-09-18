@@ -73,12 +73,12 @@
         font-family: $subTwoFont;
         color: $subTwoHighlight;
         margin: 1em 0;
+        padding: .5em;
+
         border: $subTwoHighlight solid .25em;
         border-radius: .25em;
-        padding: .5em 0;
-        clear: both;
+        float: left;
         display: block;
-        width: 7.5em;     
         text-align: center;
         text-decoration: none;
         transition: .25s;
@@ -86,6 +86,14 @@
             text-decoration: none;
             box-shadow: inset 0 0 .5em $subTwoHighlight;
         }
+    }
+
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: auto;
+        width: 100%;
     }
 
 }

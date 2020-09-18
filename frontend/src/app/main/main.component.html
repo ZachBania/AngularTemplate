@@ -1,10 +1,45 @@
-
 <header>
-    <h1>{{pageTitle}}</h1>
-    <p *ngFor="let variable of pageDescriptions">{{ variable }}</p>
+  <h1>{{ pageTitle }}</h1>
+  <p>Zach Bania</p>
+  <div>
+    <div>
+      <h2>Front End</h2>
+      <p>
+        The operating interface is a custom prototype driven on Angular
+        {{ angularVersion }} and component based styling.
+      </p>
+    </div>
+    <div>
+      <h2>Back End</h2>
+      <p>
+        The data-access layer uses the synchronization of Angular HTTP requests
+        to a MySQL database.
+      </p>
+    </div>
+    <div>
+      <h2>Architecture</h2>
+      <p>
+        The foundation of the prototype is structured through components and the
+        Bootstrap {{ bootstrapVersion }} framework.
+      </p>
+    </div>
+  </div>
 </header>
 <app-main-sidebar></app-main-sidebar>
 <main>
-    <p *ngFor="let variable of bodyContent">{{ variable }}</p>
-    <p><i class="fas fa-code-branch"></i> <a href="https://github.com/ZachBania/AngularTemplate">View Code</a></p>
+  <p>
+    AngularJS is capabile of providing a Single Page Application Framework that
+    allows for data binding, testable code metrics, dependency injection, API
+    and HTTP Services, and much more.
+  </p>
+  <p>
+    Software Developers can achieve more functionality and effeciency with the
+    AngularJS framework, providing confidence that the code meterics of the web
+    application are reliable.
+  </p>
+
+  <p>
+    <i class="fas fa-code-branch"></i>
+    <a href="https://github.com/ZachBania/AngularTemplate">View Code</a>
+  </p>
 </main>

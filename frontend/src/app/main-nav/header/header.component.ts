@@ -8,7 +8,7 @@ import { AuthService } from './../../services/index';
 })
 export class HeaderComponent implements OnInit {
 
-  brandTitle: string = "Angular Template";
+  brandTitle: string = "Prototype";
   
   constructor(public authService: AuthService ) { }
 

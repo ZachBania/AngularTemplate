@@ -49,8 +49,6 @@ export class ProfileComponent implements OnInit {
       date_created: this.currentUser.date_created,
       permission_level: this.currentUser.permission_level,
     });
-    
-    // this.authService.updateCurrentUser(this.currentUser)
     ;
   }
 

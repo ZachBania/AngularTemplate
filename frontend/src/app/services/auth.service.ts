@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, catchError, map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router} from '@angular/router';
+import { ItemsService } from './items.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,7 +15,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<IUser>;
   public currentUser: Observable<IUser>;
   
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private itemService: ItemsService) {
     this.currentUserSubject = new BehaviorSubject<IUser>(JSON.parse(localStorage.getItem('user')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -65,6 +66,9 @@ export class AuthService {
     localStorage.removeItem('user');
     sessionStorage.removeItem('user');
     this.currentUserSubject.next(null);
+
+    this.itemService.resetCart();
+    
     this.router.navigate(['/main']);
   }
 }

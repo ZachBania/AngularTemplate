@@ -13,4 +13,5 @@
         <img src="./../../assets/images/items/{{ item.image_url }}"/>
     </div>
     <button [routerLink]="['/items', item.id]" class="btn btn-primary">Item Details</button>
+    <button [routerLink]="['/item-cart']" (click)="addItemToCart(item)" class="btn btn-primary">Add to Cart</button>
 </div>

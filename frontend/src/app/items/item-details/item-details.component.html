@@ -1,14 +1,14 @@
 <div class="item"> 
-    <h1>{{ object.name }}</h1>
+    <h1>{{ item.name }}</h1>
     <div> 
-        <p>{{ object.description }}</p>
-        <p>{{ object.price | currency }}</p>
-        <p>{{ object.inventory }} Avaiable</p>
-        <p>{{ object.category }}</p>
+        <p>{{ item.description }}</p>
+        <p>{{ item.price | currency }}</p>
+        <p>{{ item.inventory }} Avaiable</p>
+        <p>{{ item.category }}</p>
         <p><a [routerLink]="['/items']">Back</a></p>
     </div>
     <div>
-        <img src="../../../assets/images/items/{{ object.image_url }}"/>
+        <img src="../../../assets/images/items/{{ item.image_url }}"/>
     </div>
 </div>
 

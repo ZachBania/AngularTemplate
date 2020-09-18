@@ -3,23 +3,65 @@
 
 header {
     background: $subTwoHighlight;
-    background-size: 75em;
+    background: url('https://media.istockphoto.com/videos/smoke-levitating-in-front-of-black-background-video-id473159999?s=640x640');
+    background-size: 82.5em;
     background-position-x: center;
-    padding: 10em 1em 5em 1em;
+    padding: 0 1em;
     
-    background-position-y: -15em;
-    // box-shadow: inset 0 0 5em $subTwoHighlight;
-    
+
     h1 {
-        font-size: 2em;
+        font-size: 3em;
         font-family: $primaryFont;
         color: $primaryHighlight;
+        opacity: .75;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 4em 0 0 0;
     }
 
     p {
-        font-size: 1.5em;
+        font-size: 1em;
         font-family: $subTwoFont;
-        color: $subThreeHighlight;
+        color: $subThreeHighlight; 
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        padding: .25em 0;
+
+    }
+
+    div {
+        width: 100%;
+        padding: 7.5em 0 5em 0;
+        
+        div {
+            width: calc(100% / 3);
+            float: left;
+            padding: .5em;
+            margin:0;
+    
+            h2 {
+                font-size: 1.25em;
+                font-family: $subTwoFont;
+                color: $subThreeHighlight;
+            }
+    
+            p {
+                font-size: 1em;
+                font-family: $subTwoFont;
+                color: $subThreeHighlight;
+                text-align: left;
+            }
+        }
+    }
+
+    &:after,
+    div:after {
+        content: " ";
+        width: 100%;
+        display: block;
+        clear: both;
     }
 }
 
@@ -65,5 +107,17 @@ main {
 @media (max-width: 767px) {
     main {
         width: calc(100% - 1em);
+    }
+
+    header {
+
+        div {
+            div {
+                width: 100%;
+                clear: both;
+                margin: 0;
+            }
+        }
+
     }
 }

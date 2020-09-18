@@ -1,24 +1,29 @@
 <aside>
   <div *ngIf="authService.isAuthenticated()" class="currentUser">
-    <p>Hi {{ currentUser.first_name }}</p> 
-    <p><span>{{ currentUser.permission_level }}</span> <span>{{ time }}</span> </p> 
+    <p>Hi {{ currentUser.first_name }}</p>
+    <p>
+      <span>{{ currentUser.permission_level }}</span> <span>{{ time }}</span>
+    </p>
   </div>
 
-  <form id="searchForm" (ngSubmit)="searchItems(searchTerm)" class="searchForm"  >
+  <form id="searchForm" (ngSubmit)="searchItems(searchTerm)" class="searchForm">
     <div class="form-group">
       <p>
-        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Items" >
-        <button class="btn btn-default" modal-trigger="searchResults">Search</button> 
+        <input
+          [(ngModel)]="searchTerm"
+          name="searchTerm"
+          type="text"
+          class="form-control"
+          placeholder="Search Items"
+        />
+        <button class="btn btn-default">Search</button>
       </p>
     </div>
   </form>
 
-  
-  <app-simple-modal closeOnBodyClick="true" elementId="searchResults" title="Matching Sessions">
-    <ul>
-      <li *ngFor="let item of matchingItems"><a [routerLink]="['/items', item.id]">{{item.name}}</a></li>
-    </ul>
-      
-  </app-simple-modal>
-    
+  <ul>
+    <li *ngFor="let item of matchingItems">
+      <a [routerLink]="['/items', item.id]">{{ item.name }}</a>
+    </li>
+  </ul>
 </aside>

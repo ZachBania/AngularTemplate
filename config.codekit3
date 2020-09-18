@@ -111,6 +111,14 @@
 		"oAP": "/backend/items/update.php",
 		"oF": 0
 		},
+	"/backend/mysql_connection.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/mysql_connection.php",
+		"oF": 0
+		},
 	"/frontend/angular.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -149,13 +157,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/3rdpartylicenses.txt",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/4.010af7e5c2b45436ca66.js": {
+	"/frontend/dist/AngularJSTemplate/4.6eb445d6e7f8fa8df658.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/4.010af7e5c2b45436ca66-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/4.6eb445d6e7f8fa8df658-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -294,13 +302,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/index.html",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/main.bfa1bbe9d4dad17595bf.js": {
+	"/frontend/dist/AngularJSTemplate/main.9bf2d6e7e4e7ba597872.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/main.bfa1bbe9d4dad17595bf-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/main.9bf2d6e7e4e7ba597872-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -316,13 +324,13 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/runtime.a4339a6209757f023cb5.js": {
+	"/frontend/dist/AngularJSTemplate/runtime.1669bc14836eecca0c4e.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/runtime.a4339a6209757f023cb5-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/runtime.1669bc14836eecca0c4e-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -1981,6 +1989,14 @@
 		"pME": 1,
 		"rFN": 0,
 		"uCM": 0
+		},
+	"/zrbania_AngularTemplate.sql": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/zrbania_AngularTemplate.sql",
+		"oF": 0
 		}
 	},
 "hooks": [

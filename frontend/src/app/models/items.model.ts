@@ -7,4 +7,5 @@ export interface IItem {
   inventory: number,
   category: string,
   image_url: string,
+  quanity?: number,
 }

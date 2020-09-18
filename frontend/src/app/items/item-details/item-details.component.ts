@@ -11,8 +11,6 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class ItemDetailsComponent implements OnInit {
   item: IItem;
-  object:any;
-   arr = [];  
 
   constructor(private itemsService: ItemsService, private route:ActivatedRoute) {
     
@@ -22,7 +20,7 @@ export class ItemDetailsComponent implements OnInit {
 
     this.route.params.forEach((params: Params) => {
       this.itemsService.getItem(+params['id']).subscribe((res: any) => {
-         this.object = res;
+         this.item = res;
       })  
     });
 

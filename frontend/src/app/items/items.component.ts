@@ -6,14 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.scss']
+  styleUrls: ['./items.component.scss'],
 })
 export class ItemsComponent implements OnInit {
-
   items: IItem[];
-  constructor(private itemsService: ItemsService, private route:ActivatedRoute) {
-    
-  }
+  constructor(
+    private itemsService: ItemsService,
+    private route: ActivatedRoute
+  ) {}
 
   name: string;
   category: string;
@@ -23,14 +23,13 @@ export class ItemsComponent implements OnInit {
     this.category = '';
   }
 
-  fetchData() {
-    this.itemsService.getItems().subscribe(res => {
+  getItems() {
+    this.itemsService.getItems().subscribe((res) => {
       this.items = res;
     });
   }
 
   ngOnInit(): any {
-    this.fetchData();
+    this.getItems();
   }
-
 }

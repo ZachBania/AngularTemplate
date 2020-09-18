@@ -33,6 +33,7 @@ let jQuery = window['$'];
 import { DropdownFilterPipe } from './common/dropdown-filter.pipe';
 import { KeywordFilterPipe } from './common/keyword-filter.pipe';
 import { NotFoundComponent } from './common/errors/not-found.component';
+import { ItemCartComponent } from './item-cart/item-cart.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { NotFoundComponent } from './common/errors/not-found.component';
     // Other
     NotFoundComponent,
     UpdateItemComponent,
+    ItemCartComponent,
   ],
   imports: [
     BrowserModule,
