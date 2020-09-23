@@ -1,105 +1,112 @@
-
 @font-face {
-    src: url('/assets/fonts/primary.ttf');
-    font-family: primary;
+  src: url("/assets/fonts/primary.ttf");
+  font-family: primary;
 }
 
-$primaryHighlight: #0385D2;
-$subTwoHighlight: rgba(0,0,0,1);
+::selection {
+  color: none;
+}
+
+$primaryHighlight: #0385d2;
+$subTwoHighlight: rgba(0, 0, 0, 1);
 $subThreeHighlight: rgb(255, 255, 255);
 
 $primaryFont: primary;
 $subTwoFont: Arial;
- 
+
 $maxWidthNav: 100%;
 $maxWidthContainer: 60em;
 
-
 /* -- ##Device = Desktops -- */
 @media (min-width: 1281px) {
-
-	nav {
-		max-width: 1281px;
-	}
-  .container { 
-	  outline:red solid .25em; 
-	  min-width: 1281px;
-	  font-size: 1.35em;
-	}
-  body { padding: .25em; }
+  nav {
+    max-width: 1281px;
+  }
+  .container {
+    outline: red solid 0.25em;
+    min-width: 1281px;
+    font-size: 1.35em;
+  }
+  body {
+    padding: 0.25em;
+  }
 }
 
 /* -- ##Device = Laptops, Desktops -- */
 @media (min-width: 1025px) and (max-width: 1280px) {
+  nav {
+    max-width: 1280px;
+  }
 
-	nav {
-		max-width: 1280px;
-	}
-  
-  .container { 
-	  outline:orange solid .25em; 
-	  max-width: 1280px;
-	  font-size: 1.2em;
-	}
+  .container {
+    outline: orange solid 0.25em;
+    max-width: 1280px;
+    font-size: 1.2em;
+  }
 
-  body { padding: .25em; }
+  body {
+    padding: 0.25em;
+  }
 }
 
 /* -- ##Device = Tablets, Ipads (portrait) -- */
 @media (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    max-width: 1024px;
+  }
 
-	nav {
-		max-width: 1024px;
-	}
-  
-  .container { 
-	  outline:green solid .25em; 
-	}
+  .container {
+    outline: green solid 0.25em;
+  }
 
-  body { padding: .25em; }
-} 
+  body {
+    padding: 0.25em;
+  }
+}
 
 /* -- ##Device = Tablets, Ipads (landscape) -- */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  nav {
+    max-width: 1024px;
+  }
 
-	nav {
-		max-width: 1024px;
-	}
-  
-  .container { 
-	  outline:blue solid .25em; 
-	  max-width: 1024px;
-	  font-size: 1.1em;
-	}
+  .container {
+    outline: blue solid 0.25em;
+    max-width: 1024px;
+    font-size: 1.1em;
+  }
 
-  body { padding: .25em; }
-  
+  body {
+    padding: 0.25em;
+  }
 }
 
 /* -- ##Device = Low Resolution Tablets, Mobiles (Landscape) -- */
 @media (min-width: 481px) and (max-width: 767px) {
+  nav {
+    max-width: 767px;
+  }
 
-	nav {
-		max-width: 767px;
-	}
-  
-  .container { 
-	  outline:purple solid .25em; 
-	}
+  .container {
+    outline: purple solid 0.25em;
+  }
 
-  body { padding: .25em; }
+  body {
+    padding: 0.25em;
+  }
 }
 
 /* -- ##Device = Most of the Smartphones Mobiles (Portrait) -- */
 @media (min-width: 320px) and (max-width: 480px) {
+  nav {
+    max-width: 480px;
+  }
 
-	nav {
-		max-width: 480px;
-	}
-  
-  .container { 
-	  outline:pink solid .25em; 
-	}
+  .container {
+    outline: pink solid 0.25em;
+  }
 
-  body { padding: .25em; }
+  body {
+    padding: 0.25em;
+  }
 }

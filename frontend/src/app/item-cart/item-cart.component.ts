@@ -11,7 +11,7 @@ import { IItem, IUser } from './../models/index';
 })
 export class ItemCartComponent implements OnInit {
   cart: IItem[];
-  total: number = 0;
+  total: number;
   item: IItem;
   @Output() currentUser: IUser;
 
@@ -34,6 +34,7 @@ export class ItemCartComponent implements OnInit {
     }
     this.itemsService.replaceFromCart(item);
     this.updateTotal();
+
   }
 
   removeFromCart(item) {
@@ -42,16 +43,12 @@ export class ItemCartComponent implements OnInit {
   }
 
   updateTotal() {
-    let productTotal: number = 0;
-    this.total = 0;
-    for (let i = 0; this.cart.length > i; i++) {
-      productTotal = this.cart[i].price * 1 * (this.cart[i].quanity * 1);
-      this.total = this.total + productTotal;
-    }
+    this.total = this.itemsService.getCartTotal();
   }
 
   ngOnInit(): void {
     this.cart = this.itemsService.getCart();
+    this.total = this.itemsService.getCartTotal();
     this.updateTotal();
   }
 }

@@ -75,10 +75,29 @@
           </ul>
         </li>
         <li *ngIf="authService.isAuthenticated()">
-          <a [routerLink]="['/item-cart']">
-            <span class="cartLength" *ngIf="cartLength != 0">{{ cartLength }}</span>
-            <i class="fas fa-shopping-cart"> </i
-          ></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="cartLength" *ngIf="cartLength != 0">{{
+              cartLength
+            }}</span>
+            <i class="fas fa-shopping-cart"> </i>
+          </a>
+
+          <ul class="dropdown-menu cart">
+            <h2>{{ currentUser.first_name }}'s Cart</h2>
+            <li *ngFor="let item of cart">
+              <p>{{ item.name }}</p>
+              <p>x{{ item.quanity }}</p>
+              <p>{{ item.price | currency }}</p>
+            </li>
+            <hr />
+            <div class="cartTotal">
+              <p>Sub Total: {{ cartTotal | currency }}</p>
+              <p>Sales Tax: {{ cartTotal * 0.05 | currency }}</p>
+              <p>Total: {{ cartTotal * 1.05 | currency }}</p>
+            </div>
+            <a [routerLink]="['/item-cart']">View Cart</a>
+            <a href="#">Proceed to checkout</a>
+          </ul>
         </li>
       </ul>
     </div>

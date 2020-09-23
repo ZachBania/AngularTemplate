@@ -26,6 +26,9 @@
               <li><a *ngIf="authService.isAuthenticated()" href="#" (click)="authService.logout()">Logout</a></li>
             </ul>
           </li>
+          <li *ngIf="authService.isAuthenticated()">
+            <a [routerLink]="['/item-cart']">My Cart</a>
+          </li>
         </ul>
       </div>
 

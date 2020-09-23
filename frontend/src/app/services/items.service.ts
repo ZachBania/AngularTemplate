@@ -107,6 +107,16 @@ export class ItemsService {
     return this.cart;
   }
 
+  getCartTotal() {
+    let total:number = 0;
+    let productTotal: number = 0;
+    for (let i = 0; this.cart.length > i; i++) {
+      productTotal = this.cart[i].price * 1 * (this.cart[i].quanity * 1);
+      total = total + productTotal;
+    }
+    return total;
+  }
+
   resetCart(): void {
     this.cart = [];
     localStorage.setItem('cart', '');

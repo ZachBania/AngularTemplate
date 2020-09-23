@@ -15,11 +15,11 @@
   }
 
   h2 {
+    color: $primaryHighlight;
+    font-family: $primaryFont;
     background: $subTwoHighlight;
-    color: $subThreeHighlight;
-    font-family: $subTwoFont;
-    font-size: 1.25em;
     padding: 0.25em;
+    font-size: 1.25em;
   }
 
   table {

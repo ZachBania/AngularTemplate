@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { ItemsService } from './../services/index';
+import { AuthService, ItemsService } from './../services/index';
 import { IItem, IUser } from './../models/index'
-import { getLocaleDateTimeFormat } from '@angular/common';
+
 
 @Component({
   selector: 'app-main-sidebar',
@@ -13,7 +12,9 @@ import { getLocaleDateTimeFormat } from '@angular/common';
 export class MainSidebarComponent implements OnInit {
   
   item: IItem;
+  cart: IItem[];
   @Output() currentUser: IUser;
+
   dateTime = new Date();
   ampm = this.dateTime.getHours() >= 12 ? 'pm' : 'am';
   time = this.dateTime.getHours()+":"+this.dateTime.getMinutes() + this.ampm;
@@ -27,7 +28,8 @@ export class MainSidebarComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.forEach((data) => {
       this.item = data['item'];
-    })
+    });
+    this.cart = this.itemsService.getCart();
   }  
 
   searchTerm: string = "";
