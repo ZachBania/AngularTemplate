@@ -8,23 +8,24 @@ import { IUser } from './models/index';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+
   brandTitle: string = "Angular Template";
   currentUser: IUser;
-  
+
   constructor(private authService: AuthService) {
-    
+
       // this.authService.currentUser.subscribe(x => this.currentUser = x);
 
+
   }
-    
-   
 
 
-  
+
+
+
   logout() {
     this.authService.logout();
     window.location.href = window.location.href;
   }
-  
+
 }

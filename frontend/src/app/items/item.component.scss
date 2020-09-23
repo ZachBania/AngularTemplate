@@ -1,99 +1,107 @@
-@import './../../styles-variables.scss';
+@import "./../../styles-variables.scss";
 
 .item {
-    margin: .5em auto;
-    width: 100%;
-    padding: .5em;
-    background: $subTwoHighlight;
+  margin: 0.5em auto;
+  width: 100%;
+  padding: 0.5em;
+  background: $subTwoHighlight;
+  color: $subThreeHighlight;
+  border: $primaryHighlight solid 0.25em;
+
+  h2 {
+    color: $primaryHighlight;
+    font-family: $primaryFont;
+    font-size: 1.5em;
+  }
+
+  hr {
+    clear: both;
+    margin: 0;
+    padding: 0.5em 0;
+  }
+
+  p {
     color: $subThreeHighlight;
-    border: $primaryHighlight solid .25em;
+    font-family: $subTwoFont;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
 
-    h2 {
+    a:link,
+    a:visited {
+      background: none;
+      color: $subThreeHighlight;
+      font-family: $subTwoFont;
+      border: none;
+      float: left;
+      margin: 0;
+      padding: 0 1em 0 0;
+      text-decoration: none;
+      transition: 0.25s;
+      &:hover,
+      &:active {
         color: $primaryHighlight;
-        font-family: $primaryFont;
-        font-size: 1.5em;
+      }
     }
+  }
 
-    hr {
-        clear: both;
-        margin: 0;
-        padding: .5em 0;
+  div:nth-of-type(1) {
+    width: 70%;
+    float: left;
+  }
+
+  div:nth-of-type(2) {
+    background: $subTwoHighlight;
+    float: right;
+    width: 30%;
+    height: 8em;
+    overflow: hidden;
+    border: $subThreeHighlight solid 0.25em;
+    border-radius: 0.1em;
+    display: block;
+    position: relative;
+
+    img {
+      width: 100%;
     }
+  }
 
-    p {
-        color: $subThreeHighlight;
-        font-family: $subTwoFont;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        position: relative;
+  button {
+    background: $primaryHighlight;
+    font-family: $subTwoFont;
+    color: $subTwoHighlight;
+    margin: 1em 0;
+    padding: 0.5em;
 
-        a:link,
-        a:visited {
-            background: none;
-            color: $subThreeHighlight;
-            font-family: $subTwoFont;
-            border: none;
-            float: left;
-            margin: 0;
-            padding: 0 1em 0 0;
-            text-decoration: none;
-            transition: .25s;
-            &:hover,
-            &:active {
-                color: $primaryHighlight;
-            }
-        }
+    border: $subTwoHighlight solid 0.25em;
+    border-radius: 0.25em;
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.25s;
+    &:hover {
+      text-decoration: none;
+      box-shadow: inset 0 0 0.5em $subTwoHighlight;
     }
+  }
 
-    div:nth-of-type(1) {
-        width: 70%;
-        float: left;
+  .disabled:hover {
+    &::after {
+      content: "(Please login)";
+      font-size: 75%;
+      width: auto;
+      height: auto;
+      display: block;
     }
+  }
 
-    div:nth-of-type(2) {
-        background: $subTwoHighlight;
-        float: right;
-        width: 8em;
-        height: 6em;
-        overflow: hidden;
-        border: $subThreeHighlight solid .25em;
-        border-radius: .1em;
-        display: block;
-        position: relative;
-
-
-        img {
-            width: 100%;
-        }
-    }
-
-    button {
-        background: $primaryHighlight;
-        font-family: $subTwoFont;
-        color: $subTwoHighlight;
-        margin: 1em 0;
-        padding: .5em;
-
-        border: $subTwoHighlight solid .25em;
-        border-radius: .25em;
-        float: left;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        transition: .25s;
-        &:hover {
-            text-decoration: none;
-            box-shadow: inset 0 0 .5em $subTwoHighlight;
-        }
-    }
-
-    &:after {
-        content: " ";
-        display: block;
-        clear: both;
-        height: auto;
-        width: 100%;
-    }
-
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: auto;
+    width: 100%;
+  }
 }

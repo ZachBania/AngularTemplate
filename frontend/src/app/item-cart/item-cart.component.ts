@@ -38,6 +38,7 @@ export class ItemCartComponent implements OnInit {
 
   removeFromCart(item) {
     this.itemsService.removeFromCart(item);
+    window.location.reload();
   }
 
   updateTotal() {
@@ -51,12 +52,6 @@ export class ItemCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.itemsService.getCart();
-
-    for (let i = 0; this.cart.length > i; i++) {
-      if (this.cart[i].quanity == undefined) {
-        this.cart[i].quanity = 1;
-      }
-    }
     this.updateTotal();
   }
 }

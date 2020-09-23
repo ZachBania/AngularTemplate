@@ -32,7 +32,9 @@
           ></a>
           <ul class="dropdown-menu">
             <li><a [routerLink]="['/items']">All Items</a></li>
-            <li><a [routerLink]="['/items/create-item']">Create Item</a></li>
+            <li *ngIf="authService.isAuthenticated()">
+              <a [routerLink]="['/items/create-item']">Create Item</a>
+            </li>
           </ul>
         </li>
         <li class="dropdown">
@@ -73,8 +75,9 @@
           </ul>
         </li>
         <li *ngIf="authService.isAuthenticated()">
-          <a [routerLink]="['/item-cart']"
-            ><i class="fas fa-shopping-cart"></i
+          <a [routerLink]="['/item-cart']">
+            <span class="cartLength" *ngIf="cartLength != 0">{{ cartLength }}</span>
+            <i class="fas fa-shopping-cart"> </i
           ></a>
         </li>
       </ul>

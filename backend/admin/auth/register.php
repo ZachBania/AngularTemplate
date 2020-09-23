@@ -15,8 +15,7 @@ $email = $data->email;
 $username = $data->username;
 $password = $data->password;
 
-// echo json_encode($request_body);
-if(isset($data)){
+if(isset($data)) {
     $sql = "INSERT INTO Users (first_name, last_name, email, username, password) VALUES ('$first_name','$last_name','$email','$username','$password')";
     $result = mysqli_query($conn,$sql);
 

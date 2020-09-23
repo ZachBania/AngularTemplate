@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, isEmpty, map } from 'rxjs/operators';
 import { IItem } from '../models/items.model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
@@ -70,13 +70,20 @@ export class ItemsService {
   }
 
   addToCart(item) {
-    this.cart.push(item);
+    let found;
+    if (this.cart != null) {
+      found = this.cart.some((i) => i.id === item.id);
+    }
+    if (!found || this.cart == null) {
+      item.quanity = 1;
+      this.cart.push(item);
+    }
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
-  removeFromCart(item) { 
+  removeFromCart(item) {
     this.cart = JSON.parse(localStorage.getItem('cart'));
-    for (var i=0; i < this.cart.length; i++) {
+    for (var i = 0; i < this.cart.length; i++) {
       if (this.cart[i].id == item.id) {
         this.cart.splice(i, 1);
       }
@@ -91,7 +98,12 @@ export class ItemsService {
   }
 
   getCart() {
-    this.cart = JSON.parse(localStorage.getItem('cart'));
+    let cartExists = localStorage.getItem('cart');
+    if (cartExists) {
+      this.cart = JSON.parse(localStorage.getItem('cart'));
+    } else {
+      this.cart = [];
+    }
     return this.cart;
   }
 

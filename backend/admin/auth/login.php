@@ -8,27 +8,31 @@ header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-con
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body);
 
-$first_name = filter_var($data->first_name, FILTER_SANITIZE_STRING);
-$last_name = filter_var($data->last_name, FILTER_SANITIZE_STRING);
-$email = filter_var($data->email, FILTER_SANITIZE_STRING);
-$username = filter_var($data->username, FILTER_SANITIZE_STRING);
-$password = filter_var($data->password, FILTER_SANITIZE_STRING);
+$first_name = mysqli_real_escape_string($conn, trim($data->first_name));
+$last_name = mysqli_real_escape_string($conn, trim($data->last_name));
+$email = mysqli_real_escape_string($conn, trim($data->email));
+$username = mysqli_real_escape_string($conn, trim($data->username));
+$password = mysqli_real_escape_string($conn, trim($data->password));
 
-if(isset($data) && !empty($data)){
-    session_start();
-    $_SESSION['first_name'] = $first_name;
-    $_SESSION['last_name'] = $last_name;
-    $_SESSION['email'] = $email;
-    $_SESSION['username'] = $username;
-    $_SESSION['password'] = $password;
+if(isset($request_body) && !empty($request_body)){
 
     $sql = "SELECT * FROM Users WHERE username='$username' and password='$password'";
-    $result = mysqli_query($conn,$sql);
-    
-    while($row = mysqli_fetch_array($result)){
-        $data = $row;
+    $data = [];
+
+    if ($result = mysqli_query($conn,$sql)) {
+        session_start();
+        
+        while($row = mysqli_fetch_array($result)){
+            $data = $row;
+        }
+        
+        if(count($data) > 0) {
+            echo json_encode($data);
+        } else {
+            echo http_response_code(404);
+        }
+    } else {
+        echo http_response_code(404);
     }
-    
-    echo json_encode($data);
 }
 ?>

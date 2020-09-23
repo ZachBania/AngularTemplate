@@ -13,15 +13,15 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Items<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a [routerLink]="['/items']">All Items</a></li>
-              <li><a [routerLink]="['/items/create-item']">Create Item</a></li>
+              <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/items/create-item']">Create Item</a></li>
             </ul>
-          </li>    
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Account<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a *ngIf="!authService.isAuthenticated()" [routerLink]="['/user/login']">Login</a></li>
               <li><a *ngIf="!authService.isAuthenticated()" [routerLink]="['/user/register']">Register</a></li>
-      
+
               <li><a *ngIf="authService.isAuthenticated()" [routerLink]="['/user/profile']">Edit Profile</a></li>
               <li><a *ngIf="authService.isAuthenticated()" href="#" (click)="authService.logout()">Logout</a></li>
             </ul>
@@ -40,15 +40,15 @@
       </div>
     </div>
     <hr>
-  
+
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12">
         <p>https://mapexmedia.com/</p>
       </div>
-      
+
       <div class="col-md-4 col-sm-6 col-xs-12">
         <p class="copyright-text text-right">Zach Bania Copyright &copy; 2020</p>
       </div>
     </div>
- 
+
 </footer>

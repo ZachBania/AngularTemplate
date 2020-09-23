@@ -6,12 +6,12 @@
     <div>
         <p>{{ item.description }}</p>
         <p>{{ item.price | currency }}</p>
-        <p>{{ item.inventory }} Avaiable</p>
+        <p>{{ item.inventory }} Available</p>
         <p>{{ item.category }}</p>
     </div>
     <div>
         <img src="./../../assets/images/items/{{ item.image_url }}"/>
     </div>
-    <button [routerLink]="['/items', item.id]" class="btn btn-primary">Item Details</button>
-    <button [routerLink]="['/item-cart']" (click)="addItemToCart(item)" class="btn btn-primary">Add to Cart</button>
+    <button [routerLink]="['/items', item.id]" [disabled] class="btn btn-primary">Item Details</button>
+    <button [ngClass]="{'disabled': !authService.isAuthenticated() }" [disabled]="!authService.isAuthenticated()" [routerLink]="['/item-cart']" (click)="addItemToCart(item)" class="btn btn-primary">Add to Cart</button>
 </div>

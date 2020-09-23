@@ -1,7 +1,7 @@
 <div class="cart">
   <h2>{{ currentUser.first_name }}'s Cart</h2>
 
-  <table class="table">
+  <table class="table" *ngIf="cart.length > 0">
     <thead>
       <tr>
         <th>Item Name</th>
@@ -38,12 +38,15 @@
     </tbody>
   </table>
 
-  <div>
+  <div class="totals" *ngIf="cart.length > 0">
     <p>Sub Total: {{ total | currency }}</p>
     <p>Sales Tax: {{ total * 0.05 | currency }}</p>
     <hr />
     <p>Total: {{ total * 1.05 | currency }}</p>
+    <button class="btn btn-primary">Proceed to Checkout</button>
   </div>
-
-  <button class="btn btn-primary">Proceed to Checkout</button>
+  <div class="default" *ngIf="cart.length == 0 || cart == undefined">
+    <p>You currently have no items in your cart.</p>
+    <button [routerLink]="['/items']">View Items</button>
+  </div>
 </div>

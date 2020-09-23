@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/index';
 })
 export class FooterComponent implements OnInit {
 
-  brandTitle: string = "Prototype";
+  brandTitle: string = "Angular Prototype";
   
   constructor(public authService: AuthService ) { }
 

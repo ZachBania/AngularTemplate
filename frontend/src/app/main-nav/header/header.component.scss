@@ -53,10 +53,24 @@
           padding: 0;
           color: $subThreeHighlight;
 
+          
           a:link,
           a:visited {
             font-family: $subTwoFont;
 
+            span.cartLength {
+              background: $primaryHighlight;
+              color: $subTwoHighlight;
+              font-weight: 800;
+              margin: -1em 0em 0 -.5em;
+              padding: 0;
+              padding: .25em .75em;
+              border-radius: 50%;
+              float: right;
+              font-size: .75em;
+              clear: both;
+            }
+            
             i:hover {
             }
           }

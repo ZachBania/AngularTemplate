@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { IItem } from './../../models/index';
 import { ItemsService } from './../../services/index';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-item-details',

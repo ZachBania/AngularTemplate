@@ -1,27 +1,107 @@
-<h1>{{pageTitle}}</h1>
+<h1>{{ pageTitle }}</h1>
 <div class="functions">
-    <h2>Angular, TypeScript, and Bootstrap in sync</h2>
-    <div class="function tabs">
-        <h3>Bootstrap Tabs</h3>
-        <p class="description">TypeScript and Bootstrap provide the ability to iterate through objects providing an architecture that is easily modifiable.</p>
-        <ul  class="nav nav-pills">
-            <li *ngFor="let tab of tabs" [ngClass]="{ 'active': tab.tabId == 1 }"><a href="#{{tab.tabId}}" data-toggle="tab">{{tab.tabTitle}}</a></li>
-		    </ul>
 
-        <div class="tab-content clearfix">
-            <div *ngFor="let tab of tabs" [ngClass]="{ 'active': tab.tabId == 1 }" class="tab-pane" id="{{tab.tabId}}"> <!-- add active class -->
-                <h2>{{tab.tabTitle}}</h2>
-                <hr>
-                <p>{{tab.tabDescription}}</p>
-                <p>{{tab.tabMeta}}</p>
-            </div>
-
-        </div>
+  <div class="function components">
+    <div>
+      <h3>Component and Architecture Overview</h3>
     </div>
+    <!-- row break -->
+    <div>
+      <h3>Authentication</h3>
+      <hr />
+      <p>
+        The prototype provides a foundational architecture for the registration
+        and authentication of users.
+      </p>
+    </div>
+    <div>
+      <h3>Profile Management</h3>
+      <hr />
+      <p>
+        Once authorized, the prototype provides profile management for all
+        users.
+      </p>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <hr />
+      <p>
+        The prototype's dependency injection of various services provides strong
+        foundation for items and users.
+      </p>
+    </div>
+    <div>
+      <h3>Styles</h3>
+      <hr />
+      <p>
+        Through importing a variable driven SCSS file, the prototype's RBA and
+        font values are able to be modified across the site.
+      </p>
+    </div>
+    <!-- row break -->
+    <div>
+      <h3>MySQL CRUD</h3>
+      <hr />
+      <p>
+        Driven off of a PHP backend, Angular's HTTP requests are able to
+        effectively create, update, and delete the prototype's content.
+      </p>
+    </div>
+    <div>
+      <h3>Object Detail</h3>
+      <hr />
+      <p>
+        The utilization of nested components within the code architecture
+        provides each object to be viewed individually.
+      </p>
+    </div>
+    <div>
+      <h3>Cart</h3>
+      <hr />
+      <p>
+        The prototype's cart allows the user to store, remove, and manage the
+        quantity of the objects listed.
+      </p>
+    </div>
+    <div>
+      <h3>Search</h3>
+      <hr />
+      <p>
+        The application's MySQL driven search function allows the user to search
+        for any property of an object.
+      </p>
+    </div>
+  </div>
 
+  <div class="function tabs">
+    <h3>Bootstrap Tabs</h3>
+    <p class="description">
+      TypeScript and Bootstrap provide the ability to iterate through objects
+      providing an architecture that is easily modifiable.
+    </p>
+    <ul class="nav nav-pills">
+      <li *ngFor="let tab of tabs" [ngClass]="{ active: tab.tabId == 1 }">
+        <a href="#{{ tab.tabId }}" data-toggle="tab">{{ tab.tabTitle }}</a>
+      </li>
+    </ul>
 
-    
-<!-- <div class="form-controls-table">
+    <div class="tab-content clearfix">
+      <div
+        *ngFor="let tab of tabs"
+        [ngClass]="{ active: tab.tabId == 1 }"
+        class="tab-pane"
+        id="{{ tab.tabId }}"
+      >
+        <!-- add active class -->
+        <h2>{{ tab.tabTitle }}</h2>
+        <hr />
+        <p>{{ tab.tabDescription }}</p>
+        <p>{{ tab.tabMeta }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form-controls-table">
     <h2>Angular Form Control Data</h2>
     <p>Angular provides form control data to identify the current state of each field.</p>            
     <table class="table table-hover">
