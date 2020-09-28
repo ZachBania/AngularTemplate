@@ -1,61 +1,240 @@
-@import './../../../styles-variables.scss';
+@import "./../../../styles-variables.scss";
 
 .item {
+  h1 {
+    color: $primaryHighlight;
+    font-family: $primaryFont;
+    font-size: 2.5em;
+    padding: 0.5em;
+    background: $subTwoHighlight;
+    clear: both;
+  }
 
-    h1 {
+  div:nth-child(2) {
+    width: 70%;
+    float: left;
+    padding: 1em;
+    margin: 0;
+
+    p {
+      color: $subTwoHighlight;
+      font-family: $subTwoFont;
+    }
+
+    button {
+      background: $primaryHighlight;
+      font-family: $subTwoFont;
+      color: $subTwoHighlight;
+      font-size: 1em;
+      margin: 1em 1em 0 0;
+      border: $subTwoHighlight solid 0.25em;
+      border-radius: 0.25em;
+      padding: 0.5em 0;
+      float: left;
+      display: block;
+      width: 7.5em;
+      text-align: center;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+    button:hover {
+      text-decoration: none;
+      box-shadow: inset 0 0 0.5em $subTwoHighlight;
+    }
+
+    .disabled:hover {
+      &::after {
+        content: "(Please login)";
+        font-size: 75%;
+        width: auto;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+
+  div:nth-child(3) {
+    width: 30%;
+    float: right;
+    padding: 1em;
+    margin: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+    width: 100%;
+  }
+}
+
+.comments {
+  padding: 1em;
+  opacity: 0.9;
+
+  form {
+    background: $subTwoHighlight;
+    border: $subTwoHighlight solid 0.25em;
+    width: 100%;
+    margin: 0.5em 0;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 100%;
+      clear: both;
+    }
+
+    h2 {
+      color: $primaryHighlight;
+      font-family: $primaryFont;
+      font-size: 1.5em;
+      padding: 0.25em;
+    }
+
+    .form-group {
+      padding: 0.75em 0;
+
+      label {
+        background: $subTwoHighlight;
+        color: $subThreeHighlight;
+        font-family: $subTwoFont;
+        width: 25%;
+        float: left;
+        margin: 0;
+        padding: 0.25em 0.25em;
+        font-size: 1em;
+      }
+
+      input,
+      select {
+        background: $subThreeHighlight;
+        color: $subTwoHighlight;
+        font-family: $subTwoFont;
+        width: 75%;
+        float: left;
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        padding: 0 0.25em;
+      }
+      button {
+        background: $primaryHighlight;
+        font-family: $subTwoFont;
+        color: $subTwoHighlight;
+        margin: 1em 0;
+        border: $subTwoHighlight solid 0.25em;
+        border-radius: 0.25em;
+        padding: 0.5em 0;
+        clear: both;
+        display: block;
+        width: 7.5em;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.25s;
+        float: right;
+      }
+      button:hover {
+        text-decoration: none;
+        box-shadow: inset 0 0 0.5em $subTwoHighlight;
+      }
+    }
+  }
+
+  .comment {
+    background: $subTwoHighlight;
+    width: 100%;
+    border: $subTwoHighlight solid 0.25em;
+    margin: 0.5em 0;
+
+    &:before {
+      content: " ";
+      display: block;
+      background: $primaryHighlight;
+      width: 0.25em;
+      height: 3.75em;
+      float: left;
+      margin: 0 0.25em 0 0;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 100%;
+      clear: both;
+    }
+
+    div:nth-child(1) {
+      background: $subTwoHighlight;
+      width: 25%;
+      float: left;
+      padding: 0.25em;
+
+      h2 {
         color: $primaryHighlight;
         font-family: $primaryFont;
-        font-size: 2.5em;
-        padding: .5em;
+        font-size: 1.25em;
+      }
+      p {
         background: $subTwoHighlight;
-        clear: both;
+        color: $subThreeHighlight;
+
+        a:link,
+        a:visited {
+          background: none;
+          color: $subThreeHighlight;
+          font-family: $subTwoFont;
+          border: none;
+          float: left;
+          margin: 0;
+          padding: 0 1em 0 0;
+          text-decoration: none;
+          transition: 0.25s;
+          &:hover,
+          &:active {
+            color: $primaryHighlight;
+          }
+        }
+      }
     }
-    
     div:nth-child(2) {
-        width: 70%;
-        float: left;
-        padding: 1em;
-        margin:0;
-             
-        p {
-            color: $subTwoHighlight;
-            font-family: $subTwoFont;
+      width: calc(75% - 1em); // - &:before
+      float: left;
+      background: $subTwoHighlight;
+      min-height: 3.75em;
 
-            a:link,
-            a:visited {
-                background: $primaryHighlight;
-                font-family: $subTwoFont;
-                color: $subTwoHighlight;
-                margin: 1em 0;
-                border: $subTwoHighlight solid .25em;
-                border-radius: .25em;
-                padding: .5em 0;
-                clear: both;
-                display: block;
-                width: 7.5em;   
-                text-align: center;
-                text-decoration: none;
-                transition: .25s;
+      &:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        clear: both;
+      }
+
+      p {
+        font-family: $subTwoFont;
+        color: $subThreeHighlight;
+        padding: 0.25em;
+
+        &.rating {
+          float: right;
+
+          span {
+            width: 1em;
+            height: 1em;
+            float: left;
+            margin: 0 0.125em;
+
+            i {
+              color: $primaryHighlight;
             }
-            a:hover,
-            a:active {
-                text-decoration: none;
-                box-shadow: inset 0 0 .5em $subTwoHighlight;
-            }
+          }
         }
-
-        
+      }
     }
-
-    div:nth-child(3) {
-        width: 30%;
-        float: right;
-        padding: 1em;
-        margin:0;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-        }
-    }
+  }
 }

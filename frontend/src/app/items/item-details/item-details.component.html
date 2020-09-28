@@ -1,14 +1,208 @@
-<div class="item"> 
-    <h1>{{ item.name }}</h1>
-    <div> 
-        <p>{{ item.description }}</p>
-        <p>{{ item.price | currency }}</p>
-        <p>{{ item.inventory }} Avaiable</p>
-        <p>{{ item.category }}</p>
-        <p><a [routerLink]="['/items']">Back</a></p>
-    </div>
-    <div>
-        <img src="../../../assets/images/items/{{ item.image_url }}"/>
-    </div>
+<div class="item">
+  <h1>{{ item.name }}</h1>
+  <div>
+    <p>{{ item.description }}</p>
+    <p>{{ item.price | currency }}</p>
+    <p>{{ item.inventory }} Available</p>
+    <p>{{ item.category }}</p>
+    <button [routerLink]="['/items']">Back</button>
+    <button
+      [ngClass]="{ disabled: !authService.isAuthenticated() }"
+      [disabled]="!authService.isAuthenticated()"
+      [routerLink]="['/item-cart']"
+      (click)="addItemToCart(item)"
+    >
+      Add to Cart
+    </button>
+  </div>
+  <div>
+    <img src="../../../assets/images/items/{{ item.image_url }}" />
+  </div>
 </div>
 
+<div class="comments">
+  <form
+    *ngIf="authService.isAuthenticated()"
+    [formGroup]="commentForm"
+    (ngSubmit)="saveComment(commentForm.value)"
+    autocomplete="off"
+    novalidate
+  >
+    <h2>Leave a comment</h2>
+    <div
+      *ngIf="false"
+      class="form-group"
+      [ngClass]="{
+        error:
+          commentForm.controls.item_id?.invalid &&
+          commentForm.controls.item_id?.touched
+      }"
+    >
+      <label for="item_id"
+        ><em
+          *ngIf="
+            commentForm.controls.item_id?.invalid &&
+            commentForm.controls.item_id?.touched
+          "
+          >*</em
+        >Item id:</label
+      >
+      <input
+        formControlName="item_id"
+        (ngModel)="(comment.item_id)"
+        name="item_id"
+        id="item_id"
+        type="text"
+        class="form-control"
+        placeholder="item_id"
+        required
+      />
+    </div>
+
+    <div
+      *ngIf="false"
+      class="form-group"
+      [ngClass]="{
+        error:
+          commentForm.controls.user_id?.invalid &&
+          commentForm.controls.user_id?.touched
+      }"
+    >
+      <label for="user_id"
+        ><em
+          *ngIf="
+            commentForm.controls.user_id?.invalid &&
+            commentForm.controls.user_id?.touched
+          "
+          >*</em
+        >User id:</label
+      >
+      <input
+        formControlName="user_id"
+        (ngModel)="(comment.user_id)"
+        name="user_id"
+        id="user_id"
+        type="text"
+        class="form-control"
+        placeholder="user_id"
+        required
+      />
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{
+        error:
+          commentForm.controls.name?.invalid &&
+          commentForm.controls.name?.touched
+      }"
+    >
+      <label for="name"
+        ><em
+          *ngIf="
+            commentForm.controls.name?.invalid &&
+            commentForm.controls.name?.touched
+          "
+          >*</em
+        >Comment Title:</label
+      >
+      <input
+        formControlName="name"
+        (ngModel)="(comment.name)"
+        name="name"
+        id="name"
+        type="text"
+        class="form-control"
+        placeholder="Comment Title"
+        required
+      />
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{
+        error:
+          commentForm.controls.body?.invalid &&
+          commentForm.controls.body?.touched
+      }"
+    >
+      <label for="body"
+        ><em
+          *ngIf="
+            commentForm.controls.body?.invalid &&
+            commentForm.controls.body?.touched
+          "
+          >*</em
+        >Comment:</label
+      >
+      <input
+        formControlName="body"
+        (ngModel)="(comment.body)"
+        name="body"
+        id="body"
+        type="text"
+        class="form-control"
+        placeholder="Comment"
+        required
+      />
+    </div>
+
+    <div
+      class="form-group"
+      [ngClass]="{
+        error:
+          commentForm.controls.rating?.invalid &&
+          commentForm.controls.rating?.touched
+      }"
+    >
+      <label for="rating"
+        ><em
+          *ngIf="
+            commentForm.controls.rating?.invalid &&
+            commentForm.controls.rating?.touched
+          "
+          >*</em
+        >Rating:</label
+      >
+      <select
+        formControlName="rating"
+        (ngModel)="(comment.rating)"
+        name="rating"
+        id="rating"
+        type="text"
+        class="form-control"
+        placeholder="rating"
+        required
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Post Comment</button>
+    </div>
+  </form>
+
+  <div class="comment" *ngFor="let comment of comments">
+    <div>
+      <h2>{{ comment.name }}</h2>
+      <p>Author: {{ comment.first_name }} {{ comment.last_name }}</p>
+      <p>{{ comment.date_created }}</p>
+      <!-- <p *ngIf="adminPanel">
+        <a (click)="deleteComment(comment)" href="javascript:void(0">Delete</a>
+      </p> -->
+    </div>
+    <div>
+      <p class="rating">
+        <span *ngFor="let in of commentCounter(comment.rating)"
+          ><i class="far fa-star"></i
+        ></span>
+      </p>
+      <p>{{ comment.body }}</p>
+    </div>
+  </div>
+</div>

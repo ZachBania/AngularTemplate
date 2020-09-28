@@ -71,6 +71,38 @@
 		"oAP": "/backend/admin/auth/update.php",
 		"oF": 0
 		},
+	"/backend/comments/delete.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/comments/delete.php",
+		"oF": 0
+		},
+	"/backend/comments/insert.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/comments/insert.php",
+		"oF": 0
+		},
+	"/backend/comments/read-detail.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/comments/read-detail.php",
+		"oF": 0
+		},
+	"/backend/comments/read.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/backend/comments/read.php",
+		"oF": 0
+		},
 	"/backend/items/delete.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -157,13 +189,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/3rdpartylicenses.txt",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/4.6eb445d6e7f8fa8df658.js": {
+	"/frontend/dist/AngularJSTemplate/4.fd45b2b1c8d64106238c.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/4.6eb445d6e7f8fa8df658-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/4.fd45b2b1c8d64106238c-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -302,13 +334,13 @@
 		"oAP": "/frontend/dist/AngularJSTemplate/index.html",
 		"oF": 0
 		},
-	"/frontend/dist/AngularJSTemplate/main.9bf2d6e7e4e7ba597872.js": {
+	"/frontend/dist/AngularJSTemplate/main.b0bf30db732398813b4a.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/main.9bf2d6e7e4e7ba597872-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/main.b0bf30db732398813b4a-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -324,24 +356,24 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/runtime.1669bc14836eecca0c4e.js": {
+	"/frontend/dist/AngularJSTemplate/runtime.d115f77f3cf5a311096a.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/runtime.1669bc14836eecca0c4e-min.js",
+		"oAP": "/frontend/dist/AngularJSTemplate/runtime.d115f77f3cf5a311096a-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
-	"/frontend/dist/AngularJSTemplate/styles.bb6b46dea6dfe25da234.css": {
+	"/frontend/dist/AngularJSTemplate/styles.a7c7706c434af75b3090.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/frontend/dist/AngularJSTemplate/styles.bb6b46dea6dfe25da234-min.css",
+		"oAP": "/frontend/dist/AngularJSTemplate/styles.a7c7706c434af75b3090-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -722,6 +754,55 @@
 		"moT": 2,
 		"oA": 1,
 		"oAP": "/frontend/src/app/functions/functions.component.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/item-cart/item-cart.component.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/item-cart/item-cart.component.html",
+		"oF": 0
+		},
+	"/frontend/src/app/item-cart/item-cart.component.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/frontend/src/app/item-cart/item-cart.component.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
+	"/frontend/src/app/item-cart/item-cart.component.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/item-cart/item-cart.component.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/item-cart/item-cart.component.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/item-cart/item-cart.component.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
@@ -1284,7 +1365,7 @@
 		"rC": 0,
 		"tEC": 0
 		},
-	"/frontend/src/app/models/events.model.ts": {
+	"/frontend/src/app/models/comment.model.ts": {
 		"cDF": 0,
 		"ft": 128,
 		"jxM": 0,
@@ -1292,8 +1373,8 @@
 		"mi": 0,
 		"moR": 0,
 		"moT": 2,
-		"oA": 1,
-		"oAP": "/frontend/src/app/models/events.model.js",
+		"oA": 0,
+		"oAP": "/frontend/src/app/models/comment.model.js",
 		"oF": 0,
 		"rC": 0,
 		"tEC": 0
@@ -1376,6 +1457,34 @@
 		"rC": 0,
 		"tEC": 0
 		},
+	"/frontend/src/app/services/comments.service.spec.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 0,
+		"oAP": "/frontend/src/app/services/comments.service.spec.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
+	"/frontend/src/app/services/comments.service.ts": {
+		"cDF": 0,
+		"ft": 128,
+		"jxM": 0,
+		"ma": 0,
+		"mi": 0,
+		"moR": 0,
+		"moT": 2,
+		"oA": 1,
+		"oAP": "/frontend/src/app/services/comments.service.js",
+		"oF": 0,
+		"rC": 0,
+		"tEC": 0
+		},
 	"/frontend/src/app/services/index.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1420,7 +1529,7 @@
 		"mi": 0,
 		"moR": 0,
 		"moT": 2,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/frontend/src/app/services/items.service.js",
 		"oF": 0,
 		"rC": 0,

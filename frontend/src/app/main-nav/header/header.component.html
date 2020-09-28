@@ -84,19 +84,27 @@
 
           <ul class="dropdown-menu cart">
             <h2>{{ currentUser.first_name }}'s Cart</h2>
-            <li *ngFor="let item of cart">
-              <p>{{ item.name }}</p>
-              <p>x{{ item.quanity }}</p>
-              <p>{{ item.price | currency }}</p>
-            </li>
-            <hr />
-            <div class="cartTotal">
-              <p>Sub Total: {{ cartTotal | currency }}</p>
-              <p>Sales Tax: {{ cartTotal * 0.05 | currency }}</p>
-              <p>Total: {{ cartTotal * 1.05 | currency }}</p>
+
+            <div *ngIf="cart.length > 0">
+
+              <li *ngFor="let item of cart">
+                <p>{{ item.name }}</p>
+                <p>x{{ item.quanity }}</p>
+                <p>{{ item.price | currency }}</p>
+              </li>
+              <hr />
+              <div class="cartTotal">
+                <p>Sub Total: {{ cartTotal | currency }}</p>
+                <p>Sales Tax: {{ cartTotal * 0.05 | currency }}</p>
+                <p>Total: {{ cartTotal * 1.05 | currency }}</p>
+              </div>
+            </div>
+            <div *ngIf="cart.length == 0">
+              <p>You currently have no items in your cart.</p>
             </div>
             <a [routerLink]="['/item-cart']">View Cart</a>
-            <a href="#">Proceed to checkout</a>
+            <a *ngIf="cart.length == 0" [routerLink]="['/items']">View Items</a>
+            <a *ngIf="cart.length > 0" href="#">Proceed to checkout</a>
           </ul>
         </li>
       </ul>
